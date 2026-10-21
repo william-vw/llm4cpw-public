@@ -1,0 +1,234 @@
+PLACE
+    p0_Flow_0kjt0lf,
+    p1_Flow_1igm7uu,
+    p2_Flow_1urzoqv,
+    p3_ent_Activity_021dy7z,
+    p4_ent_Activity_0bygra1,
+    p5_ent_Activity_0ja0l0j,
+    p6_ent_Activity_0p3bzk6,
+    p7_ent_Activity_0pcwolc,
+    p8_ent_Activity_0qpi1t6,
+    p9_ent_Gateway_05kajsn,
+    p10_ent_Gateway_0efuwgc,
+    p11_ent_Gateway_0kp9ttl,
+    p12_ent_Gateway_16vqwjq,
+    p13_ent_Gateway_18v40dr,
+    p14_ent_Gateway_19vbmb9,
+    p15_ent_Gateway_1k6pc9n,
+    p16_ent_Gateway_1tx3brs,
+    p17_exi_Gateway_03abwau,
+    p18_exi_Gateway_060zghm,
+    p19_exi_Gateway_07095g0,
+    p20_exi_Gateway_0lv0n0l,
+    p21_exi_Gateway_1pcamce,
+    p22_exi_Gateway_1s291ef,
+    p23_exi_Gateway_1vziozx,
+    p24_exi_Gateway_1w94lin,
+    p25_sink,
+    p26_source,
+    evt_t7_Routine_blood_work_CBC_electrolytes_renal_function_tests,
+    evt_t13_Blood_gases_lactate_liver_enzyme_and_liverfunction_tests,
+    evt_t9_Urine_antigen_testing,
+    evt_t11_Sputum_culture,
+    evt_t10_Perform_chest_x-ray,
+    ret_t10_Perform_chest_x-ray,
+    evt_t14_Check_for_sepsis_onset,
+    evt_t5_Oxygen_saturation,
+    evt_t8_Give_antibiotics,
+    ret_t3_Give_antibiotics,
+    evt_t12_Mark_sepsis_onset,
+    ret_t8_Give_antibiotics,
+    evt_t6_Gram_staining,
+    evt_t4_PCR_testing_for_Legionella,
+    evt_t15_Blood_cultures,
+    ret_t2_Perform_chest_x-ray,
+    end_tick_a,
+    end_tick_b;
+
+MARKING
+    p26_source: 1,
+    end_tick_a: 1;
+
+TRANSITION t0
+    CONSUME p1_Flow_1igm7uu: 1, p12_ent_Gateway_16vqwjq: 1, p14_ent_Gateway_19vbmb9: 1;
+    PRODUCE p18_exi_Gateway_060zghm: 1;
+
+TRANSITION t1
+    CONSUME p10_ent_Gateway_0efuwgc: 1, p13_ent_Gateway_18v40dr: 1;
+    PRODUCE p25_sink: 1;
+
+TRANSITION t2_Perform_chest_x-ray
+    CONSUME p3_ent_Activity_021dy7z: 1;
+    PRODUCE evt_t10_Perform_chest_x-ray: 1, ret_t2_Perform_chest_x-ray: 1;
+
+TRANSITION t3_Give_antibiotics
+    CONSUME p18_exi_Gateway_060zghm: 1;
+    PRODUCE evt_t8_Give_antibiotics: 1, ret_t3_Give_antibiotics: 1;
+
+TRANSITION t4_PCR_testing_for_Legionella
+    CONSUME p23_exi_Gateway_1vziozx: 1;
+    PRODUCE evt_t4_PCR_testing_for_Legionella: 1;
+
+TRANSITION t5_Oxygen_saturation
+    CONSUME p4_ent_Activity_0bygra1: 1;
+    PRODUCE evt_t5_Oxygen_saturation: 1;
+
+TRANSITION t6_Gram_staining
+    CONSUME p5_ent_Activity_0ja0l0j: 1;
+    PRODUCE evt_t6_Gram_staining: 1;
+
+TRANSITION t7_Routine_blood_work_CBC_electrolytes_renal_function_tests
+    CONSUME p6_ent_Activity_0p3bzk6: 1;
+    PRODUCE evt_t7_Routine_blood_work_CBC_electrolytes_renal_function_tests: 1;
+
+TRANSITION t8_Give_antibiotics
+    CONSUME p7_ent_Activity_0pcwolc: 1;
+    PRODUCE evt_t8_Give_antibiotics: 1, ret_t8_Give_antibiotics: 1;
+
+TRANSITION t9_Urine_antigen_testing
+    CONSUME p17_exi_Gateway_03abwau: 1;
+    PRODUCE evt_t9_Urine_antigen_testing: 1;
+
+TRANSITION t10_Perform_chest_x-ray
+    CONSUME p8_ent_Activity_0qpi1t6: 1;
+    PRODUCE evt_t10_Perform_chest_x-ray: 1, ret_t10_Perform_chest_x-ray: 1;
+
+TRANSITION t11_Sputum_culture
+    CONSUME p22_exi_Gateway_1s291ef: 1;
+    PRODUCE evt_t11_Sputum_culture: 1;
+
+TRANSITION t12_Mark_sepsis_onset
+    CONSUME p24_exi_Gateway_1w94lin: 1;
+    PRODUCE evt_t12_Mark_sepsis_onset: 1;
+
+TRANSITION t13_Blood_gases_lactate_liver_enzyme_and_liverfunction_tests
+    CONSUME p21_exi_Gateway_1pcamce: 1;
+    PRODUCE evt_t13_Blood_gases_lactate_liver_enzyme_and_liverfunction_tests: 1;
+
+TRANSITION t14_Check_for_sepsis_onset
+    CONSUME p26_source: 1;
+    PRODUCE evt_t14_Check_for_sepsis_onset: 1;
+
+TRANSITION t15_Blood_cultures
+    CONSUME p19_exi_Gateway_07095g0: 1;
+    PRODUCE evt_t15_Blood_cultures: 1;
+
+TRANSITION t16_Gateway_0kp9ttl
+    CONSUME p11_ent_Gateway_0kp9ttl: 1;
+    PRODUCE p16_ent_Gateway_1tx3brs: 1;
+
+TRANSITION t17_Gateway_1tx3brs
+    CONSUME p16_ent_Gateway_1tx3brs: 1;
+    PRODUCE p17_exi_Gateway_03abwau: 1, p20_exi_Gateway_0lv0n0l: 1;
+
+TRANSITION t18
+    CONSUME p0_Flow_0kjt0lf: 1, p2_Flow_1urzoqv: 1, p9_ent_Gateway_05kajsn: 1, p15_ent_Gateway_1k6pc9n: 1;
+    PRODUCE p13_ent_Gateway_18v40dr: 1;
+
+TRANSITION t19_sfl_Flow_087cdix
+    CONSUME p24_exi_Gateway_1w94lin: 1;
+    PRODUCE p8_ent_Activity_0qpi1t6: 1, p19_exi_Gateway_07095g0: 1, p23_exi_Gateway_1vziozx: 1;
+
+TRANSITION t20_sfl_Flow_0e5lnfi
+    CONSUME p20_exi_Gateway_0lv0n0l: 1;
+    PRODUCE p4_ent_Activity_0bygra1: 1, p6_ent_Activity_0p3bzk6: 1, p21_exi_Gateway_1pcamce: 1, p22_exi_Gateway_1s291ef: 1;
+
+TRANSITION t21_sfl_Flow_0qwen2f
+    CONSUME p22_exi_Gateway_1s291ef: 1;
+    PRODUCE p15_ent_Gateway_1k6pc9n: 1;
+
+TRANSITION t22_sfl_Flow_0w6nde9
+    CONSUME p17_exi_Gateway_03abwau: 1;
+    PRODUCE p10_ent_Gateway_0efuwgc: 1;
+
+TRANSITION t23_sfl_Flow_14c4u7n
+    CONSUME p20_exi_Gateway_0lv0n0l: 1;
+    PRODUCE p13_ent_Gateway_18v40dr: 1;
+
+TRANSITION t24_sfl_Flow_14y8wna
+    CONSUME p23_exi_Gateway_1vziozx: 1;
+    PRODUCE p14_ent_Gateway_19vbmb9: 1;
+
+TRANSITION t25_sfl_Flow_1dx9bv4
+    CONSUME p17_exi_Gateway_03abwau: 1;
+    PRODUCE p10_ent_Gateway_0efuwgc: 1;
+
+TRANSITION t26_sfl_Flow_1ixb92w
+    CONSUME p21_exi_Gateway_1pcamce: 1;
+    PRODUCE p9_ent_Gateway_05kajsn: 1;
+
+TRANSITION t27_sfl_Flow_1jfd9ov
+    CONSUME p17_exi_Gateway_03abwau: 1;
+    PRODUCE p10_ent_Gateway_0efuwgc: 1;
+
+TRANSITION t28_sfl_Flow_1pfta46
+    CONSUME p18_exi_Gateway_060zghm: 1;
+    PRODUCE p11_ent_Gateway_0kp9ttl: 1;
+
+TRANSITION t29_sfl_Flow_1xturlm
+    CONSUME p19_exi_Gateway_07095g0: 1;
+    PRODUCE p12_ent_Gateway_16vqwjq: 1;
+
+TRANSITION reset_t7_Routine_blood_work_CBC_electrolytes_renal_function_tests
+    CONSUME evt_t7_Routine_blood_work_CBC_electrolytes_renal_function_tests: 1;
+    PRODUCE p2_Flow_1urzoqv: 1;
+
+TRANSITION reset_t13_Blood_gases_lactate_liver_enzyme_and_liverfunction_tests
+    CONSUME evt_t13_Blood_gases_lactate_liver_enzyme_and_liverfunction_tests: 1;
+    PRODUCE p9_ent_Gateway_05kajsn: 1;
+
+TRANSITION reset_t9_Urine_antigen_testing
+    CONSUME evt_t9_Urine_antigen_testing: 1;
+    PRODUCE p10_ent_Gateway_0efuwgc: 1;
+
+TRANSITION reset_t11_Sputum_culture
+    CONSUME evt_t11_Sputum_culture: 1;
+    PRODUCE p5_ent_Activity_0ja0l0j: 1;
+
+TRANSITION reset_t10_Perform_chest_x-ray
+    CONSUME evt_t10_Perform_chest_x-ray: 1, ret_t10_Perform_chest_x-ray: 1;
+    PRODUCE p1_Flow_1igm7uu: 1;
+
+TRANSITION reset_t14_Check_for_sepsis_onset
+    CONSUME evt_t14_Check_for_sepsis_onset: 1;
+    PRODUCE p24_exi_Gateway_1w94lin: 1;
+
+TRANSITION reset_t5_Oxygen_saturation
+    CONSUME evt_t5_Oxygen_saturation: 1;
+    PRODUCE p0_Flow_0kjt0lf: 1;
+
+TRANSITION reset_t3_Give_antibiotics
+    CONSUME evt_t8_Give_antibiotics: 1, ret_t3_Give_antibiotics: 1;
+    PRODUCE p11_ent_Gateway_0kp9ttl: 1;
+
+TRANSITION reset_t12_Mark_sepsis_onset
+    CONSUME evt_t12_Mark_sepsis_onset: 1;
+    PRODUCE p7_ent_Activity_0pcwolc: 1;
+
+TRANSITION reset_t8_Give_antibiotics
+    CONSUME evt_t8_Give_antibiotics: 1, ret_t8_Give_antibiotics: 1;
+    PRODUCE p3_ent_Activity_021dy7z: 1;
+
+TRANSITION reset_t6_Gram_staining
+    CONSUME evt_t6_Gram_staining: 1;
+    PRODUCE p15_ent_Gateway_1k6pc9n: 1;
+
+TRANSITION reset_t4_PCR_testing_for_Legionella
+    CONSUME evt_t4_PCR_testing_for_Legionella: 1;
+    PRODUCE p14_ent_Gateway_19vbmb9: 1;
+
+TRANSITION reset_t15_Blood_cultures
+    CONSUME evt_t15_Blood_cultures: 1;
+    PRODUCE p12_ent_Gateway_16vqwjq: 1;
+
+TRANSITION reset_t2_Perform_chest_x-ray
+    CONSUME evt_t10_Perform_chest_x-ray: 1, ret_t2_Perform_chest_x-ray: 1;
+    PRODUCE p16_ent_Gateway_1tx3brs: 1;
+
+TRANSITION t_end_loop
+    CONSUME p25_sink: 1, end_tick_a: 1;
+    PRODUCE p25_sink: 1, end_tick_b: 1;
+
+TRANSITION t_end_loop_back
+    CONSUME p25_sink: 1, end_tick_b: 1;
+    PRODUCE p25_sink: 1, end_tick_a: 1;

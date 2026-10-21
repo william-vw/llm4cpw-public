@@ -1,0 +1,10 @@
+"Give antibiotics" may only occur after "Perform chest x-ray" takes place.
+
+"Give antibiotics" may only occur after "PCR testing for Legionella" potentially takes place.
+
+"Give antibiotics" may only occur after "Blood cultures" potentially takes place.
+
+Right after "Check for sepsis onset", in case the condition "Sepsis onset" is met, insert an extra activity "Mark: sepsis onset".
+If "Mark: sepsis onset" occurs, then "Give antibiotics" must take place immediately afterwards. This is an absolute priority.
+
+"Check for sepsis onset" must be the first task in the process.

@@ -1,0 +1,20 @@
+"Consultation with physician" may only occur after "Perform x-ray"  takes place.
+
+"Consultation with internist" may only occur after "Consultation with physician"  takes place.
+
+"Consultation with orthopaedic surgeon" may only occur after "Consultation with physician"  takes place.
+
+"Consultation with anesthesiologist" may only occur after "Consultation with physician"  takes place.
+
+"Perform medication reconciliation within the ED" may only occur after "Consultation with physician"  takes place.
+
+"Manage patient hydration, pain, risk of delirium and risk of pressure sores within the ED" may only occur after "Consultation with physician"  takes place.
+
+"Assess and document relevant information [...]" may only occur after "Consultation with physician"  takes place.
+
+"Consultation with anesthesiologist" may only occur after "Consultation with orthopaedic surgeon"  takes place.
+
+"Manage hydration" is part of "Manage patient hydration, pain, risk of delirium and risk of pressure sores within the ED".
+"Manage pain" is part of "Manage patient hydration, pain, risk of delirium and risk of pressure sores within the ED".
+"Manage risk of delirium" is part of "Manage patient hydration, pain, risk of delirium and risk of pressure sores within the ED".
+"Manage risk of pressure sores" is part of "Manage patient hydration, pain, risk of delirium and risk of pressure sores within the ED".

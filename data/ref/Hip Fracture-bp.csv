@@ -1,0 +1,14 @@
+,"Manage patient hydration, pain, risk of delirium and risk of pressure sores within the ED",Perform x-ray,Consultation with orthopaedic surgeon,Provide surgery within 48 hours of the patient's initial presentation,Assess and document relevant information [...],Medically stabilize patient while waiting for transfer,Consultation with physician,Consultation with anesthesiologist,Transfer patient expeditiously to a surgical hospital for operation based on formal protocol,Consultation with internist,Perform medication reconciliation within the ED,Admit patient,Repatriate the patient to the local hospital following surgery
+"Manage patient hydration, pain, risk of delirium and risk of pressure sores within the ED",+,<-,||,->,||,->,<-,||,->,||,||,->,->
+Perform x-ray,->,+,->,->,->,->,->,->,->,->,->,->,->
+Consultation with orthopaedic surgeon,||,<-,+,->,||,->,<-,->,->,||,||,->,->
+Provide surgery within 48 hours of the patient's initial presentation,<-,<-,<-,+,<-,<-,<-,<-,<-,<-,<-,<-,->
+Assess and document relevant information [...],||,<-,||,->,+,->,<-,||,->,||,||,->,->
+Medically stabilize patient while waiting for transfer,<-,<-,<-,->,<-,+,<-,<-,->,<-,<-,<-,->
+Consultation with physician,->,<-,->,->,->,->,+,->,->,->,->,->,->
+Consultation with anesthesiologist,||,<-,<-,->,||,->,<-,+,->,||,||,->,->
+Transfer patient expeditiously to a surgical hospital for operation based on formal protocol,<-,<-,<-,->,<-,<-,<-,<-,+,<-,<-,<-,->
+Consultation with internist,||,<-,||,->,||,->,<-,||,->,+,||,->,->
+Perform medication reconciliation within the ED,||,<-,||,->,||,->,<-,||,->,||,+,->,->
+Admit patient,<-,<-,<-,->,<-,->,<-,<-,->,<-,<-,+,->
+Repatriate the patient to the local hospital following surgery,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,+

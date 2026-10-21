@@ -1,0 +1,10 @@
+- bpmn syntax.txt
+<inclusiveGateway> for OR decisions.
+9. Include a <bpmndi:BPMNDiagram> section with a <bpmndi:BPMNShape> for every
+   flow node and a <bpmndi:BPMNEdge> for every sequenceFlow, with plausible
+   x/y/width/height coordinates so the diagram renders correctly.
+
+
+- general modelling.txt
+3. Gateway selection
+Use an inclusive gateway when one or more branches may apply, such as “and/or”, “one or more”, or “any of the following may apply”.

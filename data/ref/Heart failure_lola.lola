@@ -1,0 +1,193 @@
+PLACE
+    p0_F19,
+    p1_F9,
+    p2_Flow_0w02as7,
+    p3_Flow_1iiynpu,
+    p4_ent_Gateway_08z0q3a,
+    p5_ent_Gateway_0dhp7yv,
+    p6_ent_Gateway_0h1qfus,
+    p7_ent_Gateway_0k80b0l,
+    p8_ent_Gateway_0xdpgkt,
+    p9_ent_T_Labs,
+    p10_ent_T_Low_Followup,
+    p11_ent_T_Monitor,
+    p12_ent,
+    p13_ent,
+    p14_exi_Gateway_0fxfg1i,
+    p15_exi_Gateway_0rftpko,
+    p16_exi_Gateway_1078buc,
+    p17_exi_Gateway_1ka7c91,
+    p18_exi_XG_Echo,
+    p19_exi_XG_RiskGroup,
+    p20_sink,
+    p21_source,
+    evt_t10_Admit_to_ICU_high_nurse-to-patient_staffing,
+    evt_t12_Serum_creatinine_and_electrolyte_levels_troponin_measurements_complete_blood_count_electrocardiogram_chest_x-ray_examination,
+    evt_t16_Discharge_home,
+    evt_t11_Noninvasive_ventilation,
+    evt_t14_Monitor_heart_rate_blood_pressure_oxygen_saturation_until_stabilized,
+    evt_t8_Admit_to_inpatient_care_normal_nurse-to-patient_staffing,
+    evt_t13_Arrange_follow-up_within_days_with_primary_care,
+    evt_t9_Echocardiogram,
+    evt_t4_Treat_in_outpatient_settings,
+    evt_t17_Treat_in_ED,
+    evt_t3_Invasive_ventilation,
+    evt_t15_Risk_assessment_/_stratification,
+    end_tick_a,
+    end_tick_b;
+
+MARKING
+    p21_source: 1,
+    end_tick_a: 1;
+
+TRANSITION t0
+    CONSUME p4_ent_Gateway_08z0q3a: 1, p7_ent_Gateway_0k80b0l: 1;
+    PRODUCE p8_ent_Gateway_0xdpgkt: 1;
+
+TRANSITION t1
+    CONSUME p21_source: 1;
+    PRODUCE p9_ent_T_Labs: 1, p11_ent_T_Monitor: 1, p18_exi_XG_Echo: 1;
+
+TRANSITION t2
+    CONSUME p2_Flow_0w02as7: 1, p3_Flow_1iiynpu: 1;
+    PRODUCE p8_ent_Gateway_0xdpgkt: 1;
+
+TRANSITION t3_Invasive_ventilation
+    CONSUME p15_exi_Gateway_0rftpko: 1;
+    PRODUCE evt_t3_Invasive_ventilation: 1;
+
+TRANSITION t4_Treat_in_outpatient_settings
+    CONSUME p17_exi_Gateway_1ka7c91: 1;
+    PRODUCE evt_t4_Treat_in_outpatient_settings: 1;
+
+TRANSITION t5_Gateway_0dhp7yv
+    CONSUME p5_ent_Gateway_0dhp7yv: 1;
+    PRODUCE p4_ent_Gateway_08z0q3a: 1;
+
+TRANSITION t6_Gateway_0h1qfus
+    CONSUME p6_ent_Gateway_0h1qfus: 1;
+    PRODUCE p10_ent_T_Low_Followup: 1, p13_ent: 1;
+
+TRANSITION t7_Gateway_0xdpgkt
+    CONSUME p8_ent_Gateway_0xdpgkt: 1;
+    PRODUCE p20_sink: 1;
+
+TRANSITION t8_Admit_to_inpatient_care_normal_nurse-to-patient_staffing
+    CONSUME p19_exi_XG_RiskGroup: 1;
+    PRODUCE evt_t8_Admit_to_inpatient_care_normal_nurse-to-patient_staffing: 1;
+
+TRANSITION t9_Echocardiogram
+    CONSUME p18_exi_XG_Echo: 1;
+    PRODUCE evt_t9_Echocardiogram: 1;
+
+TRANSITION t10_Admit_to_ICU_high_nurse-to-patient_staffing
+    CONSUME p16_exi_Gateway_1078buc: 1;
+    PRODUCE evt_t10_Admit_to_ICU_high_nurse-to-patient_staffing: 1;
+
+TRANSITION t11_Noninvasive_ventilation
+    CONSUME p15_exi_Gateway_0rftpko: 1;
+    PRODUCE evt_t11_Noninvasive_ventilation: 1;
+
+TRANSITION t12_Serum_creatinine_and_electrolyte_levels_troponin_measurements_complete_blood_count_electrocardiogram_chest_x-ray_examination
+    CONSUME p9_ent_T_Labs: 1;
+    PRODUCE evt_t12_Serum_creatinine_and_electrolyte_levels_troponin_measurements_complete_blood_count_electrocardiogram_chest_x-ray_examination: 1;
+
+TRANSITION t13_Arrange_follow-up_within_days_with_primary_care
+    CONSUME p10_ent_T_Low_Followup: 1;
+    PRODUCE evt_t13_Arrange_follow-up_within_days_with_primary_care: 1;
+
+TRANSITION t14_Monitor_heart_rate_blood_pressure_oxygen_saturation_until_stabilized
+    CONSUME p11_ent_T_Monitor: 1;
+    PRODUCE evt_t14_Monitor_heart_rate_blood_pressure_oxygen_saturation_until_stabilized: 1;
+
+TRANSITION t15_Risk_assessment_/_stratification
+    CONSUME p0_F19: 1, p1_F9: 1, p12_ent: 1;
+    PRODUCE evt_t15_Risk_assessment_/_stratification: 1;
+
+TRANSITION t16_Discharge_home
+    CONSUME p13_ent: 1;
+    PRODUCE evt_t16_Discharge_home: 1;
+
+TRANSITION t17_Treat_in_ED
+    CONSUME p17_exi_Gateway_1ka7c91: 1;
+    PRODUCE evt_t17_Treat_in_ED: 1;
+
+TRANSITION t18_sfl_Flow_0jx5ela
+    CONSUME p16_exi_Gateway_1078buc: 1;
+    PRODUCE p7_ent_Gateway_0k80b0l: 1;
+
+TRANSITION t19_sfl_Flow_0kktab9
+    CONSUME p14_exi_Gateway_0fxfg1i: 1;
+    PRODUCE p15_exi_Gateway_0rftpko: 1;
+
+TRANSITION t20_sfl_Flow_0qq9984
+    CONSUME p14_exi_Gateway_0fxfg1i: 1;
+    PRODUCE p4_ent_Gateway_08z0q3a: 1;
+
+TRANSITION t21_sfl_Flow_1knq1du
+    CONSUME p19_exi_XG_RiskGroup: 1;
+    PRODUCE p17_exi_Gateway_1ka7c91: 1;
+
+TRANSITION t22_sfl_Flow_1qd7jod
+    CONSUME p19_exi_XG_RiskGroup: 1;
+    PRODUCE p14_exi_Gateway_0fxfg1i: 1, p16_exi_Gateway_1078buc: 1;
+
+TRANSITION t23_sfl
+    CONSUME p18_exi_XG_Echo: 1;
+    PRODUCE p12_ent: 1;
+
+TRANSITION reset_t10_Admit_to_ICU_high_nurse-to-patient_staffing
+    CONSUME evt_t10_Admit_to_ICU_high_nurse-to-patient_staffing: 1;
+    PRODUCE p7_ent_Gateway_0k80b0l: 1;
+
+TRANSITION reset_t12_Serum_creatinine_and_electrolyte_levels_troponin_measurements_complete_blood_count_electrocardiogram_chest_x-ray_examination
+    CONSUME evt_t12_Serum_creatinine_and_electrolyte_levels_troponin_measurements_complete_blood_count_electrocardiogram_chest_x-ray_examination: 1;
+    PRODUCE p1_F9: 1;
+
+TRANSITION reset_t16_Discharge_home
+    CONSUME evt_t16_Discharge_home: 1;
+    PRODUCE p2_Flow_0w02as7: 1;
+
+TRANSITION reset_t11_Noninvasive_ventilation
+    CONSUME evt_t11_Noninvasive_ventilation: 1;
+    PRODUCE p5_ent_Gateway_0dhp7yv: 1;
+
+TRANSITION reset_t14_Monitor_heart_rate_blood_pressure_oxygen_saturation_until_stabilized
+    CONSUME evt_t14_Monitor_heart_rate_blood_pressure_oxygen_saturation_until_stabilized: 1;
+    PRODUCE p0_F19: 1;
+
+TRANSITION reset_t8_Admit_to_inpatient_care_normal_nurse-to-patient_staffing
+    CONSUME evt_t8_Admit_to_inpatient_care_normal_nurse-to-patient_staffing: 1;
+    PRODUCE p8_ent_Gateway_0xdpgkt: 1;
+
+TRANSITION reset_t13_Arrange_follow-up_within_days_with_primary_care
+    CONSUME evt_t13_Arrange_follow-up_within_days_with_primary_care: 1;
+    PRODUCE p3_Flow_1iiynpu: 1;
+
+TRANSITION reset_t9_Echocardiogram
+    CONSUME evt_t9_Echocardiogram: 1;
+    PRODUCE p12_ent: 1;
+
+TRANSITION reset_t4_Treat_in_outpatient_settings
+    CONSUME evt_t4_Treat_in_outpatient_settings: 1;
+    PRODUCE p6_ent_Gateway_0h1qfus: 1;
+
+TRANSITION reset_t17_Treat_in_ED
+    CONSUME evt_t17_Treat_in_ED: 1;
+    PRODUCE p6_ent_Gateway_0h1qfus: 1;
+
+TRANSITION reset_t3_Invasive_ventilation
+    CONSUME evt_t3_Invasive_ventilation: 1;
+    PRODUCE p5_ent_Gateway_0dhp7yv: 1;
+
+TRANSITION reset_t15_Risk_assessment_/_stratification
+    CONSUME evt_t15_Risk_assessment_/_stratification: 1;
+    PRODUCE p19_exi_XG_RiskGroup: 1;
+
+TRANSITION t_end_loop
+    CONSUME p20_sink: 1, end_tick_a: 1;
+    PRODUCE p20_sink: 1, end_tick_b: 1;
+
+TRANSITION t_end_loop_back
+    CONSUME p20_sink: 1, end_tick_b: 1;
+    PRODUCE p20_sink: 1, end_tick_a: 1;

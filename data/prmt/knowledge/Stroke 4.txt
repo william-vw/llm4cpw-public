@@ -1,0 +1,18 @@
+"Rapid initial evaluation for airway, breathing, and circulation" must be the first task in the process.
+
+"Give patients appropriate cross-continuum secondary prevention assessments and therapies" should be the last task in the process.
+
+"Evaluate patients for endovascular therapy" may only occur after "Immediate expert healthcare provider interpretation of the brain imaging" potentially takes place.
+
+"Evaluate patients for endovascular therapy" may only occur after "Neurological examination to determine focal neurological deficits and assess stroke severity on a standardized stroke scale (NIHSS or CNS for stroke)"  takes place.
+
+"Assess airway" is part of "Rapid initial evaluation for airway, breathing, and circulation".
+"Assess breathing" is part of "Rapid initial evaluation for airway, breathing, and circulation".
+"Assess circulation" is part of "Rapid initial evaluation for airway, breathing, and circulation".
+
+"CBC" is part of "Blood work: CBC, electrolytes, creatinine, glucose, INR, partial thromboplastin time".
+"Creatinine" is part of "Blood work: CBC, electrolytes, creatinine, glucose, INR, partial thromboplastin time".
+"Electrolytes" is part of "Blood work: CBC, electrolytes, creatinine, glucose, INR, partial thromboplastin time".
+"Glucose" is part of "Blood work: CBC, electrolytes, creatinine, glucose, INR, partial thromboplastin time".
+"INR" is part of "Blood work: CBC, electrolytes, creatinine, glucose, INR, partial thromboplastin time".
+"Partial thromboplastin time" is part of "Blood work: CBC, electrolytes, creatinine, glucose, INR, partial thromboplastin time".

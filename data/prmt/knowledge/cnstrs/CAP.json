@@ -1,0 +1,32 @@
+[
+    {
+        "name": "cap1",
+        "type": "raw",
+        "formula": "G (F \"Perform chest x-ray\" -> (NOT \"Give antibiotics\" U \"Perform chest x-ray\"))"
+    },
+    {
+        "name": "cap2",
+        "type": "raw",
+        "formula": "G (F \"PCR testing for Legionella\" -> (NOT \"Give antibiotics\" U \"PCR testing for Legionella\"))"
+    },
+    {
+        "name": "cap3",
+        "type": "raw",
+        "formula": "G (F \"Blood cultures\" -> (NOT \"Give antibiotics\" U \"Blood cultures\"))"
+    },
+    {
+        "name": "cap5",
+        "type": "raw",
+        "formula": "X \"Check for sepsis onset\""
+    },
+    {
+        "name": "cap6_1",
+        "type": "raw",
+        "formula": "G (\"Mark: sepsis onset\" -> XX \"Give antibiotics\")"
+    },
+    {
+        "name": "cap6_2",
+        "type": "raw",
+        "formula": "G (XX \"Mark: sepsis onset\" -> \"Check for sepsis onset\")"
+    }
+]

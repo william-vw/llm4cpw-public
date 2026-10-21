@@ -1,0 +1,1944 @@
+@prefix : <http://notation3.org/constraints.owl#> .
+@prefix ns1: <http://notation3.org/ltl_constraints.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://notation3.org/constraints.owl#> .
+
+<http://notation3.org/constraints.owl#> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://notation3.org/constraints.owl#hasLolaSyntax
+:hasLolaSyntax rdf:type owl:AnnotationProperty ;
+               rdfs:range xsd:string ;
+               rdfs:domain ns1:LtlOperator .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#comment
+rdfs:comment rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#domain
+rdfs:domain rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#range
+rdfs:range rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#subClassOf
+rdfs:subClassOf rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#type
+rdfs:type rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://notation3.org/constraints.owl#hasAggregate
+:hasAggregate rdf:type owl:ObjectProperty ;
+              rdfs:domain :PartOf ;
+              rdfs:range :Task .
+
+
+###  http://notation3.org/constraints.owl#hasCondition
+:hasCondition rdf:type owl:ObjectProperty ;
+              rdfs:domain :PrioritizedConditional ;
+              rdfs:range :Condition .
+
+
+###  http://notation3.org/constraints.owl#hasConditionMarker
+:hasConditionMarker rdf:type owl:ObjectProperty ;
+                    rdfs:domain :PrioritizedConditional ;
+                    rdfs:range :Task .
+
+
+###  http://notation3.org/constraints.owl#hasConditionalTask
+:hasConditionalTask rdf:type owl:ObjectProperty ;
+                    rdfs:domain :PrioritizedConditional ;
+                    rdfs:range :Task .
+
+
+###  http://notation3.org/constraints.owl#hasConstraint
+:hasConstraint rdf:type owl:ObjectProperty ;
+               rdfs:domain :ProcessModel ;
+               rdfs:range :Constraint .
+
+
+###  http://notation3.org/constraints.owl#hasDecisionTask
+:hasDecisionTask rdf:type owl:ObjectProperty ;
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( :DecisionalDependency
+                                             :PrioritizedConditional
+                                           )
+                             ] ;
+                 rdfs:range :Task .
+
+
+###  http://notation3.org/constraints.owl#hasDependentTask
+:hasDependentTask rdf:type owl:ObjectProperty ;
+                  rdfs:domain :DecisionalDependency ;
+                  rdfs:range :Task .
+
+
+###  http://notation3.org/constraints.owl#hasInterferedTask
+:hasInterferedTask rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Conflict ;
+                   rdfs:range :Task .
+
+
+###  http://notation3.org/constraints.owl#hasInterferingTask
+:hasInterferingTask rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :Conflict ;
+                    rdfs:range :Task .
+
+
+###  http://notation3.org/constraints.owl#hasLtlFormula
+:hasLtlFormula rdf:type owl:ObjectProperty ;
+               rdfs:domain :Constraint ;
+               rdfs:range ns1:LtlFormula .
+
+
+###  http://notation3.org/constraints.owl#hasPart
+:hasPart rdf:type owl:ObjectProperty ;
+         rdfs:domain :PartOf ;
+         rdfs:range :Task .
+
+
+###  http://notation3.org/constraints.owl#hasReplaced
+:hasReplaced rdf:type owl:ObjectProperty ;
+             rdfs:domain :Alternative ;
+             rdfs:range :Task .
+
+
+###  http://notation3.org/constraints.owl#hasReplacement
+:hasReplacement rdf:type owl:ObjectProperty ;
+                rdfs:domain :Alternative ;
+                rdfs:range :Task .
+
+
+###  http://notation3.org/constraints.owl#hasTask
+:hasTask rdf:type owl:ObjectProperty ;
+         owl:inverseOf :taskOf ;
+         rdfs:domain [ rdf:type owl:Class ;
+                       owl:unionOf ( :Constraint
+                                     :ProcessModel
+                                   )
+                     ] ;
+         rdfs:range :Task .
+
+
+###  http://notation3.org/constraints.owl#taskOf
+:taskOf rdf:type owl:ObjectProperty .
+
+
+###  http://notation3.org/ltl_constraints.owl#hasLeftOperand
+ns1:hasLeftOperand rdf:type owl:ObjectProperty ;
+                   rdfs:domain ns1:BinaryOperator ;
+                   rdfs:range ns1:LtlFormula ;
+                   rdfs:comment "The left-hand LTL formula (operand) that the binary operator applies to." .
+
+
+###  http://notation3.org/ltl_constraints.owl#hasOperand
+ns1:hasOperand rdf:type owl:ObjectProperty ;
+               rdfs:domain ns1:UnaryOperator ;
+               rdfs:range ns1:LtlFormula ;
+               rdfs:comment "The LTL formula (operand) that the unary operator applies to." .
+
+
+###  http://notation3.org/ltl_constraints.owl#hasRightOperand
+ns1:hasRightOperand rdf:type owl:ObjectProperty ;
+                    rdfs:domain ns1:BinaryOperator ;
+                    rdfs:range ns1:LtlFormula ;
+                    rdfs:comment "The right-hand LTL formula (operand) that the binary operator applies to." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://notation3.org/constraints.owl#isDecisionOptional
+:isDecisionOptional rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :DecisionalDependency ;
+                    rdfs:range xsd:boolean .
+
+
+###  http://notation3.org/constraints.owl#isDependentOptional
+:isDependentOptional rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :DecisionalDependency ;
+                     rdfs:range xsd:boolean .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://notation3.org/constraints.owl#Alternative
+:Alternative rdf:type owl:Class ;
+             rdfs:subClassOf :Constraint .
+
+
+###  http://notation3.org/constraints.owl#Condition
+:Condition rdf:type owl:Class ;
+           rdfs:subClassOf :ProcessElement .
+
+
+###  http://notation3.org/constraints.owl#Conflict
+:Conflict rdf:type owl:Class ;
+          rdfs:subClassOf :Constraint .
+
+
+###  http://notation3.org/constraints.owl#Constraint
+:Constraint rdf:type owl:Class .
+
+
+###  http://notation3.org/constraints.owl#DecisionalDependency
+:DecisionalDependency rdf:type owl:Class ;
+                      rdfs:subClassOf :Constraint .
+
+
+###  http://notation3.org/constraints.owl#EntryPoint
+:EntryPoint rdf:type owl:Class ;
+       rdfs:subClassOf :Constraint .
+
+
+###  http://notation3.org/constraints.owl#ExitPoint
+:ExitPoint rdf:type owl:Class ;
+      rdfs:subClassOf :Constraint .
+
+
+###  http://notation3.org/constraints.owl#LtlConstraint
+:LtlConstraint rdf:type owl:Class ;
+               rdfs:subClassOf :Constraint .
+
+
+###  http://notation3.org/constraints.owl#PartOf
+:PartOf rdf:type owl:Class ;
+        rdfs:subClassOf :Constraint .
+
+
+###  http://notation3.org/constraints.owl#PrioritizedConditional
+:PrioritizedConditional rdf:type owl:Class ;
+                        rdfs:subClassOf :Constraint .
+
+
+###  http://notation3.org/constraints.owl#ProcessElement
+:ProcessElement rdf:type owl:Class .
+
+
+###  http://notation3.org/constraints.owl#ProcessModel
+:ProcessModel rdf:type owl:Class .
+
+
+###  http://notation3.org/constraints.owl#Task
+:Task rdf:type owl:Class ;
+      rdfs:subClassOf :ProcessElement .
+
+
+###  http://notation3.org/ltl_constraints.owl#And
+ns1:And rdf:type owl:Class ;
+        rdfs:subClassOf ns1:BinaryOperator ;
+        :hasLolaSyntax "AND" ;
+        rdfs:type rdfs:Class .
+
+
+###  http://notation3.org/ltl_constraints.owl#BinaryOperator
+ns1:BinaryOperator rdf:type owl:Class ;
+                   rdfs:subClassOf ns1:LtlOperator ;
+                   rdfs:comment "A binary LTL operator." ;
+                   rdfs:type rdfs:Class .
+
+
+###  http://notation3.org/ltl_constraints.owl#Eventually
+ns1:Eventually rdf:type owl:Class ;
+               rdfs:subClassOf ns1:UnaryOperator ;
+               :hasLolaSyntax "F" ;
+               rdfs:type rdfs:Class .
+
+
+###  http://notation3.org/ltl_constraints.owl#Globally
+ns1:Globally rdf:type owl:Class ;
+             rdfs:subClassOf ns1:UnaryOperator ;
+             :hasLolaSyntax "G" ;
+             rdfs:type rdfs:Class .
+
+
+###  http://notation3.org/ltl_constraints.owl#Implies
+ns1:Implies rdf:type owl:Class ;
+            rdfs:subClassOf ns1:BinaryOperator ;
+            :hasLolaSyntax "->" ;
+            rdfs:type rdfs:Class .
+
+
+###  http://notation3.org/ltl_constraints.owl#LtlAtom
+ns1:LtlAtom rdf:type owl:Class ;
+            rdfs:subClassOf ns1:LtlFormula ;
+            rdfs:comment "An atomic LTL fact." ;
+            rdfs:type rdfs:Class .
+
+
+###  http://notation3.org/ltl_constraints.owl#LtlFormula
+ns1:LtlFormula rdf:type owl:Class ;
+               rdfs:comment "An LTL formula." ;
+               rdfs:type rdfs:Class .
+
+
+###  http://notation3.org/ltl_constraints.owl#LtlOperator
+ns1:LtlOperator rdf:type owl:Class ;
+                rdfs:subClassOf ns1:LtlFormula ;
+                rdfs:comment "An LTL operator for LTL formulas." ;
+                rdfs:type rdfs:Class .
+
+
+###  http://notation3.org/ltl_constraints.owl#Negation
+ns1:Negation rdf:type owl:Class ;
+             rdfs:subClassOf ns1:UnaryOperator ;
+             :hasLolaSyntax "NOT" ;
+             rdfs:type rdfs:Class .
+
+
+###  http://notation3.org/ltl_constraints.owl#Next
+ns1:Next rdf:type owl:Class ;
+         rdfs:subClassOf ns1:UnaryOperator ;
+         :hasLolaSyntax "X" ;
+         rdfs:type rdfs:Class .
+
+
+###  http://notation3.org/ltl_constraints.owl#Or
+ns1:Or rdf:type owl:Class ;
+       rdfs:subClassOf ns1:BinaryOperator ;
+       :hasLolaSyntax "OR" .
+
+
+###  http://notation3.org/ltl_constraints.owl#Release
+ns1:Release rdf:type owl:Class ;
+            rdfs:subClassOf ns1:BinaryOperator ;
+            :hasLolaSyntax "R" .
+
+
+###  http://notation3.org/ltl_constraints.owl#UnaryOperator
+ns1:UnaryOperator rdf:type owl:Class ;
+                  rdfs:subClassOf ns1:LtlOperator ;
+                  rdfs:comment "A unary LTL operator." ;
+                  rdfs:type rdfs:Class .
+
+
+###  http://notation3.org/ltl_constraints.owl#Until
+ns1:Until rdf:type owl:Class ;
+          rdfs:subClassOf ns1:BinaryOperator ;
+          :hasLolaSyntax "U" ;
+          rdfs:type rdfs:Class .
+
+
+###  http://notation3.org/ltl_constraints.owl#WeakUntil
+ns1:WeakUntil rdf:type owl:Class ;
+              rdfs:subClassOf ns1:BinaryOperator ;
+              :hasLolaSyntax "W" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://notation3.org/constraints.owl#Admit_to_hospital
+:Admit_to_hospital rdf:type owl:NamedIndividual ,
+                            :Task ;
+                   rdfs:label "Admit to hospital" .
+
+
+###  http://notation3.org/constraints.owl#Assess_airway
+:Assess_airway rdf:type owl:NamedIndividual ,
+                        :Task ;
+               rdfs:label "Assess airway" .
+
+
+###  http://notation3.org/constraints.owl#Assess_breathing
+:Assess_breathing rdf:type owl:NamedIndividual ,
+                           :Task ;
+                  rdfs:label "Assess breathing" .
+
+
+###  http://notation3.org/constraints.owl#Assess_circulation
+:Assess_circulation rdf:type owl:NamedIndividual ,
+                             :Task ;
+                    rdfs:label "Assess circulation" .
+
+
+###  http://notation3.org/constraints.owl#Assess_high-risk_markers
+:Assess_high-risk_markers rdf:type owl:NamedIndividual ,
+                                   :Task ;
+                          rdfs:label "Assess high-risk markers" .
+
+
+###  http://notation3.org/constraints.owl#Assess_level_of_care_required
+:Assess_level_of_care_required rdf:type owl:NamedIndividual ,
+                                        :Task ;
+                               rdfs:label "Assess level of care required" .
+
+
+###  http://notation3.org/constraints.owl#Blood_cultures
+:Blood_cultures rdf:type owl:NamedIndividual ,
+                         :Task ;
+                rdfs:label "Blood cultures" .
+
+
+###  http://notation3.org/constraints.owl#Blood_urea_nitrogen
+:Blood_urea_nitrogen rdf:type owl:NamedIndividual ,
+                              :Task ;
+                     rdfs:label "Blood urea nitrogen" .
+
+
+###  http://notation3.org/constraints.owl#CAP
+:CAP rdf:type owl:NamedIndividual ,
+              :ProcessModel ;
+     :hasConstraint :CAP_1 ,
+                    :CAP_2 ,
+                    :CAP_3 ,
+                    :CAP_4 ,
+                    :CAP_6 ,
+                    :cap5 ;
+     rdfs:label "CAP" .
+
+
+###  http://notation3.org/constraints.owl#CAP_1
+:CAP_1 rdf:type owl:NamedIndividual ,
+                :DecisionalDependency ;
+       :hasDecisionTask :Perform_chest_x-ray ;
+       :hasDependentTask :Give_antibiotics ;
+       :hasLtlFormula :CAP_1_L1 ;
+       :isDecisionOptional "true"^^xsd:boolean ;
+       :isDependentOptional "true"^^xsd:boolean ;
+       rdfs:label "cap1" .
+
+
+###  http://notation3.org/constraints.owl#CAP_1_L1
+:CAP_1_L1 rdf:type owl:NamedIndividual ,
+                   ns1:Until ;
+          ns1:hasLeftOperand :CAP_1_L1_1 ;
+          ns1:hasRightOperand :Perform_chest_x-ray .
+
+
+###  http://notation3.org/constraints.owl#CAP_1_L1_1
+:CAP_1_L1_1 rdf:type owl:NamedIndividual ,
+                     ns1:Negation ;
+            ns1:hasOperand :Give_antibiotics .
+
+
+###  http://notation3.org/constraints.owl#CAP_2
+:CAP_2 rdf:type owl:NamedIndividual ,
+                :DecisionalDependency ;
+       :hasDecisionTask :PCR_testing_for_Legionella ;
+       :hasDependentTask :Give_antibiotics ;
+       :hasLtlFormula :CAP_2_L1 ;
+       :isDecisionOptional "true"^^xsd:boolean ;
+       :isDependentOptional "true"^^xsd:boolean ;
+       rdfs:label "cap2" .
+
+
+###  http://notation3.org/constraints.owl#CAP_2_L1
+:CAP_2_L1 rdf:type owl:NamedIndividual ,
+                   ns1:Globally ;
+          ns1:hasOperand :CAP_2_L1_1 .
+
+
+###  http://notation3.org/constraints.owl#CAP_2_L1_1
+:CAP_2_L1_1 rdf:type owl:NamedIndividual ,
+                     ns1:Implies ;
+            ns1:hasLeftOperand :CAP_2_L1_1_1 ;
+            ns1:hasRightOperand :CAP_2_L1_1_2 .
+
+
+###  http://notation3.org/constraints.owl#CAP_2_L1_1_1
+:CAP_2_L1_1_1 rdf:type owl:NamedIndividual ,
+                       ns1:Eventually ;
+              ns1:hasOperand :PCR_testing_for_Legionella .
+
+
+###  http://notation3.org/constraints.owl#CAP_2_L1_1_2
+:CAP_2_L1_1_2 rdf:type owl:NamedIndividual ,
+                       ns1:Until ;
+              ns1:hasLeftOperand :CAP_2_L1_1_2_1 ;
+              ns1:hasRightOperand :PCR_testing_for_Legionella .
+
+
+###  http://notation3.org/constraints.owl#CAP_2_L1_1_2_1
+:CAP_2_L1_1_2_1 rdf:type owl:NamedIndividual ,
+                         ns1:Negation ;
+                ns1:hasOperand :Give_antibiotics .
+
+
+###  http://notation3.org/constraints.owl#CAP_3
+:CAP_3 rdf:type owl:NamedIndividual ,
+                :DecisionalDependency ;
+       :hasDecisionTask :Blood_cultures ;
+       :hasDependentTask :Give_antibiotics ;
+       :hasLtlFormula :CAP_3_L1 ;
+       :isDecisionOptional "true"^^xsd:boolean ;
+       :isDependentOptional "true"^^xsd:boolean ;
+       rdfs:label "cap3" .
+
+
+###  http://notation3.org/constraints.owl#CAP_3_L1
+:CAP_3_L1 rdf:type owl:NamedIndividual ,
+                   ns1:Globally ;
+          ns1:hasOperand :CAP_3_L1_1 .
+
+
+###  http://notation3.org/constraints.owl#CAP_3_L1_1
+:CAP_3_L1_1 rdf:type owl:NamedIndividual ,
+                     ns1:Implies ;
+            ns1:hasLeftOperand :CAP_3_L1_1_1 ;
+            ns1:hasRightOperand :CAP_3_L1_1_2 .
+
+
+###  http://notation3.org/constraints.owl#CAP_3_L1_1_1
+:CAP_3_L1_1_1 rdf:type owl:NamedIndividual ,
+                       ns1:Eventually ;
+              ns1:hasOperand :Blood_cultures .
+
+
+###  http://notation3.org/constraints.owl#CAP_3_L1_1_2
+:CAP_3_L1_1_2 rdf:type owl:NamedIndividual ,
+                       ns1:Until ;
+              ns1:hasLeftOperand :CAP_3_L1_1_2_1 ;
+              ns1:hasRightOperand :Blood_cultures .
+
+
+###  http://notation3.org/constraints.owl#CAP_3_L1_1_2_1
+:CAP_3_L1_1_2_1 rdf:type owl:NamedIndividual ,
+                         ns1:Negation ;
+                ns1:hasOperand :Give_antibiotics .
+
+
+###  http://notation3.org/constraints.owl#CAP_4
+:CAP_4 rdf:type owl:NamedIndividual ,
+                :Conflict ;
+       :hasInterferedTask :Blood_cultures ;
+       :hasInterferingTask :Give_antibiotics ;
+       :hasLtlFormula :CAP_4_L1 ;
+       rdfs:label "cap4" .
+
+
+###  http://notation3.org/constraints.owl#CAP_4_L1
+:CAP_4_L1 rdf:type owl:NamedIndividual ,
+                   ns1:Globally ;
+          ns1:hasOperand :CAP_4_L1_1 .
+
+
+###  http://notation3.org/constraints.owl#CAP_4_L1_1
+:CAP_4_L1_1 rdf:type owl:NamedIndividual ,
+                     ns1:Implies ;
+            ns1:hasLeftOperand :CAP_4_L1_1_1 ;
+            ns1:hasRightOperand :CAP_4_L1_1_2 .
+
+
+###  http://notation3.org/constraints.owl#CAP_4_L1_1_1
+:CAP_4_L1_1_1 rdf:type owl:NamedIndividual ,
+                       ns1:Eventually ;
+              ns1:hasOperand :Blood_cultures .
+
+
+###  http://notation3.org/constraints.owl#CAP_4_L1_1_2
+:CAP_4_L1_1_2 rdf:type owl:NamedIndividual ,
+                       ns1:Until ;
+              ns1:hasLeftOperand :CAP_4_L1_1_2_1 ;
+              ns1:hasRightOperand :Blood_cultures .
+
+
+###  http://notation3.org/constraints.owl#CAP_4_L1_1_2_1
+:CAP_4_L1_1_2_1 rdf:type owl:NamedIndividual ,
+                         ns1:Negation ;
+                ns1:hasOperand :Give_antibiotics .
+
+
+###  http://notation3.org/constraints.owl#CAP_6
+:CAP_6 rdf:type owl:NamedIndividual ,
+                :PrioritizedConditional ;
+       :hasCondition :Sepsis_onset ;
+       :hasConditionMarker :Mark:_sepsis_onset ;
+       :hasConditionalTask :Give_antibiotics ;
+       :hasDecisionTask :Check_for_sepsis_onset ;
+       :hasLtlFormula :CAP_6_L1 ,
+                      :CAP_6_L2 ;
+       rdfs:label "cap6" .
+
+
+###  http://notation3.org/constraints.owl#CAP_6_L1
+:CAP_6_L1 rdf:type owl:NamedIndividual ,
+                   ns1:Globally ;
+          ns1:hasOperand :CAP_6_L1_1 .
+
+
+###  http://notation3.org/constraints.owl#CAP_6_L1_1
+:CAP_6_L1_1 rdf:type owl:NamedIndividual ,
+                     ns1:Implies ;
+            ns1:hasLeftOperand :Mark:_sepsis_onset ;
+            ns1:hasRightOperand :CAP_6_L1_1_2 .
+
+
+###  http://notation3.org/constraints.owl#CAP_6_L1_1_2
+:CAP_6_L1_1_2 rdf:type owl:NamedIndividual ,
+                       ns1:Next ;
+              ns1:hasOperand :Give_antibiotics .
+
+
+###  http://notation3.org/constraints.owl#CAP_6_L2
+:CAP_6_L2 rdf:type owl:NamedIndividual ,
+                   ns1:Globally ;
+          ns1:hasOperand :CAP_6_L2_1 .
+
+
+###  http://notation3.org/constraints.owl#CAP_6_L2_1
+:CAP_6_L2_1 rdf:type owl:NamedIndividual ,
+                     ns1:Implies ;
+            ns1:hasLeftOperand :CAP_6_L2_1_1 ;
+            ns1:hasRightOperand :Check_for_sepsis_onset .
+
+
+###  http://notation3.org/constraints.owl#CAP_6_L2_1_1
+:CAP_6_L2_1_1 rdf:type owl:NamedIndividual ,
+                       ns1:Next ;
+              ns1:hasOperand :Mark:_sepsis_onset .
+
+
+###  http://notation3.org/constraints.owl#CBC
+:CBC rdf:type owl:NamedIndividual ,
+              :Task ;
+     rdfs:label "CBC" .
+
+
+###  http://notation3.org/constraints.owl#COPD
+:COPD rdf:type owl:NamedIndividual ,
+               :ProcessModel ;
+      :hasConstraint :COPD_1 ,
+                     :COPD_2 ,
+                     :COPD_3 ,
+                     :COPD_4 ,
+                     :COPD_5 ,
+                     :copd_p1 ,
+                     :copd_p2 ;
+      rdfs:label "COPD" .
+
+
+###  http://notation3.org/constraints.owl#COPD_1
+:COPD_1 rdf:type owl:NamedIndividual ,
+                 :DecisionalDependency ;
+        :hasDecisionTask :Perform_physical_examination ;
+        :hasDependentTask :Trial_immediate_resuscitation ;
+        :hasLtlFormula :COPD_1_L1 ;
+        :isDecisionOptional "false"^^xsd:boolean ;
+        :isDependentOptional "true"^^xsd:boolean ;
+        rdfs:label "copd1" .
+
+
+###  http://notation3.org/constraints.owl#COPD_1_L1
+:COPD_1_L1 rdf:type owl:NamedIndividual ,
+                    ns1:Until ;
+           ns1:hasLeftOperand :COPD_1_L1_1 ;
+           ns1:hasRightOperand :Perform_physical_examination .
+
+
+###  http://notation3.org/constraints.owl#COPD_1_L1_1
+:COPD_1_L1_1 rdf:type owl:NamedIndividual ,
+                      ns1:Negation ;
+             ns1:hasOperand :Trial_immediate_resuscitation .
+
+
+###  http://notation3.org/constraints.owl#COPD_2
+:COPD_2 rdf:type owl:NamedIndividual ,
+                 :EntryPoint ;
+        :hasLtlFormula :COPD_2_L1 ;
+        :hasTask :Perform_physical_examination ;
+        rdfs:label "copd2" .
+
+
+###  http://notation3.org/constraints.owl#COPD_2_L1
+:COPD_2_L1 rdf:type owl:NamedIndividual ,
+                    ns1:Next ;
+           ns1:hasOperand :Perform_physical_examination .
+
+
+###  http://notation3.org/constraints.owl#COPD_3
+:COPD_3 rdf:type owl:NamedIndividual ,
+                 :PrioritizedConditional ;
+        :hasCondition :Resuscitation_need ;
+        :hasConditionMarker :Mark:_resuscitation_need ;
+        :hasConditionalTask :Trial_immediate_resuscitation ;
+        :hasDecisionTask :Perform_physical_examination ;
+        :hasLtlFormula :COPD_3_L1 ,
+                       :COPD_3_L2 ;
+        rdfs:label "copd3" .
+
+
+###  http://notation3.org/constraints.owl#COPD_3_L1
+:COPD_3_L1 rdf:type owl:NamedIndividual ,
+                    ns1:Globally ;
+           ns1:hasOperand :COPD_3_L1_1 .
+
+
+###  http://notation3.org/constraints.owl#COPD_3_L1_1
+:COPD_3_L1_1 rdf:type owl:NamedIndividual ,
+                      ns1:Implies ;
+             ns1:hasLeftOperand :Mark:_resuscitation_need ;
+             ns1:hasRightOperand :COPD_3_L1_1_2 .
+
+
+###  http://notation3.org/constraints.owl#COPD_3_L1_1_2
+:COPD_3_L1_1_2 rdf:type owl:NamedIndividual ,
+                        ns1:Next ;
+               ns1:hasOperand :Trial_immediate_resuscitation .
+
+
+###  http://notation3.org/constraints.owl#COPD_3_L2
+:COPD_3_L2 rdf:type owl:NamedIndividual ,
+                    ns1:Globally ;
+           ns1:hasOperand :COPD_3_L2_1 .
+
+
+###  http://notation3.org/constraints.owl#COPD_3_L2_1
+:COPD_3_L2_1 rdf:type owl:NamedIndividual ,
+                      ns1:Implies ;
+             ns1:hasLeftOperand :COPD_3_L2_1_1 ;
+             ns1:hasRightOperand :Perform_physical_examination .
+
+
+###  http://notation3.org/constraints.owl#COPD_3_L2_1_1
+:COPD_3_L2_1_1 rdf:type owl:NamedIndividual ,
+                        ns1:Next ;
+               ns1:hasOperand :Mark:_resuscitation_need .
+
+
+###  http://notation3.org/constraints.owl#COPD_4
+:COPD_4 rdf:type owl:NamedIndividual ,
+                 :DecisionalDependency ;
+        :hasDecisionTask :Perform_physical_examination ;
+        :hasDependentTask :Conduct_baseline_blood_work ;
+        :hasLtlFormula :COPD_4_L1 ;
+        :isDecisionOptional "false"^^xsd:boolean ;
+        :isDependentOptional "false"^^xsd:boolean ;
+        rdfs:label "copd4" .
+
+
+###  http://notation3.org/constraints.owl#COPD_4_L1
+:COPD_4_L1 rdf:type owl:NamedIndividual ,
+                    ns1:Until ;
+           ns1:hasLeftOperand :COPD_4_L1_1 ;
+           ns1:hasRightOperand :Perform_physical_examination .
+
+
+###  http://notation3.org/constraints.owl#COPD_4_L1_1
+:COPD_4_L1_1 rdf:type owl:NamedIndividual ,
+                      ns1:Negation ;
+             ns1:hasOperand :Conduct_baseline_blood_work .
+
+
+###  http://notation3.org/constraints.owl#COPD_5
+:COPD_5 rdf:type owl:NamedIndividual ,
+                 :DecisionalDependency ;
+        :hasDecisionTask :Assess_level_of_care_required ;
+        :hasDependentTask :Admit_to_hospital ;
+        :hasLtlFormula :COPD_5_L1 ;
+        :isDecisionOptional "false"^^xsd:boolean ;
+        :isDependentOptional "true"^^xsd:boolean ;
+        rdfs:label "copd5" .
+
+
+###  http://notation3.org/constraints.owl#COPD_5_L1
+:COPD_5_L1 rdf:type owl:NamedIndividual ,
+                    ns1:Until ;
+           ns1:hasLeftOperand :COPD_5_L1_1 ;
+           ns1:hasRightOperand :Assess_level_of_care_required .
+
+
+###  http://notation3.org/constraints.owl#COPD_5_L1_1
+:COPD_5_L1_1 rdf:type owl:NamedIndividual ,
+                      ns1:Negation ;
+             ns1:hasOperand :Admit_to_hospital .
+
+
+###  http://notation3.org/constraints.owl#Calculate_heart_failure_risk_score
+:Calculate_heart_failure_risk_score rdf:type owl:NamedIndividual ,
+                                             :Task ;
+                                    rdfs:label "Calculate heart failure risk score" .
+
+
+###  http://notation3.org/constraints.owl#Check_for_sepsis_onset
+:Check_for_sepsis_onset rdf:type owl:NamedIndividual ,
+                                 :Task ;
+                        rdfs:label "Check for sepsis onset" .
+
+
+###  http://notation3.org/constraints.owl#Check_vitals
+:Check_vitals rdf:type owl:NamedIndividual ,
+                       :Task ;
+              rdfs:label "Check vitals" .
+
+
+###  http://notation3.org/constraints.owl#Complete_blood_count
+:Complete_blood_count rdf:type owl:NamedIndividual ,
+                               :Task ;
+                      rdfs:label "Complete blood count" .
+
+
+###  http://notation3.org/constraints.owl#Conduct_baseline_blood_work
+:Conduct_baseline_blood_work rdf:type owl:NamedIndividual ,
+                                      :Task ;
+                             rdfs:label "Conduct baseline blood work" .
+
+
+###  http://notation3.org/constraints.owl#Consultation_with_anesthesiologist
+:Consultation_with_anesthesiologist rdf:type owl:NamedIndividual ,
+                                             :Task ;
+                                    rdfs:label "Consultation with anesthesiologist" .
+
+
+###  http://notation3.org/constraints.owl#Consultation_with_internist
+:Consultation_with_internist rdf:type owl:NamedIndividual ,
+                                      :Task ;
+                             rdfs:label "Consultation with internist" .
+
+
+###  http://notation3.org/constraints.owl#Consultation_with_orthopaedic_surgeon
+:Consultation_with_orthopaedic_surgeon rdf:type owl:NamedIndividual ,
+                                                :Task ;
+                                       rdfs:label "Consultation with orthopaedic surgeon" .
+
+
+###  http://notation3.org/constraints.owl#Consultation_with_physician
+:Consultation_with_physician rdf:type owl:NamedIndividual ,
+                                      :Task ;
+                             rdfs:label "Consultation with physician" .
+
+
+###  http://notation3.org/constraints.owl#Correct_hypoglycemia_immediately
+:Correct_hypoglycemia_immediately rdf:type owl:NamedIndividual ,
+                                           :Task ;
+                                  rdfs:label "Correct hypoglycemia immediately" .
+
+
+###  http://notation3.org/constraints.owl#Creatinine
+:Creatinine rdf:type owl:NamedIndividual ,
+                     :Task ;
+            rdfs:label "Creatinine" .
+
+
+###  http://notation3.org/constraints.owl#Echocardiogram
+:Echocardiogram rdf:type owl:NamedIndividual ,
+                         :Task .
+
+
+###  http://notation3.org/constraints.owl#Electrolytes
+:Electrolytes rdf:type owl:NamedIndividual ,
+                       :Task ;
+              rdfs:label "Electrolytes" .
+
+
+###  http://notation3.org/constraints.owl#Evaluate_patients_for_endovascular_therapy
+:Evaluate_patients_for_endovascular_therapy rdf:type owl:NamedIndividual ,
+                                                     :Task ;
+                                            rdfs:label "Evaluate patients for endovascular therapy" .
+
+
+###  http://notation3.org/constraints.owl#Give_antibiotics
+:Give_antibiotics rdf:type owl:NamedIndividual ,
+                           :Task ;
+                  rdfs:label "Give antibiotics" .
+
+
+###  http://notation3.org/constraints.owl#Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies
+:Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies rdf:type owl:NamedIndividual ,
+                                                                                                   :Task ;
+                                                                                          rdfs:label "Give patients appropriate cross-continuum secondary prevention assessments and therapies" .
+
+
+###  http://notation3.org/constraints.owl#Glucose
+:Glucose rdf:type owl:NamedIndividual ,
+                  :Task ;
+         rdfs:label "Glucose" .
+
+
+###  http://notation3.org/constraints.owl#Heart_Failure
+:Heart_Failure rdf:type owl:NamedIndividual ,
+                        :ProcessModel ;
+               :hasConstraint :Heart_Failure_1 ,
+                              :Heart_Failure_2 ,
+                              :Heart_Failure_3 ,
+                              :hf_p1 ;
+               rdfs:label "Heart Failure" .
+
+
+###  http://notation3.org/constraints.owl#Heart_Failure_1
+:Heart_Failure_1 rdf:type owl:NamedIndividual ,
+                          :DecisionalDependency ;
+                 :hasDecisionTask <http://notation3.org/constraints.owl#Serum_creatinine_and_electrolyte_levels,_troponin_measurements,_complete_blood_count,_electrocardiogram,_chest_x-ray_examination> ;
+                 :hasDependentTask <http://notation3.org/constraints.owl#Risk_assessment_%2F_stratification> ;
+                 :hasLtlFormula :Heart_Failure_1_L1 ;
+                 :isDecisionOptional "false"^^xsd:boolean ;
+                 :isDependentOptional "false"^^xsd:boolean ;
+                 rdfs:label "hf1" .
+
+
+###  http://notation3.org/constraints.owl#Heart_Failure_1_L1
+:Heart_Failure_1_L1 rdf:type owl:NamedIndividual ,
+                             ns1:Until ;
+                    ns1:hasLeftOperand :Heart_Failure_1_L1_1 ;
+                    ns1:hasRightOperand <http://notation3.org/constraints.owl#Serum_creatinine_and_electrolyte_levels,_troponin_measurements,_complete_blood_count,_electrocardiogram,_chest_x-ray_examination> .
+
+
+###  http://notation3.org/constraints.owl#Heart_Failure_1_L1_1
+:Heart_Failure_1_L1_1 rdf:type owl:NamedIndividual ,
+                               ns1:Negation ;
+                      ns1:hasOperand <http://notation3.org/constraints.owl#Risk_assessment_%2F_stratification> .
+
+
+###  http://notation3.org/constraints.owl#Heart_Failure_2
+:Heart_Failure_2 rdf:type owl:NamedIndividual ,
+                          :DecisionalDependency ;
+                 :hasDecisionTask :Echocardiogram ;
+                 :hasDependentTask <http://notation3.org/constraints.owl#Risk_assessment_%2F_stratification> ;
+                 :hasLtlFormula :Heart_Failure_2_L1 ;
+                 :isDecisionOptional "true"^^xsd:boolean ;
+                 :isDependentOptional "false"^^xsd:boolean ;
+                 rdfs:label "hf2" .
+
+
+###  http://notation3.org/constraints.owl#Heart_Failure_2_L1
+:Heart_Failure_2_L1 rdf:type owl:NamedIndividual ,
+                             ns1:Globally ;
+                    ns1:hasOperand :Heart_Failure_2_L1_1 .
+
+
+###  http://notation3.org/constraints.owl#Heart_Failure_2_L1_1
+:Heart_Failure_2_L1_1 rdf:type owl:NamedIndividual ,
+                               ns1:Implies ;
+                      ns1:hasLeftOperand :Heart_Failure_2_L1_1_1 ;
+                      ns1:hasRightOperand :Heart_Failure_2_L1_1_2 .
+
+
+###  http://notation3.org/constraints.owl#Heart_Failure_2_L1_1_1
+:Heart_Failure_2_L1_1_1 rdf:type owl:NamedIndividual ,
+                                 ns1:Eventually ;
+                        ns1:hasOperand :Echocardiogram .
+
+
+###  http://notation3.org/constraints.owl#Heart_Failure_2_L1_1_2
+:Heart_Failure_2_L1_1_2 rdf:type owl:NamedIndividual ,
+                                 ns1:Until ;
+                        ns1:hasLeftOperand :Heart_Failure_2_L1_1_2_1 ;
+                        ns1:hasRightOperand :Echocardiogram .
+
+
+###  http://notation3.org/constraints.owl#Heart_Failure_2_L1_1_2_1
+:Heart_Failure_2_L1_1_2_1 rdf:type owl:NamedIndividual ,
+                                   ns1:Negation ;
+                          ns1:hasOperand <http://notation3.org/constraints.owl#Risk_assessment_%2F_stratification> .
+
+
+###  http://notation3.org/constraints.owl#Heart_Failure_3
+:Heart_Failure_3 rdf:type owl:NamedIndividual ,
+                          :DecisionalDependency ;
+                 :hasDecisionTask <http://notation3.org/constraints.owl#Monitor_heart_rate%2C_blood_pressure%2C_oxygen_saturation_until_stabilized> ;
+                 :hasDependentTask <http://notation3.org/constraints.owl#Risk_assessment_%2F_stratification> ;
+                 :hasLtlFormula :Heart_Failure_3_L1 ;
+                 :isDecisionOptional "false"^^xsd:boolean ;
+                 :isDependentOptional "false"^^xsd:boolean ;
+                 rdfs:label "hf3" .
+
+
+###  http://notation3.org/constraints.owl#Heart_Failure_3_L1
+:Heart_Failure_3_L1 rdf:type owl:NamedIndividual ,
+                             ns1:Until ;
+                    ns1:hasLeftOperand :Heart_Failure_3_L1_1 ;
+                    ns1:hasRightOperand <http://notation3.org/constraints.owl#Monitor_heart_rate%2C_blood_pressure%2C_oxygen_saturation_until_stabilized> .
+
+
+###  http://notation3.org/constraints.owl#Heart_Failure_3_L1_1
+:Heart_Failure_3_L1_1 rdf:type owl:NamedIndividual ,
+                               ns1:Negation ;
+                      ns1:hasOperand <http://notation3.org/constraints.owl#Risk_assessment_%2F_stratification> .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture
+:Hip_fracture rdf:type owl:NamedIndividual ,
+                       :ProcessModel ;
+              :hasConstraint :Hip_fracture_1 ,
+                             :Hip_fracture_2 ,
+                             :Hip_fracture_3 ,
+                             :Hip_fracture_4 ,
+                             :Hip_fracture_5 ,
+                             :Hip_fracture_6 ,
+                             :Hip_fracture_7 ,
+                             :Hip_fracture_8 ,
+                             :hpf_p1 ;
+              rdfs:label "Hip Fracture" .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_1
+:Hip_fracture_1 rdf:type owl:NamedIndividual ,
+                         :DecisionalDependency ;
+                :hasDecisionTask :Perform_x-ray ;
+                :hasDependentTask :Consultation_with_physician ;
+                :hasLtlFormula :Hip_fracture_1_L1 ;
+                :isDecisionOptional "false"^^xsd:boolean ;
+                :isDependentOptional "false"^^xsd:boolean ;
+                rdfs:label "hpf1" .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_1_L1
+:Hip_fracture_1_L1 rdf:type owl:NamedIndividual ,
+                            ns1:Until ;
+                   ns1:hasLeftOperand :Hip_fracture_1_L1_1 ;
+                   ns1:hasRightOperand :Perform_x-ray .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_1_L1_1
+:Hip_fracture_1_L1_1 rdf:type owl:NamedIndividual ,
+                              ns1:Negation ;
+                     ns1:hasOperand :Consultation_with_physician .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_2
+:Hip_fracture_2 rdf:type owl:NamedIndividual ,
+                         :DecisionalDependency ;
+                :hasDecisionTask :Consultation_with_physician ;
+                :hasDependentTask :Consultation_with_internist ;
+                :hasLtlFormula :Hip_fracture_2_L1 ;
+                :isDecisionOptional "false"^^xsd:boolean ;
+                :isDependentOptional "true"^^xsd:boolean ;
+                rdfs:label "hpf2" .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_2_L1
+:Hip_fracture_2_L1 rdf:type owl:NamedIndividual ,
+                            ns1:Until ;
+                   ns1:hasLeftOperand :Hip_fracture_2_L1_1 ;
+                   ns1:hasRightOperand :Consultation_with_physician .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_2_L1_1
+:Hip_fracture_2_L1_1 rdf:type owl:NamedIndividual ,
+                              ns1:Negation ;
+                     ns1:hasOperand :Consultation_with_internist .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_3
+:Hip_fracture_3 rdf:type owl:NamedIndividual ,
+                         :DecisionalDependency ;
+                :hasDecisionTask :Consultation_with_physician ;
+                :hasDependentTask :Consultation_with_orthopaedic_surgeon ;
+                :hasLtlFormula :Hip_fracture_3_L1 ;
+                :isDecisionOptional "false"^^xsd:boolean ;
+                :isDependentOptional "false"^^xsd:boolean ;
+                rdfs:label "hpf3" .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_3_L1
+:Hip_fracture_3_L1 rdf:type owl:NamedIndividual ,
+                            ns1:Until ;
+                   ns1:hasLeftOperand :Hip_fracture_3_L1_1 ;
+                   ns1:hasRightOperand :Consultation_with_physician .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_3_L1_1
+:Hip_fracture_3_L1_1 rdf:type owl:NamedIndividual ,
+                              ns1:Negation ;
+                     ns1:hasOperand :Consultation_with_orthopaedic_surgeon .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_4
+:Hip_fracture_4 rdf:type owl:NamedIndividual ,
+                         :DecisionalDependency ;
+                :hasDecisionTask :Consultation_with_physician ;
+                :hasDependentTask :Consultation_with_anesthesiologist ;
+                :hasLtlFormula :Hip_fracture_4_L1 ;
+                :isDecisionOptional "false"^^xsd:boolean ;
+                :isDependentOptional "true"^^xsd:boolean ;
+                rdfs:label "hpf4" .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_4_L1
+:Hip_fracture_4_L1 rdf:type owl:NamedIndividual ,
+                            ns1:Until ;
+                   ns1:hasLeftOperand :Hip_fracture_4_L1_1 ;
+                   ns1:hasRightOperand :Consultation_with_physician .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_4_L1_1
+:Hip_fracture_4_L1_1 rdf:type owl:NamedIndividual ,
+                              ns1:Negation ;
+                     ns1:hasOperand :Consultation_with_anesthesiologist .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_5
+:Hip_fracture_5 rdf:type owl:NamedIndividual ,
+                         :DecisionalDependency ;
+                :hasDecisionTask :Consultation_with_physician ;
+                :hasDependentTask :Perform_medication_reconciliation_within_the_ED ;
+                :hasLtlFormula :Hip_fracture_5_L1 ;
+                :isDecisionOptional "false"^^xsd:boolean ;
+                :isDependentOptional "false"^^xsd:boolean ;
+                rdfs:label "hpf5" .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_5_L1
+:Hip_fracture_5_L1 rdf:type owl:NamedIndividual ,
+                            ns1:Until ;
+                   ns1:hasLeftOperand :Hip_fracture_5_L1_1 ;
+                   ns1:hasRightOperand :Consultation_with_physician .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_5_L1_1
+:Hip_fracture_5_L1_1 rdf:type owl:NamedIndividual ,
+                              ns1:Negation ;
+                     ns1:hasOperand :Perform_medication_reconciliation_within_the_ED .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_6
+:Hip_fracture_6 rdf:type owl:NamedIndividual ,
+                         :DecisionalDependency ;
+                :hasDecisionTask :Consultation_with_physician ;
+                :hasDependentTask <http://notation3.org/constraints.owl#Manage_patients%27_hydration%2C_pain%2C_risk_of_delirium_and_risk_of_pressure_sores_within_the_ED> ;
+                :hasLtlFormula :Hip_fracture_6_L1 ;
+                :isDecisionOptional "false"^^xsd:boolean ;
+                :isDependentOptional "false"^^xsd:boolean ;
+                rdfs:label "hpf6" .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_6_L1
+:Hip_fracture_6_L1 rdf:type owl:NamedIndividual ,
+                            ns1:Until ;
+                   ns1:hasLeftOperand :Hip_fracture_6_L1_1 ;
+                   ns1:hasRightOperand :Consultation_with_physician .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_6_L1_1
+:Hip_fracture_6_L1_1 rdf:type owl:NamedIndividual ,
+                              ns1:Negation ;
+                     ns1:hasOperand <http://notation3.org/constraints.owl#Manage_patients%27_hydration%2C_pain%2C_risk_of_delirium_and_risk_of_pressure_sores_within_the_ED> .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_7
+:Hip_fracture_7 rdf:type owl:NamedIndividual ,
+                         :DecisionalDependency ;
+                :hasDecisionTask :Consultation_with_physician ;
+                :hasDependentTask <http://notation3.org/constraints.owl#Assess_and_document_relevant_information_%5B...%5D> ;
+                :hasLtlFormula :Hip_fracture_7_L1 ;
+                :isDecisionOptional "false"^^xsd:boolean ;
+                :isDependentOptional "false"^^xsd:boolean ;
+                rdfs:label "hpf7" .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_7_L1
+:Hip_fracture_7_L1 rdf:type owl:NamedIndividual ,
+                            ns1:Until ;
+                   ns1:hasLeftOperand :Hip_fracture_7_L1_1 ;
+                   ns1:hasRightOperand :Consultation_with_physician .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_7_L1_1
+:Hip_fracture_7_L1_1 rdf:type owl:NamedIndividual ,
+                              ns1:Negation ;
+                     ns1:hasOperand <http://notation3.org/constraints.owl#Assess_and_document_relevant_information_%5B...%5D> .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_8
+:Hip_fracture_8 rdf:type owl:NamedIndividual ,
+                         :DecisionalDependency ;
+                :hasDecisionTask :Consultation_with_orthopaedic_surgeon ;
+                :hasDependentTask :Consultation_with_anesthesiologist ;
+                :hasLtlFormula :Hip_fracture_8_L1 ;
+                :isDecisionOptional "false"^^xsd:boolean ;
+                :isDependentOptional "true"^^xsd:boolean ;
+                rdfs:label "hpf8" .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_8_L1
+:Hip_fracture_8_L1 rdf:type owl:NamedIndividual ,
+                            ns1:Until ;
+                   ns1:hasLeftOperand :Hip_fracture_8_L1_1 ;
+                   ns1:hasRightOperand :Consultation_with_orthopaedic_surgeon .
+
+
+###  http://notation3.org/constraints.owl#Hip_fracture_8_L1_1
+:Hip_fracture_8_L1_1 rdf:type owl:NamedIndividual ,
+                              ns1:Negation ;
+                     ns1:hasOperand :Consultation_with_anesthesiologist .
+
+
+###  http://notation3.org/constraints.owl#INR
+:INR rdf:type owl:NamedIndividual ,
+              :Task ;
+     rdfs:label "INR" .
+
+
+###  http://notation3.org/constraints.owl#Immediate_expert_healthcare_provider_interpretation_of_the_brain_imaging
+:Immediate_expert_healthcare_provider_interpretation_of_the_brain_imaging rdf:type owl:NamedIndividual ,
+                                                                                   :Task ;
+                                                                          rdfs:label "Immediate expert healthcare provider interpretation of the brain imaging" .
+
+
+###  http://notation3.org/constraints.owl#Manage_hydration
+:Manage_hydration rdf:type owl:NamedIndividual ,
+                           :Task ;
+                  rdfs:label "Manage hydration" .
+
+
+###  http://notation3.org/constraints.owl#Manage_pain
+:Manage_pain rdf:type owl:NamedIndividual ,
+                      :Task ;
+             rdfs:label "Manage pain" .
+
+
+###  http://notation3.org/constraints.owl#Manage_risk_of_delirium
+:Manage_risk_of_delirium rdf:type owl:NamedIndividual ,
+                                  :Task ;
+                         rdfs:label "Manage risk of delirium" .
+
+
+###  http://notation3.org/constraints.owl#Manage_risk_of_pressure_sores
+:Manage_risk_of_pressure_sores rdf:type owl:NamedIndividual ,
+                                        :Task ;
+                               rdfs:label "Manage risk of pressure sores" .
+
+
+###  http://notation3.org/constraints.owl#PCR_testing_for_Legionella
+:PCR_testing_for_Legionella rdf:type owl:NamedIndividual ,
+                                     :Task ;
+                            rdfs:label "PCR testing for Legionella" .
+
+
+###  http://notation3.org/constraints.owl#Partial_thromboplastin_time
+:Partial_thromboplastin_time rdf:type owl:NamedIndividual ,
+                                      :Task ;
+                             rdfs:label "Partial thromboplastin time" .
+
+
+###  http://notation3.org/constraints.owl#Perform_chest_x-ray
+:Perform_chest_x-ray rdf:type owl:NamedIndividual ,
+                              :Task ;
+                     rdfs:label "Perform chest x-ray" .
+
+
+###  http://notation3.org/constraints.owl#Perform_glucose_measurement
+:Perform_glucose_measurement rdf:type owl:NamedIndividual ,
+                                      :Task ;
+                             rdfs:label "Perform glucose measurement" .
+
+
+###  http://notation3.org/constraints.owl#Perform_medication_reconciliation_within_the_ED
+:Perform_medication_reconciliation_within_the_ED rdf:type owl:NamedIndividual ,
+                                                          :Task ;
+                                                 rdfs:label "Perform medication reconciliation within the ED" .
+
+
+###  http://notation3.org/constraints.owl#Perform_physical_examination
+:Perform_physical_examination rdf:type owl:NamedIndividual ,
+                                       :Task ;
+                              rdfs:label "Perform physical examination" .
+
+
+###  http://notation3.org/constraints.owl#Perform_x-ray
+:Perform_x-ray rdf:type owl:NamedIndividual ,
+                        :Task ;
+               rdfs:label "Perform x-ray" .
+
+
+###  http://notation3.org/constraints.owl#Re-evaluate_for_admission
+:Re-evaluate_for_admission rdf:type owl:NamedIndividual ,
+                                    :Task ;
+                           rdfs:label "Re-evaluate for admission" .
+
+
+###  http://notation3.org/constraints.owl#Rectal_or_gastric_ASA_should_be_offered
+:Rectal_or_gastric_ASA_should_be_offered rdf:type owl:NamedIndividual ,
+                                                  :Task ;
+                                         rdfs:label "Rectal or gastric ASA should be offered" .
+
+
+###  http://notation3.org/constraints.owl#Repeat_blood_glucose_measurement
+:Repeat_blood_glucose_measurement rdf:type owl:NamedIndividual ,
+                                           :Task ;
+                                  rdfs:label "Repeat blood glucose measurement" .
+
+
+###  http://notation3.org/constraints.owl#Resuscitation_need
+:Resuscitation_need rdf:type owl:NamedIndividual ,
+                             :Condition ;
+                    rdfs:label "Resuscitation need" .
+
+
+###  http://notation3.org/constraints.owl#Sepsis_onset
+:Sepsis_onset rdf:type owl:NamedIndividual ,
+                       :Condition ;
+              rdfs:label "Sepsis onset" .
+
+
+###  http://notation3.org/constraints.owl#Stroke_1
+:Stroke_1 rdf:type owl:NamedIndividual ,
+                   :ProcessModel ;
+          :hasConstraint :Stroke_1_1 ,
+                         :Stroke_1_2 ,
+                         :stroke_p1 ,
+                         :stroke_p2 ;
+          rdfs:label "Stroke 1" .
+
+
+###  http://notation3.org/constraints.owl#Stroke_1_1
+:Stroke_1_1 rdf:type owl:NamedIndividual ,
+                     :EntryPoint ;
+            :hasLtlFormula :Stroke_1_1_L1 ;
+            :hasTask <http://notation3.org/constraints.owl#Rapid_initial_evaluation_for_airway%2C_breathing%2C_and_circulation> ;
+            rdfs:label "stroke11" .
+
+
+###  http://notation3.org/constraints.owl#Stroke_1_1_L1
+:Stroke_1_1_L1 rdf:type owl:NamedIndividual ,
+                        ns1:Next ;
+               ns1:hasOperand <http://notation3.org/constraints.owl#Rapid_initial_evaluation_for_airway%2C_breathing%2C_and_circulation> .
+
+
+###  http://notation3.org/constraints.owl#Stroke_1_2
+:Stroke_1_2 rdf:type owl:NamedIndividual ,
+                     :ExitPoint ;
+            :hasLtlFormula :Stroke_1_2_L1 ;
+            :hasTask :Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies ;
+            rdfs:label "stroke12" .
+
+
+###  http://notation3.org/constraints.owl#Stroke_1_2_L1
+:Stroke_1_2_L1 rdf:type owl:NamedIndividual ,
+                        ns1:Eventually ;
+               ns1:hasOperand :Stroke_1_2_L1_1 .
+
+
+###  http://notation3.org/constraints.owl#Stroke_1_2_L1_1
+:Stroke_1_2_L1_1 rdf:type owl:NamedIndividual ,
+                          ns1:And ;
+                 ns1:hasLeftOperand :Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies ;
+                 ns1:hasRightOperand :Stroke_1_2_L1_1_2 .
+
+
+###  http://notation3.org/constraints.owl#Stroke_1_2_L1_1_2
+:Stroke_1_2_L1_1_2 rdf:type owl:NamedIndividual ,
+                            ns1:Next ;
+                   ns1:hasOperand :last .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2
+:Stroke_2 rdf:type owl:NamedIndividual ,
+                   :ProcessModel ;
+          :hasConstraint :Stroke_2_1 ,
+                         :Stroke_2_2 ,
+                         :Stroke_2_3 ,
+                         :Stroke_2_a1 ,
+                         :stroke2_a2 ,
+                         :stroke2_a3 ;
+          rdfs:label "Stroke 2" .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2_1
+:Stroke_2_1 rdf:type owl:NamedIndividual ,
+                     :DecisionalDependency ;
+            :hasDecisionTask :Perform_glucose_measurement ;
+            :hasDependentTask :Correct_hypoglycemia_immediately ;
+            :hasLtlFormula :Stroke_2_1_L1 ;
+            :isDecisionOptional "false"^^xsd:boolean ;
+            :isDependentOptional "true"^^xsd:boolean ;
+            rdfs:label "stroke21" .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2_1_L1
+:Stroke_2_1_L1 rdf:type owl:NamedIndividual ,
+                        ns1:Until ;
+               ns1:hasLeftOperand :Stroke_2_1_L1_1 ;
+               ns1:hasRightOperand :Perform_glucose_measurement .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2_1_L1_1
+:Stroke_2_1_L1_1 rdf:type owl:NamedIndividual ,
+                          ns1:Negation ;
+                 ns1:hasOperand :Correct_hypoglycemia_immediately .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2_2
+:Stroke_2_2 rdf:type owl:NamedIndividual ,
+                     :DecisionalDependency ;
+            :hasDecisionTask :Repeat_blood_glucose_measurement ;
+            :hasDependentTask :Correct_hypoglycemia_immediately ;
+            :hasLtlFormula :Stroke_2_2_L1 ;
+            :isDecisionOptional "true"^^xsd:boolean ;
+            :isDependentOptional "true"^^xsd:boolean ;
+            rdfs:label "stroke22" .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2_2_L1
+:Stroke_2_2_L1 rdf:type owl:NamedIndividual ,
+                        ns1:Globally ;
+               ns1:hasOperand :Stroke_2_2_L1_1 .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2_2_L1_1
+:Stroke_2_2_L1_1 rdf:type owl:NamedIndividual ,
+                          ns1:Implies ;
+                 ns1:hasLeftOperand :Stroke_2_2_L1_1_1 ;
+                 ns1:hasRightOperand :Stroke_2_2_L1_1_2 .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2_2_L1_1_1
+:Stroke_2_2_L1_1_1 rdf:type owl:NamedIndividual ,
+                            ns1:Eventually ;
+                   ns1:hasOperand :Repeat_blood_glucose_measurement .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2_2_L1_1_2
+:Stroke_2_2_L1_1_2 rdf:type owl:NamedIndividual ,
+                            ns1:Until ;
+                   ns1:hasLeftOperand :Stroke_2_2_L1_1_2_1 ;
+                   ns1:hasRightOperand :Repeat_blood_glucose_measurement .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2_2_L1_1_2_1
+:Stroke_2_2_L1_1_2_1 rdf:type owl:NamedIndividual ,
+                              ns1:Negation ;
+                     ns1:hasOperand :Correct_hypoglycemia_immediately .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2_3
+:Stroke_2_3 rdf:type owl:NamedIndividual ,
+                     :ExitPoint ;
+            :hasLtlFormula :Stroke_2_3_L1 ;
+            :hasTask :Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies ;
+            rdfs:label "stroke23" .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2_3_L1
+:Stroke_2_3_L1 rdf:type owl:NamedIndividual ,
+                        ns1:Eventually ;
+               ns1:hasOperand :Stroke_2_3_L1_1 .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2_3_L1_1
+:Stroke_2_3_L1_1 rdf:type owl:NamedIndividual ,
+                          ns1:And ;
+                 ns1:hasLeftOperand :Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies ;
+                 ns1:hasRightOperand :Stroke_2_3_L1_1_2 .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2_3_L1_1_2
+:Stroke_2_3_L1_1_2 rdf:type owl:NamedIndividual ,
+                            ns1:Next ;
+                   ns1:hasOperand :last .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2_a1
+:Stroke_2_a1 rdf:type owl:NamedIndividual ,
+                      :Alternative ;
+             :hasLtlFormula :Stroke_2_a1_L1 ;
+             :hasReplaced <http://notation3.org/constraints.owl#Aspirin_(ASA)_160_mg_as_a_loading_dose,_then_a_daily_dose_of_81–325_mg_(usually_81_mg_for_maintenance)> ;
+             :hasReplacement :Rectal_or_gastric_ASA_should_be_offered ;
+             rdfs:label "stroke2_a1" .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2_a1_L1
+:Stroke_2_a1_L1 rdf:type owl:NamedIndividual ,
+                         ns1:Implies ;
+                ns1:hasLeftOperand :Stroke_2_a1_L1_1 ;
+                ns1:hasRightOperand :Stroke_2_a1_L1_2 .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2_a1_L1_1
+:Stroke_2_a1_L1_1 rdf:type owl:NamedIndividual ,
+                           ns1:Eventually ;
+                  ns1:hasOperand <http://notation3.org/constraints.owl#Aspirin_(ASA)_160_mg_as_a_loading_dose,_then_a_daily_dose_of_81–325_mg_(usually_81_mg_for_maintenance)> .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2_a1_L1_2
+:Stroke_2_a1_L1_2 rdf:type owl:NamedIndividual ,
+                           ns1:Negation ;
+                  ns1:hasOperand :Stroke_2_a1_L1_2_1 .
+
+
+###  http://notation3.org/constraints.owl#Stroke_2_a1_L1_2_1
+:Stroke_2_a1_L1_2_1 rdf:type owl:NamedIndividual ,
+                             ns1:Eventually ;
+                    ns1:hasOperand :Rectal_or_gastric_ASA_should_be_offered .
+
+
+###  http://notation3.org/constraints.owl#Stroke_3
+:Stroke_3 rdf:type owl:NamedIndividual ,
+                   :ProcessModel ;
+          :hasConstraint :Stroke_3_1 ;
+          rdfs:label "Stroke 3" .
+
+
+###  http://notation3.org/constraints.owl#Stroke_3_1
+:Stroke_3_1 rdf:type owl:NamedIndividual ,
+                     :ExitPoint ;
+            :hasLtlFormula :Stroke_3_1_L1 ;
+            :hasTask :Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies ;
+            rdfs:label "stroke31" .
+
+
+###  http://notation3.org/constraints.owl#Stroke_3_1_L1
+:Stroke_3_1_L1 rdf:type owl:NamedIndividual ,
+                        ns1:Eventually ;
+               ns1:hasOperand :Stroke_3_1_L1_1 .
+
+
+###  http://notation3.org/constraints.owl#Stroke_3_1_L1_1
+:Stroke_3_1_L1_1 rdf:type owl:NamedIndividual ,
+                          ns1:And ;
+                 ns1:hasLeftOperand :Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies ;
+                 ns1:hasRightOperand :Stroke_3_1_L1_1_2 .
+
+
+###  http://notation3.org/constraints.owl#Stroke_3_1_L1_1_2
+:Stroke_3_1_L1_1_2 rdf:type owl:NamedIndividual ,
+                            ns1:Next ;
+                   ns1:hasOperand :last .
+
+
+###  http://notation3.org/constraints.owl#Stroke_4
+:Stroke_4 rdf:type owl:NamedIndividual ,
+                   :ProcessModel ;
+          :hasConstraint :Stroke_4_1 ,
+                         :Stroke_4_2 ,
+                         :Stroke_4_3 ,
+                         :Stroke_4_4 ,
+                         :stroke_p1 ,
+                         :stroke_p2 ;
+          rdfs:label "Stroke 4" .
+
+
+###  http://notation3.org/constraints.owl#Stroke_4_1
+:Stroke_4_1 rdf:type owl:NamedIndividual ,
+                     :EntryPoint ;
+            :hasLtlFormula :Stroke_4_1_L1 ;
+            :hasTask <http://notation3.org/constraints.owl#Rapid_initial_evaluation_for_airway%2C_breathing%2C_and_circulation> ;
+            rdfs:label "stroke41" .
+
+
+###  http://notation3.org/constraints.owl#Stroke_4_1_L1
+:Stroke_4_1_L1 rdf:type owl:NamedIndividual ,
+                        ns1:Next ;
+               ns1:hasOperand <http://notation3.org/constraints.owl#Rapid_initial_evaluation_for_airway%2C_breathing%2C_and_circulation> .
+
+
+###  http://notation3.org/constraints.owl#Stroke_4_2
+:Stroke_4_2 rdf:type owl:NamedIndividual ,
+                     :ExitPoint ;
+            :hasLtlFormula :Stroke_4_2_L1 ;
+            :hasTask :Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies ;
+            rdfs:label "stroke42" .
+
+
+###  http://notation3.org/constraints.owl#Stroke_4_2_L1
+:Stroke_4_2_L1 rdf:type owl:NamedIndividual ,
+                        ns1:Eventually ;
+               ns1:hasOperand :Stroke_4_2_L1_1 .
+
+
+###  http://notation3.org/constraints.owl#Stroke_4_2_L1_1
+:Stroke_4_2_L1_1 rdf:type owl:NamedIndividual ,
+                          ns1:And ;
+                 ns1:hasLeftOperand :Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies ;
+                 ns1:hasRightOperand :Stroke_4_2_L1_1_2 .
+
+
+###  http://notation3.org/constraints.owl#Stroke_4_2_L1_1_2
+:Stroke_4_2_L1_1_2 rdf:type owl:NamedIndividual ,
+                            ns1:Next ;
+                   ns1:hasOperand :last .
+
+
+###  http://notation3.org/constraints.owl#Stroke_4_3
+:Stroke_4_3 rdf:type owl:NamedIndividual ,
+                     :DecisionalDependency ;
+            :hasDecisionTask :Immediate_expert_healthcare_provider_interpretation_of_the_brain_imaging ;
+            :hasDependentTask :Evaluate_patients_for_endovascular_therapy ;
+            :hasLtlFormula :Stroke_4_3_L1 ;
+            :isDecisionOptional "true"^^xsd:boolean ;
+            :isDependentOptional "true"^^xsd:boolean ;
+            rdfs:label "stroke43" .
+
+
+###  http://notation3.org/constraints.owl#Stroke_4_3_L1
+:Stroke_4_3_L1 rdf:type owl:NamedIndividual ,
+                        ns1:Globally ;
+               ns1:hasOperand :Stroke_4_3_L1_1 .
+
+
+###  http://notation3.org/constraints.owl#Stroke_4_3_L1_1
+:Stroke_4_3_L1_1 rdf:type owl:NamedIndividual ,
+                          ns1:Implies ;
+                 ns1:hasLeftOperand :Stroke_4_3_L1_1_1 ;
+                 ns1:hasRightOperand :Stroke_4_3_L1_1_2 .
+
+
+###  http://notation3.org/constraints.owl#Stroke_4_3_L1_1_1
+:Stroke_4_3_L1_1_1 rdf:type owl:NamedIndividual ,
+                            ns1:Eventually ;
+                   ns1:hasOperand :Immediate_expert_healthcare_provider_interpretation_of_the_brain_imaging .
+
+
+###  http://notation3.org/constraints.owl#Stroke_4_3_L1_1_2
+:Stroke_4_3_L1_1_2 rdf:type owl:NamedIndividual ,
+                            ns1:Until ;
+                   ns1:hasLeftOperand :Stroke_4_3_L1_1_2_1 ;
+                   ns1:hasRightOperand :Immediate_expert_healthcare_provider_interpretation_of_the_brain_imaging .
+
+
+###  http://notation3.org/constraints.owl#Stroke_4_3_L1_1_2_1
+:Stroke_4_3_L1_1_2_1 rdf:type owl:NamedIndividual ,
+                              ns1:Negation ;
+                     ns1:hasOperand :Evaluate_patients_for_endovascular_therapy .
+
+
+###  http://notation3.org/constraints.owl#Stroke_4_4
+:Stroke_4_4 rdf:type owl:NamedIndividual ,
+                     :DecisionalDependency ;
+            :hasDecisionTask <http://notation3.org/constraints.owl#Neurological_examination_to_determine_focal_neurological_deficits_and_assess_stroke_severity_on_a_standardized_stroke_scale_%28NIHSS_or_CNS_for_stroke%29> ;
+            :hasDependentTask :Evaluate_patients_for_endovascular_therapy ;
+            :hasLtlFormula :Stroke_4_4_L1 ;
+            :isDecisionOptional "false"^^xsd:boolean ;
+            :isDependentOptional "true"^^xsd:boolean ;
+            rdfs:label "stroke44" .
+
+
+###  http://notation3.org/constraints.owl#Stroke_4_4_L1
+:Stroke_4_4_L1 rdf:type owl:NamedIndividual ,
+                        ns1:Until ;
+               ns1:hasLeftOperand :Stroke_4_4_L1_1 ;
+               ns1:hasRightOperand <http://notation3.org/constraints.owl#Neurological_examination_to_determine_focal_neurological_deficits_and_assess_stroke_severity_on_a_standardized_stroke_scale_%28NIHSS_or_CNS_for_stroke%29> .
+
+
+###  http://notation3.org/constraints.owl#Stroke_4_4_L1_1
+:Stroke_4_4_L1_1 rdf:type owl:NamedIndividual ,
+                          ns1:Negation ;
+                 ns1:hasOperand :Evaluate_patients_for_endovascular_therapy .
+
+
+###  http://notation3.org/constraints.owl#Trial_immediate_resuscitation
+:Trial_immediate_resuscitation rdf:type owl:NamedIndividual ,
+                                        :Task ;
+                               rdfs:label "Trial immediate resuscitation" .
+
+
+###  http://notation3.org/constraints.owl#Troponin_test
+:Troponin_test rdf:type owl:NamedIndividual ,
+                        :Task ;
+               rdfs:label "Troponin test" .
+
+
+###  http://notation3.org/constraints.owl#cap5
+:cap5 rdf:type owl:NamedIndividual ,
+               :EntryPoint ;
+      :hasLtlFormula :cap5_L1 ;
+      :hasTask :Check_for_sepsis_onset ;
+      rdfs:label "cap5" .
+
+
+###  http://notation3.org/constraints.owl#cap5_L1
+:cap5_L1 rdf:type owl:NamedIndividual ,
+                  ns1:Next ;
+         ns1:hasOperand :Check_for_sepsis_onset .
+
+
+###  http://notation3.org/constraints.owl#copd_p1
+:copd_p1 rdf:type owl:NamedIndividual ,
+                  :PartOf ;
+         :hasAggregate :Perform_physical_examination ;
+         :hasPart :Check_vitals ;
+         rdfs:label "copd_p1" .
+
+
+###  http://notation3.org/constraints.owl#copd_p2
+:copd_p2 rdf:type owl:NamedIndividual ,
+                  :PartOf ;
+         :hasAggregate :Conduct_baseline_blood_work ;
+         :hasPart :Blood_urea_nitrogen ,
+                  :Complete_blood_count ,
+                  :Creatinine ,
+                  :Electrolytes ;
+         rdfs:label "copd_p2" .
+
+
+###  http://notation3.org/constraints.owl#hf_p1
+:hf_p1 rdf:type owl:NamedIndividual ,
+                :PartOf ;
+       :hasAggregate <http://notation3.org/constraints.owl#Risk_assessment_%2F_stratification> ;
+       :hasPart :Assess_high-risk_markers ,
+                :Calculate_heart_failure_risk_score ;
+       rdfs:label "hf_p1" .
+
+
+###  http://notation3.org/constraints.owl#hpf_p1
+:hpf_p1 rdf:type owl:NamedIndividual ,
+                 :PartOf ;
+        :hasAggregate <http://notation3.org/constraints.owl#Manage_patients%27_hydration%2C_pain%2C_risk_of_delirium_and_risk_of_pressure_sores_within_the_ED> ;
+        :hasPart :Manage_hydration ,
+                 :Manage_pain ,
+                 :Manage_risk_of_delirium ,
+                 :Manage_risk_of_pressure_sores ;
+        rdfs:label "hpf_p1" .
+
+
+###  http://notation3.org/constraints.owl#last
+:last rdf:type owl:NamedIndividual ,
+               ns1:LtlAtom .
+
+
+###  http://notation3.org/constraints.owl#stroke2_a2
+:stroke2_a2 rdf:type owl:NamedIndividual ,
+                     :Alternative ;
+            :hasLtlFormula :stroke2_a2_L1 ;
+            :hasReplaced <http://notation3.org/constraints.owl#Clopidogrel_300_mg_as_a_loading_dose,_followed_by_75_mg_daily.> ;
+            :hasReplacement :Rectal_or_gastric_ASA_should_be_offered ;
+            rdfs:label "stroke2_a2" .
+
+
+###  http://notation3.org/constraints.owl#stroke2_a2_L1
+:stroke2_a2_L1 rdf:type owl:NamedIndividual ,
+                        ns1:Implies ;
+               ns1:hasLeftOperand :stroke2_a2_L1_1 ;
+               ns1:hasRightOperand :stroke2_a2_L1_2 .
+
+
+###  http://notation3.org/constraints.owl#stroke2_a2_L1_1
+:stroke2_a2_L1_1 rdf:type owl:NamedIndividual ,
+                          ns1:Eventually ;
+                 ns1:hasOperand <http://notation3.org/constraints.owl#Clopidogrel_300_mg_as_a_loading_dose,_followed_by_75_mg_daily.> .
+
+
+###  http://notation3.org/constraints.owl#stroke2_a2_L1_2
+:stroke2_a2_L1_2 rdf:type owl:NamedIndividual ,
+                          ns1:Negation ;
+                 ns1:hasOperand :stroke2_a2_L1_2_1 .
+
+
+###  http://notation3.org/constraints.owl#stroke2_a2_L1_2_1
+:stroke2_a2_L1_2_1 rdf:type owl:NamedIndividual ,
+                            ns1:Eventually ;
+                   ns1:hasOperand :Rectal_or_gastric_ASA_should_be_offered .
+
+
+###  http://notation3.org/constraints.owl#stroke2_a3
+:stroke2_a3 rdf:type owl:NamedIndividual ,
+                     :Alternative ;
+            :hasLtlFormula :stroke2_a3_L1 ;
+            :hasReplaced <http://notation3.org/constraints.owl#Extended-release_Dipyridamole_+_Aspirin_(Aggrenox)_200_mg_Dipyridamole_+_25_mg_Aspirin_twice_daily_(initial_dose_includes_ASA_160_mg)> ;
+            :hasReplacement :Rectal_or_gastric_ASA_should_be_offered ;
+            rdfs:label "stroke2_a3" .
+
+
+###  http://notation3.org/constraints.owl#stroke2_a3_L1
+:stroke2_a3_L1 rdf:type owl:NamedIndividual ,
+                        ns1:Implies ;
+               ns1:hasLeftOperand :stroke2_a3_L1_1 ;
+               ns1:hasRightOperand :stroke2_a3_L1_2 .
+
+
+###  http://notation3.org/constraints.owl#stroke2_a3_L1_1
+:stroke2_a3_L1_1 rdf:type owl:NamedIndividual ,
+                          ns1:Eventually ;
+                 ns1:hasOperand <http://notation3.org/constraints.owl#Extended-release_Dipyridamole_+_Aspirin_(Aggrenox)_200_mg_Dipyridamole_+_25_mg_Aspirin_twice_daily_(initial_dose_includes_ASA_160_mg)> .
+
+
+###  http://notation3.org/constraints.owl#stroke2_a3_L1_2
+:stroke2_a3_L1_2 rdf:type owl:NamedIndividual ,
+                          ns1:Negation ;
+                 ns1:hasOperand :stroke2_a3_L1_2_1 .
+
+
+###  http://notation3.org/constraints.owl#stroke2_a3_L1_2_1
+:stroke2_a3_L1_2_1 rdf:type owl:NamedIndividual ,
+                            ns1:Eventually ;
+                   ns1:hasOperand :Rectal_or_gastric_ASA_should_be_offered .
+
+
+###  http://notation3.org/constraints.owl#stroke_p1
+:stroke_p1 rdf:type owl:NamedIndividual ,
+                    :PartOf ;
+           :hasAggregate <http://notation3.org/constraints.owl#Rapid_initial_evaluation_for_airway%2C_breathing%2C_and_circulation> ;
+           :hasPart :Assess_airway ,
+                    :Assess_breathing ,
+                    :Assess_circulation ;
+           rdfs:label "stroke_p1" .
+
+
+###  http://notation3.org/constraints.owl#stroke_p2
+:stroke_p2 rdf:type owl:NamedIndividual ,
+                    :PartOf ;
+           :hasAggregate <http://notation3.org/constraints.owl#Blood_work%3A_CBC%2C_electrolytes%2C_creatinine%2C_glucose%2C_INR%2C_partial_thromboplastin_time> ;
+           :hasPart :CBC ,
+                    :Creatinine ,
+                    :Electrolytes ,
+                    :Glucose ,
+                    :INR ,
+                    :Partial_thromboplastin_time ;
+           rdfs:label "stroke_p2" .
+
+
+###  http://notation3.org/constraints.owl#Aspirin_(ASA)_160_mg_as_a_loading_dose,_then_a_daily_dose_of_81–325_mg_(usually_81_mg_for_maintenance)
+<http://notation3.org/constraints.owl#Aspirin_(ASA)_160_mg_as_a_loading_dose,_then_a_daily_dose_of_81–325_mg_(usually_81_mg_for_maintenance)> rdf:type owl:NamedIndividual ,
+                                                                                                                                                       :Task ;
+                                                                                                                                              rdfs:label "Aspirin (ASA) 160 mg as a loading dose, then a daily dose of 81–325 mg (usually 81 mg for maintenance)" .
+
+
+###  http://notation3.org/constraints.owl#Assess_and_document_relevant_information_%5B...%5D
+<http://notation3.org/constraints.owl#Assess_and_document_relevant_information_%5B...%5D> rdf:type owl:NamedIndividual ,
+                                                                                                   :Task ;
+                                                                                          rdfs:label "Assess and document relevant information [...]" .
+
+
+###  http://notation3.org/constraints.owl#Blood_work%3A_CBC%2C_electrolytes%2C_creatinine%2C_glucose%2C_INR%2C_partial_thromboplastin_time
+<http://notation3.org/constraints.owl#Blood_work%3A_CBC%2C_electrolytes%2C_creatinine%2C_glucose%2C_INR%2C_partial_thromboplastin_time> rdf:type owl:NamedIndividual ,
+                                                                                                                                                 :Task ;
+                                                                                                                                        rdfs:label "Blood work: CBC, electrolytes, creatinine, glucose, INR, partial thromboplastin time" .
+
+
+###  http://notation3.org/constraints.owl#Clopidogrel_300_mg_as_a_loading_dose,_followed_by_75_mg_daily.
+<http://notation3.org/constraints.owl#Clopidogrel_300_mg_as_a_loading_dose,_followed_by_75_mg_daily.> rdf:type owl:NamedIndividual ,
+                                                                                                               :Task ;
+                                                                                                      rdfs:label "Clopidogrel 300 mg as a loading dose, followed by 75 mg daily." .
+
+
+###  http://notation3.org/constraints.owl#Extended-release_Dipyridamole_+_Aspirin_(Aggrenox)_200_mg_Dipyridamole_+_25_mg_Aspirin_twice_daily_(initial_dose_includes_ASA_160_mg)
+<http://notation3.org/constraints.owl#Extended-release_Dipyridamole_+_Aspirin_(Aggrenox)_200_mg_Dipyridamole_+_25_mg_Aspirin_twice_daily_(initial_dose_includes_ASA_160_mg)> rdf:type owl:NamedIndividual ,
+                                                                                                                                                                                      :Task ;
+                                                                                                                                                                             rdfs:label "Extended-release Dipyridamole + Aspirin (Aggrenox) 200 mg Dipyridamole + 25 mg Aspirin twice daily (initial dose includes ASA 160 mg)" .
+
+
+###  http://notation3.org/constraints.owl#Manage_patients%27_hydration%2C_pain%2C_risk_of_delirium_and_risk_of_pressure_sores_within_the_ED
+<http://notation3.org/constraints.owl#Manage_patients%27_hydration%2C_pain%2C_risk_of_delirium_and_risk_of_pressure_sores_within_the_ED> rdf:type owl:NamedIndividual ,
+                                                                                                                                                  :Task ;
+                                                                                                                                         rdfs:label "Manage patient hydration, pain, risk of delirium and risk of pressure sores within the ED" .
+
+
+###  http://notation3.org/constraints.owl#Mark:_resuscitation_need
+:Mark:_resuscitation_need rdf:type owl:NamedIndividual ,
+                                   :Task ;
+                          rdfs:label "Mark: resuscitation need" .
+
+
+###  http://notation3.org/constraints.owl#Mark:_sepsis_onset
+:Mark:_sepsis_onset rdf:type owl:NamedIndividual ,
+                             :Task ;
+                    rdfs:label "Mark: sepsis onset" .
+
+
+###  http://notation3.org/constraints.owl#Monitor_heart_rate%2C_blood_pressure%2C_oxygen_saturation_until_stabilized
+<http://notation3.org/constraints.owl#Monitor_heart_rate%2C_blood_pressure%2C_oxygen_saturation_until_stabilized> rdf:type owl:NamedIndividual ,
+                                                                                                                           :Task ;
+                                                                                                                  rdfs:label "Monitor heart rate, blood pressure, oxygen saturation until stabilized" .
+
+
+###  http://notation3.org/constraints.owl#Neurological_examination_to_determine_focal_neurological_deficits_and_assess_stroke_severity_on_a_standardized_stroke_scale_%28NIHSS_or_CNS_for_stroke%29
+<http://notation3.org/constraints.owl#Neurological_examination_to_determine_focal_neurological_deficits_and_assess_stroke_severity_on_a_standardized_stroke_scale_%28NIHSS_or_CNS_for_stroke%29> rdf:type owl:NamedIndividual ,
+                                                                                                                                                                                                          :Task ;
+                                                                                                                                                                                                 rdfs:label "Neurological examination to determine focal neurological deficits and assess stroke severity on a standardized stroke scale (NIHSS or CNS for stroke)" .
+
+
+###  http://notation3.org/constraints.owl#Rapid_initial_evaluation_for_airway%2C_breathing%2C_and_circulation
+<http://notation3.org/constraints.owl#Rapid_initial_evaluation_for_airway%2C_breathing%2C_and_circulation> rdf:type owl:NamedIndividual ,
+                                                                                                                    :Task ;
+                                                                                                           rdfs:label "Rapid initial evaluation for airway, breathing, and circulation" .
+
+
+###  http://notation3.org/constraints.owl#Risk_assessment_%2F_stratification
+<http://notation3.org/constraints.owl#Risk_assessment_%2F_stratification> rdf:type owl:NamedIndividual ,
+                                                                                   :Task ;
+                                                                          rdfs:label "Risk assessment / stratification" .
+
+
+###  http://notation3.org/constraints.owl#Serum_creatinine_and_electrolyte_levels,_troponin_measurements,_complete_blood_count,_electrocardiogram,_chest_x-ray_examination
+<http://notation3.org/constraints.owl#Serum_creatinine_and_electrolyte_levels,_troponin_measurements,_complete_blood_count,_electrocardiogram,_chest_x-ray_examination> rdf:type owl:NamedIndividual ,
+                                                                                                                                                                                 :Task ;
+                                                                                                                                                                        rdfs:label "Serum creatinine and electrolyte levels, troponin measurements, complete blood count, electrocardiogram, chest x-ray examination" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Alternative
+                :Conflict
+                :DecisionalDependency
+                :EntryPoint
+                :ExitPoint
+                :PartOf
+                :PrioritizedConditional
+                ns1:LtlFormula
+              )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Admit_to_hospital
+                        :Assess_airway
+                        :Assess_breathing
+                        :Assess_circulation
+                        :Assess_high-risk_markers
+                        :Assess_level_of_care_required
+                        :Blood_cultures
+                        :Blood_urea_nitrogen
+                        :CBC
+                        :Calculate_heart_failure_risk_score
+                        :Check_for_sepsis_onset
+                        :Check_vitals
+                        :Complete_blood_count
+                        :Conduct_baseline_blood_work
+                        :Consultation_with_anesthesiologist
+                        :Consultation_with_internist
+                        :Consultation_with_orthopaedic_surgeon
+                        :Consultation_with_physician
+                        :Correct_hypoglycemia_immediately
+                        :Creatinine
+                        :Echocardiogram
+                        :Electrolytes
+                        :Evaluate_patients_for_endovascular_therapy
+                        :Give_antibiotics
+                        :Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies
+                        :Glucose
+                        :INR
+                        :Immediate_expert_healthcare_provider_interpretation_of_the_brain_imaging
+                        :Manage_hydration
+                        :Manage_pain
+                        :Manage_risk_of_delirium
+                        :Manage_risk_of_pressure_sores
+                        :PCR_testing_for_Legionella
+                        :Partial_thromboplastin_time
+                        :Perform_chest_x-ray
+                        :Perform_glucose_measurement
+                        :Perform_medication_reconciliation_within_the_ED
+                        :Perform_physical_examination
+                        :Perform_x-ray
+                        :Re-evaluate_for_admission
+                        :Repeat_blood_glucose_measurement
+                        :Trial_immediate_resuscitation
+                        :Troponin_test
+                        <http://notation3.org/constraints.owl#Assess_and_document_relevant_information_%5B...%5D>
+                        <http://notation3.org/constraints.owl#Blood_work%3A_CBC%2C_electrolytes%2C_creatinine%2C_glucose%2C_INR%2C_partial_thromboplastin_time>
+                        <http://notation3.org/constraints.owl#Manage_patients%27_hydration%2C_pain%2C_risk_of_delirium_and_risk_of_pressure_sores_within_the_ED>
+                        :Mark:_resuscitation_need
+                        :Mark:_sepsis_onset
+                        <http://notation3.org/constraints.owl#Monitor_heart_rate%2C_blood_pressure%2C_oxygen_saturation_until_stabilized>
+                        <http://notation3.org/constraints.owl#Neurological_examination_to_determine_focal_neurological_deficits_and_assess_stroke_severity_on_a_standardized_stroke_scale_%28NIHSS_or_CNS_for_stroke%29>
+                        <http://notation3.org/constraints.owl#Rapid_initial_evaluation_for_airway%2C_breathing%2C_and_circulation>
+                        <http://notation3.org/constraints.owl#Risk_assessment_%2F_stratification>
+                        <http://notation3.org/constraints.owl#Serum_creatinine_and_electrolyte_levels,_troponin_measurements,_complete_blood_count,_electrocardiogram,_chest_x-ray_examination>
+                      )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

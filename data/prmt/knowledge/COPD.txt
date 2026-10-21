@@ -1,0 +1,17 @@
+"Trial immediate resuscitation" may only occur after "Perform physical examination"  takes place.
+
+"Perform physical examination" must be the first task in the process.
+
+Right after "Perform physical examination", in case the condition "Resuscitation need" is met, insert an extra activity "Mark: resuscitation need".
+If "Mark: resuscitation need" occurs, then "Trial immediate resuscitation" must take place immediately afterwards. This is an absolute priority.
+
+"Conduct baseline blood work" may only occur after "Perform physical examination"  takes place.
+
+"Admit to hospital" may only occur after "Assess level of care required"  takes place.
+
+"Check vitals" is part of "Perform physical examination".
+
+"Blood urea nitrogen" is part of "Conduct baseline blood work".
+"Complete blood count" is part of "Conduct baseline blood work".
+"Creatinine" is part of "Conduct baseline blood work".
+"Electrolytes" is part of "Conduct baseline blood work".

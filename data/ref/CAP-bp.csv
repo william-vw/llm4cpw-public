@@ -1,0 +1,15 @@
+,Perform chest x-ray,Blood cultures,Give antibiotics,"Blood gases, lactate, liver enzyme and liverfunction tests","Routine blood work: CBC, electrolytes, renal function tests",PCR testing for Legionella,Mark: sepsis onset,Check for sepsis onset,Oxygen saturation,Perform chest x-ray,Gram staining,Give antibiotics,Urine antigen testing,Sputum culture
+Perform chest x-ray,+,+,<-,->,->,+,<-,<-,->,+,->,+,->,->
+Blood cultures,+,+,+,->,->,||,+,<-,->,||,->,->,->,->
+Give antibiotics,->,+,+,->,->,+,<-,<-,->,+,->,+,->,->
+"Blood gases, lactate, liver enzyme and liverfunction tests",<-,<-,<-,+,||,<-,<-,<-,||,<-,||,<-,||,||
+"Routine blood work: CBC, electrolytes, renal function tests",<-,<-,<-,||,+,<-,<-,<-,||,<-,||,<-,||,||
+PCR testing for Legionella,+,||,+,->,->,+,+,<-,->,||,->,->,->,->
+Mark: sepsis onset,->,+,->,->,->,+,+,<-,->,+,->,+,->,->
+Check for sepsis onset,->,->,->,->,->,->,->,+,->,->,->,->,->,->
+Oxygen saturation,<-,<-,<-,||,||,<-,<-,<-,+,<-,||,<-,||,||
+Perform chest x-ray,+,||,+,->,->,||,+,<-,->,+,->,->,->,->
+Gram staining,<-,<-,<-,||,||,<-,<-,<-,||,<-,+,<-,||,<-
+Give antibiotics,+,<-,+,->,->,<-,+,<-,->,<-,->,+,->,->
+Urine antigen testing,<-,<-,<-,||,||,<-,<-,<-,||,<-,||,<-,+,||
+Sputum culture,<-,<-,<-,||,||,<-,<-,<-,||,<-,->,<-,||,+

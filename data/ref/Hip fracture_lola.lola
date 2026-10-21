@@ -1,0 +1,167 @@
+PLACE
+    p0_Flow_04z6ue8,
+    p1_Flow_1injki6,
+    p2_Flow_1wjr098,
+    p3_ent_Activity_01k8j17,
+    p4_ent_Activity_02tds1z,
+    p5_ent_Activity_0l5cufl,
+    p6_ent_Activity_1qjng5y,
+    p7_ent_Gateway_02qyxwz,
+    p8_ent_Gateway_038ui93,
+    p9_ent_Gateway_1fxeuks,
+    p10_ent_T_EDManagement,
+    p11_ent_T_MedicationReconciliation,
+    p12_ent_T_OrthoConsult,
+    p13_ent_T_SeenByPhysician,
+    p14_exi_Gateway_0dmr7rz,
+    p15_exi_Gateway_1lou11k,
+    p16_exi_XG_NonSurgicalHosp,
+    p17_sink,
+    p18_source,
+    evt_t9_Manage_patient_hydration_pain_risk_of_delirium_and_risk_of_pressure_sores_within_the_ED,
+    evt_t12_Consultation_with_orthopaedic_surgeon,
+    evt_t2_Transfer_patient_expeditiously_to_a_surgical_hospital_for_operation_based_on_formal_protocol,
+    evt_t6_Repatriate_the_patient_to_the_local_hospital_following_surgery,
+    evt_t7_Admit_patient,
+    evt_t3_Consultation_with_internist,
+    evt_t10_Perform_medication_reconciliation_within_the_ED,
+    evt_t5_Perform_x-ray,
+    evt_t11_Medically_stabilize_patient_while_waiting_for_transfer,
+    evt_t13_Consultation_with_physician,
+    evt_t0_Assess_and_document_relevant_information_[...],
+    evt_t1_Provide_surgery_within_48_hours_of_the_patient's_initial_presentation,
+    evt_t4_Consultation_with_anesthesiologist,
+    end_tick_a,
+    end_tick_b;
+
+MARKING
+    p18_source: 1,
+    end_tick_a: 1;
+
+TRANSITION t0_Assess_and_document_relevant_information_[...]
+    CONSUME p3_ent_Activity_01k8j17: 1;
+    PRODUCE evt_t0_Assess_and_document_relevant_information_[...]: 1;
+
+TRANSITION t1_Provide_surgery_within_48_hours_of_the_patient's_initial_presentation
+    CONSUME p4_ent_Activity_02tds1z: 1;
+    PRODUCE evt_t1_Provide_surgery_within_48_hours_of_the_patient's_initial_presentation: 1;
+
+TRANSITION t2_Transfer_patient_expeditiously_to_a_surgical_hospital_for_operation_based_on_formal_protocol
+    CONSUME p5_ent_Activity_0l5cufl: 1;
+    PRODUCE evt_t2_Transfer_patient_expeditiously_to_a_surgical_hospital_for_operation_based_on_formal_protocol: 1;
+
+TRANSITION t3_Consultation_with_internist
+    CONSUME p15_exi_Gateway_1lou11k: 1;
+    PRODUCE evt_t3_Consultation_with_internist: 1;
+
+TRANSITION t4_Consultation_with_anesthesiologist
+    CONSUME p14_exi_Gateway_0dmr7rz: 1;
+    PRODUCE evt_t4_Consultation_with_anesthesiologist: 1;
+
+TRANSITION t5_Perform_x-ray
+    CONSUME p18_source: 1;
+    PRODUCE evt_t5_Perform_x-ray: 1;
+
+TRANSITION t6_Repatriate_the_patient_to_the_local_hospital_following_surgery
+    CONSUME p6_ent_Activity_1qjng5y: 1;
+    PRODUCE evt_t6_Repatriate_the_patient_to_the_local_hospital_following_surgery: 1;
+
+TRANSITION t7_Admit_patient
+    CONSUME p0_Flow_04z6ue8: 1, p1_Flow_1injki6: 1, p2_Flow_1wjr098: 1, p8_ent_Gateway_038ui93: 1, p9_ent_Gateway_1fxeuks: 1;
+    PRODUCE evt_t7_Admit_patient: 1;
+
+TRANSITION t8_Gateway_02qyxwz
+    CONSUME p7_ent_Gateway_02qyxwz: 1;
+    PRODUCE p17_sink: 1;
+
+TRANSITION t9_Manage_patient_hydration_pain_risk_of_delirium_and_risk_of_pressure_sores_within_the_ED
+    CONSUME p10_ent_T_EDManagement: 1;
+    PRODUCE evt_t9_Manage_patient_hydration_pain_risk_of_delirium_and_risk_of_pressure_sores_within_the_ED: 1;
+
+TRANSITION t10_Perform_medication_reconciliation_within_the_ED
+    CONSUME p11_ent_T_MedicationReconciliation: 1;
+    PRODUCE evt_t10_Perform_medication_reconciliation_within_the_ED: 1;
+
+TRANSITION t11_Medically_stabilize_patient_while_waiting_for_transfer
+    CONSUME p16_exi_XG_NonSurgicalHosp: 1;
+    PRODUCE evt_t11_Medically_stabilize_patient_while_waiting_for_transfer: 1;
+
+TRANSITION t12_Consultation_with_orthopaedic_surgeon
+    CONSUME p12_ent_T_OrthoConsult: 1;
+    PRODUCE evt_t12_Consultation_with_orthopaedic_surgeon: 1;
+
+TRANSITION t13_Consultation_with_physician
+    CONSUME p13_ent_T_SeenByPhysician: 1;
+    PRODUCE evt_t13_Consultation_with_physician: 1;
+
+TRANSITION t14_sfl_Flow_004plwc
+    CONSUME p15_exi_Gateway_1lou11k: 1;
+    PRODUCE p8_ent_Gateway_038ui93: 1;
+
+TRANSITION t15_sfl_Flow_0pxs8kc
+    CONSUME p16_exi_XG_NonSurgicalHosp: 1;
+    PRODUCE p7_ent_Gateway_02qyxwz: 1;
+
+TRANSITION t16_sfl_Flow_0tyszmm
+    CONSUME p14_exi_Gateway_0dmr7rz: 1;
+    PRODUCE p9_ent_Gateway_1fxeuks: 1;
+
+TRANSITION reset_t9_Manage_patient_hydration_pain_risk_of_delirium_and_risk_of_pressure_sores_within_the_ED
+    CONSUME evt_t9_Manage_patient_hydration_pain_risk_of_delirium_and_risk_of_pressure_sores_within_the_ED: 1;
+    PRODUCE p2_Flow_1wjr098: 1;
+
+TRANSITION reset_t12_Consultation_with_orthopaedic_surgeon
+    CONSUME evt_t12_Consultation_with_orthopaedic_surgeon: 1;
+    PRODUCE p14_exi_Gateway_0dmr7rz: 1;
+
+TRANSITION reset_t2_Transfer_patient_expeditiously_to_a_surgical_hospital_for_operation_based_on_formal_protocol
+    CONSUME evt_t2_Transfer_patient_expeditiously_to_a_surgical_hospital_for_operation_based_on_formal_protocol: 1;
+    PRODUCE p4_ent_Activity_02tds1z: 1;
+
+TRANSITION reset_t6_Repatriate_the_patient_to_the_local_hospital_following_surgery
+    CONSUME evt_t6_Repatriate_the_patient_to_the_local_hospital_following_surgery: 1;
+    PRODUCE p7_ent_Gateway_02qyxwz: 1;
+
+TRANSITION reset_t7_Admit_patient
+    CONSUME evt_t7_Admit_patient: 1;
+    PRODUCE p16_exi_XG_NonSurgicalHosp: 1;
+
+TRANSITION reset_t3_Consultation_with_internist
+    CONSUME evt_t3_Consultation_with_internist: 1;
+    PRODUCE p8_ent_Gateway_038ui93: 1;
+
+TRANSITION reset_t10_Perform_medication_reconciliation_within_the_ED
+    CONSUME evt_t10_Perform_medication_reconciliation_within_the_ED: 1;
+    PRODUCE p1_Flow_1injki6: 1;
+
+TRANSITION reset_t5_Perform_x-ray
+    CONSUME evt_t5_Perform_x-ray: 1;
+    PRODUCE p13_ent_T_SeenByPhysician: 1;
+
+TRANSITION reset_t11_Medically_stabilize_patient_while_waiting_for_transfer
+    CONSUME evt_t11_Medically_stabilize_patient_while_waiting_for_transfer: 1;
+    PRODUCE p5_ent_Activity_0l5cufl: 1;
+
+TRANSITION reset_t13_Consultation_with_physician
+    CONSUME evt_t13_Consultation_with_physician: 1;
+    PRODUCE p3_ent_Activity_01k8j17: 1, p15_exi_Gateway_1lou11k: 1, p11_ent_T_MedicationReconciliation: 1, p10_ent_T_EDManagement: 1, p12_ent_T_OrthoConsult: 1;
+
+TRANSITION reset_t0_Assess_and_document_relevant_information_[...]
+    CONSUME evt_t0_Assess_and_document_relevant_information_[...]: 1;
+    PRODUCE p0_Flow_04z6ue8: 1;
+
+TRANSITION reset_t1_Provide_surgery_within_48_hours_of_the_patient's_initial_presentation
+    CONSUME evt_t1_Provide_surgery_within_48_hours_of_the_patient's_initial_presentation: 1;
+    PRODUCE p6_ent_Activity_1qjng5y: 1;
+
+TRANSITION reset_t4_Consultation_with_anesthesiologist
+    CONSUME evt_t4_Consultation_with_anesthesiologist: 1;
+    PRODUCE p9_ent_Gateway_1fxeuks: 1;
+
+TRANSITION t_end_loop
+    CONSUME p17_sink: 1, end_tick_a: 1;
+    PRODUCE p17_sink: 1, end_tick_b: 1;
+
+TRANSITION t_end_loop_back
+    CONSUME p17_sink: 1, end_tick_b: 1;
+    PRODUCE p17_sink: 1, end_tick_a: 1;

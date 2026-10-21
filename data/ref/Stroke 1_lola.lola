@@ -1,0 +1,234 @@
+PLACE
+    p0_Flow_0f98fr8,
+    p1_Flow_0lpmee9,
+    p2_Flow_0p8eo57,
+    p3_Flow_0pz2x6j,
+    p4_Flow_1giynre,
+    p5_Flow_1q43ct5,
+    p6_ent_Activity_053zfzn,
+    p7_ent_Activity_0dzemrn,
+    p8_ent_Activity_0r50tea,
+    p9_ent_Activity_0ym16x5,
+    p10_ent_Activity_18d9arj,
+    p11_ent_Activity_1azyuxe,
+    p12_ent_Activity_1djtw72,
+    p13_ent_Activity_1l1hudq,
+    p14_ent_Activity_1nzxm10,
+    p15_ent_Gateway_02rgre0,
+    p16_ent_Gateway_0nep38c,
+    p17_ent_Gateway_0px707g,
+    p18_ent_Gateway_0wivcuy,
+    p19_ent_Gateway_1a0v8co,
+    p20_ent_Gateway_1pr9ini,
+    p21_exi_Gateway_0iqb3k3,
+    p22_exi_Gateway_0mko9z5,
+    p23_exi_Gateway_0osn5cq,
+    p24_exi_Gateway_0q1bm89,
+    p25_exi_Gateway_16ljb8v,
+    p26_exi_Gateway_1mp8hc9,
+    p27_sink,
+    p28_source,
+    evt_t18_Blood_work_CBC_electrolytes_creatinine_glucose_INR_partial_thromboplastin_time,
+    evt_t9_Screen_swallowing_ability_when_clinically_appropriate,
+    evt_t13_ECG_to_detect_atrial_fibrillation_and_other_acute_arrhythmias,
+    evt_t3_Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies,
+    evt_t4_Use_a_standard_triage_tool_to_determine_the_appropriate_location_for_the_care_of_the_patient,
+    evt_t12_Immediate_vascular_imaging_of_the_neck_arteries_carotid_ultrasound_CTA_or_MRA,
+    evt_t7_Vascular_imaging_of_the_brain_and_neck_arteries_ASAP,
+    evt_t2_Screen_swallowing_ability_as_part_of_initial_assessment_and_before_initiating_oral_medication_fluid_or_food.,
+    evt_t14_Immediate_interpretation_of_brain_imaging_by_healthcare_provider_with_expertise_in_reading_CT_and/or_MRI,
+    evt_t11_Make_patient_NPO_nothing_by_mouth_initially,
+    evt_t6_Neurological_examination_to_determine_focal_neurological_deficits_and_assess_stroke_severity_on_a_standardized_stroke_scale_NIHSS_or_CNS_for_stroke,
+    evt_t15_Thrombolysis_assessment,
+    evt_t17_Chest_x-ray,
+    evt_t1_Monitor_patient_closely,
+    evt_t5_Immediate_brain_imaging_CT_or_MRI,
+    evt_t16_Troponin_test,
+    evt_t8_Rapid_initial_evaluation_for_airway_breathing_and_circulation,
+    evt_t10_Full_clinical_assessment_of_the_patient's_swallowing_ability_by_a_speech-language_pathologist_or_appropriately_trained_specialist_to_advise_on_swallowing_ability_and_the_required_consistency_of_diet_and_fluids,
+    end_tick_a,
+    end_tick_b;
+
+MARKING
+    p28_source: 1,
+    end_tick_a: 1;
+
+TRANSITION t0
+    CONSUME p16_ent_Gateway_0nep38c: 1, p17_ent_Gateway_0px707g: 1;
+    PRODUCE p20_ent_Gateway_1pr9ini: 1;
+
+TRANSITION t1_Monitor_patient_closely
+    CONSUME p22_exi_Gateway_0mko9z5: 1;
+    PRODUCE evt_t1_Monitor_patient_closely: 1;
+
+TRANSITION t2_Screen_swallowing_ability_as_part_of_initial_assessment_and_before_initiating_oral_medication_fluid_or_food.
+    CONSUME p6_ent_Activity_053zfzn: 1;
+    PRODUCE evt_t2_Screen_swallowing_ability_as_part_of_initial_assessment_and_before_initiating_oral_medication_fluid_or_food.: 1;
+
+TRANSITION t3_Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies
+    CONSUME p0_Flow_0f98fr8: 1, p1_Flow_0lpmee9: 1, p2_Flow_0p8eo57: 1, p3_Flow_0pz2x6j: 1, p4_Flow_1giynre: 1, p5_Flow_1q43ct5: 1, p15_ent_Gateway_02rgre0: 1, p18_ent_Gateway_0wivcuy: 1, p19_ent_Gateway_1a0v8co: 1, p20_ent_Gateway_1pr9ini: 1;
+    PRODUCE evt_t3_Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies: 1;
+
+TRANSITION t4_Use_a_standard_triage_tool_to_determine_the_appropriate_location_for_the_care_of_the_patient
+    CONSUME p23_exi_Gateway_0osn5cq: 1;
+    PRODUCE evt_t4_Use_a_standard_triage_tool_to_determine_the_appropriate_location_for_the_care_of_the_patient: 1;
+
+TRANSITION t5_Immediate_brain_imaging_CT_or_MRI
+    CONSUME p7_ent_Activity_0dzemrn: 1;
+    PRODUCE evt_t5_Immediate_brain_imaging_CT_or_MRI: 1;
+
+TRANSITION t6_Neurological_examination_to_determine_focal_neurological_deficits_and_assess_stroke_severity_on_a_standardized_stroke_scale_NIHSS_or_CNS_for_stroke
+    CONSUME p8_ent_Activity_0r50tea: 1;
+    PRODUCE evt_t6_Neurological_examination_to_determine_focal_neurological_deficits_and_assess_stroke_severity_on_a_standardized_stroke_scale_NIHSS_or_CNS_for_stroke: 1;
+
+TRANSITION t7_Vascular_imaging_of_the_brain_and_neck_arteries_ASAP
+    CONSUME p25_exi_Gateway_16ljb8v: 1;
+    PRODUCE evt_t7_Vascular_imaging_of_the_brain_and_neck_arteries_ASAP: 1;
+
+TRANSITION t8_Rapid_initial_evaluation_for_airway_breathing_and_circulation
+    CONSUME p28_source: 1;
+    PRODUCE evt_t8_Rapid_initial_evaluation_for_airway_breathing_and_circulation: 1;
+
+TRANSITION t9_Screen_swallowing_ability_when_clinically_appropriate
+    CONSUME p9_ent_Activity_0ym16x5: 1;
+    PRODUCE evt_t9_Screen_swallowing_ability_when_clinically_appropriate: 1;
+
+TRANSITION t10_Full_clinical_assessment_of_the_patient's_swallowing_ability_by_a_speech-language_pathologist_or_appropriately_trained_specialist_to_advise_on_swallowing_ability_and_the_required_consistency_of_diet_and_fluids
+    CONSUME p21_exi_Gateway_0iqb3k3: 1;
+    PRODUCE evt_t10_Full_clinical_assessment_of_the_patient's_swallowing_ability_by_a_speech-language_pathologist_or_appropriately_trained_specialist_to_advise_on_swallowing_ability_and_the_required_consistency_of_diet_and_fluids: 1;
+
+TRANSITION t11_Make_patient_NPO_nothing_by_mouth_initially
+    CONSUME p24_exi_Gateway_0q1bm89: 1;
+    PRODUCE evt_t11_Make_patient_NPO_nothing_by_mouth_initially: 1;
+
+TRANSITION t12_Immediate_vascular_imaging_of_the_neck_arteries_carotid_ultrasound_CTA_or_MRA
+    CONSUME p25_exi_Gateway_16ljb8v: 1;
+    PRODUCE evt_t12_Immediate_vascular_imaging_of_the_neck_arteries_carotid_ultrasound_CTA_or_MRA: 1;
+
+TRANSITION t13_ECG_to_detect_atrial_fibrillation_and_other_acute_arrhythmias
+    CONSUME p10_ent_Activity_18d9arj: 1;
+    PRODUCE evt_t13_ECG_to_detect_atrial_fibrillation_and_other_acute_arrhythmias: 1;
+
+TRANSITION t14_Immediate_interpretation_of_brain_imaging_by_healthcare_provider_with_expertise_in_reading_CT_and/or_MRI
+    CONSUME p11_ent_Activity_1azyuxe: 1;
+    PRODUCE evt_t14_Immediate_interpretation_of_brain_imaging_by_healthcare_provider_with_expertise_in_reading_CT_and/or_MRI: 1;
+
+TRANSITION t15_Thrombolysis_assessment
+    CONSUME p12_ent_Activity_1djtw72: 1;
+    PRODUCE evt_t15_Thrombolysis_assessment: 1;
+
+TRANSITION t16_Troponin_test
+    CONSUME p26_exi_Gateway_1mp8hc9: 1;
+    PRODUCE evt_t16_Troponin_test: 1;
+
+TRANSITION t17_Chest_x-ray
+    CONSUME p13_ent_Activity_1l1hudq: 1;
+    PRODUCE evt_t17_Chest_x-ray: 1;
+
+TRANSITION t18_Blood_work_CBC_electrolytes_creatinine_glucose_INR_partial_thromboplastin_time
+    CONSUME p14_ent_Activity_1nzxm10: 1;
+    PRODUCE evt_t18_Blood_work_CBC_electrolytes_creatinine_glucose_INR_partial_thromboplastin_time: 1;
+
+TRANSITION t19_sfl_Flow_038n0mj
+    CONSUME p23_exi_Gateway_0osn5cq: 1;
+    PRODUCE p19_ent_Gateway_1a0v8co: 1;
+
+TRANSITION t20_sfl_Flow_0f5wl7w
+    CONSUME p22_exi_Gateway_0mko9z5: 1;
+    PRODUCE p17_ent_Gateway_0px707g: 1;
+
+TRANSITION t21_sfl_Flow_0xqsrvx
+    CONSUME p24_exi_Gateway_0q1bm89: 1;
+    PRODUCE p20_ent_Gateway_1pr9ini: 1;
+
+TRANSITION t22_sfl_Flow_0ywv0ls
+    CONSUME p26_exi_Gateway_1mp8hc9: 1;
+    PRODUCE p15_ent_Gateway_02rgre0: 1;
+
+TRANSITION t23_sfl_Flow_17aa8gh
+    CONSUME p25_exi_Gateway_16ljb8v: 1;
+    PRODUCE p18_ent_Gateway_0wivcuy: 1;
+
+TRANSITION t24_sfl_Flow_1dxge81
+    CONSUME p21_exi_Gateway_0iqb3k3: 1;
+    PRODUCE p16_ent_Gateway_0nep38c: 1;
+
+TRANSITION reset_t18_Blood_work_CBC_electrolytes_creatinine_glucose_INR_partial_thromboplastin_time
+    CONSUME evt_t18_Blood_work_CBC_electrolytes_creatinine_glucose_INR_partial_thromboplastin_time: 1;
+    PRODUCE p4_Flow_1giynre: 1;
+
+TRANSITION reset_t9_Screen_swallowing_ability_when_clinically_appropriate
+    CONSUME evt_t9_Screen_swallowing_ability_when_clinically_appropriate: 1;
+    PRODUCE p17_ent_Gateway_0px707g: 1;
+
+TRANSITION reset_t13_ECG_to_detect_atrial_fibrillation_and_other_acute_arrhythmias
+    CONSUME evt_t13_ECG_to_detect_atrial_fibrillation_and_other_acute_arrhythmias: 1;
+    PRODUCE p0_Flow_0f98fr8: 1;
+
+TRANSITION reset_t3_Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies
+    CONSUME evt_t3_Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies: 1;
+    PRODUCE p27_sink: 1;
+
+TRANSITION reset_t4_Use_a_standard_triage_tool_to_determine_the_appropriate_location_for_the_care_of_the_patient
+    CONSUME evt_t4_Use_a_standard_triage_tool_to_determine_the_appropriate_location_for_the_care_of_the_patient: 1;
+    PRODUCE p19_ent_Gateway_1a0v8co: 1;
+
+TRANSITION reset_t12_Immediate_vascular_imaging_of_the_neck_arteries_carotid_ultrasound_CTA_or_MRA
+    CONSUME evt_t12_Immediate_vascular_imaging_of_the_neck_arteries_carotid_ultrasound_CTA_or_MRA: 1;
+    PRODUCE p18_ent_Gateway_0wivcuy: 1;
+
+TRANSITION reset_t7_Vascular_imaging_of_the_brain_and_neck_arteries_ASAP
+    CONSUME evt_t7_Vascular_imaging_of_the_brain_and_neck_arteries_ASAP: 1;
+    PRODUCE p18_ent_Gateway_0wivcuy: 1;
+
+TRANSITION reset_t2_Screen_swallowing_ability_as_part_of_initial_assessment_and_before_initiating_oral_medication_fluid_or_food.
+    CONSUME evt_t2_Screen_swallowing_ability_as_part_of_initial_assessment_and_before_initiating_oral_medication_fluid_or_food.: 1;
+    PRODUCE p22_exi_Gateway_0mko9z5: 1, p21_exi_Gateway_0iqb3k3: 1;
+
+TRANSITION reset_t14_Immediate_interpretation_of_brain_imaging_by_healthcare_provider_with_expertise_in_reading_CT_and/or_MRI
+    CONSUME evt_t14_Immediate_interpretation_of_brain_imaging_by_healthcare_provider_with_expertise_in_reading_CT_and/or_MRI: 1;
+    PRODUCE p1_Flow_0lpmee9: 1;
+
+TRANSITION reset_t11_Make_patient_NPO_nothing_by_mouth_initially
+    CONSUME evt_t11_Make_patient_NPO_nothing_by_mouth_initially: 1;
+    PRODUCE p6_ent_Activity_053zfzn: 1;
+
+TRANSITION reset_t6_Neurological_examination_to_determine_focal_neurological_deficits_and_assess_stroke_severity_on_a_standardized_stroke_scale_NIHSS_or_CNS_for_stroke
+    CONSUME evt_t6_Neurological_examination_to_determine_focal_neurological_deficits_and_assess_stroke_severity_on_a_standardized_stroke_scale_NIHSS_or_CNS_for_stroke: 1;
+    PRODUCE p5_Flow_1q43ct5: 1;
+
+TRANSITION reset_t15_Thrombolysis_assessment
+    CONSUME evt_t15_Thrombolysis_assessment: 1;
+    PRODUCE p3_Flow_0pz2x6j: 1;
+
+TRANSITION reset_t17_Chest_x-ray
+    CONSUME evt_t17_Chest_x-ray: 1;
+    PRODUCE p2_Flow_0p8eo57: 1;
+
+TRANSITION reset_t1_Monitor_patient_closely
+    CONSUME evt_t1_Monitor_patient_closely: 1;
+    PRODUCE p9_ent_Activity_0ym16x5: 1;
+
+TRANSITION reset_t5_Immediate_brain_imaging_CT_or_MRI
+    CONSUME evt_t5_Immediate_brain_imaging_CT_or_MRI: 1;
+    PRODUCE p11_ent_Activity_1azyuxe: 1;
+
+TRANSITION reset_t16_Troponin_test
+    CONSUME evt_t16_Troponin_test: 1;
+    PRODUCE p15_ent_Gateway_02rgre0: 1;
+
+TRANSITION reset_t8_Rapid_initial_evaluation_for_airway_breathing_and_circulation
+    CONSUME evt_t8_Rapid_initial_evaluation_for_airway_breathing_and_circulation: 1;
+    PRODUCE p8_ent_Activity_0r50tea: 1, p12_ent_Activity_1djtw72: 1, p10_ent_Activity_18d9arj: 1, p23_exi_Gateway_0osn5cq: 1, p7_ent_Activity_0dzemrn: 1, p25_exi_Gateway_16ljb8v: 1, p14_ent_Activity_1nzxm10: 1, p13_ent_Activity_1l1hudq: 1, p24_exi_Gateway_0q1bm89: 1, p26_exi_Gateway_1mp8hc9: 1;
+
+TRANSITION reset_t10_Full_clinical_assessment_of_the_patient's_swallowing_ability_by_a_speech-language_pathologist_or_appropriately_trained_specialist_to_advise_on_swallowing_ability_and_the_required_consistency_of_diet_and_fluids
+    CONSUME evt_t10_Full_clinical_assessment_of_the_patient's_swallowing_ability_by_a_speech-language_pathologist_or_appropriately_trained_specialist_to_advise_on_swallowing_ability_and_the_required_consistency_of_diet_and_fluids: 1;
+    PRODUCE p16_ent_Gateway_0nep38c: 1;
+
+TRANSITION t_end_loop
+    CONSUME p27_sink: 1, end_tick_a: 1;
+    PRODUCE p27_sink: 1, end_tick_b: 1;
+
+TRANSITION t_end_loop_back
+    CONSUME p27_sink: 1, end_tick_b: 1;
+    PRODUCE p27_sink: 1, end_tick_a: 1;

@@ -1,0 +1,257 @@
+PLACE
+    p0_Flow_022qijv,
+    p1_Flow_061j5jc,
+    p2_Flow_0dhh9k2,
+    p3_Flow_0r4i5o6,
+    p4_Flow_0tjxm3d,
+    p5_Flow_1wrfpza,
+    p6_ent_Activity_0cjcyo5,
+    p7_ent_Activity_0jyxwir,
+    p8_ent_Activity_181w910,
+    p9_ent_Activity_1gbtitx,
+    p10_ent_Activity_1m14wki,
+    p11_ent_Activity_1qj7itt,
+    p12_ent_Gateway_008pmcw,
+    p13_ent_Gateway_04ye07n,
+    p14_ent_Gateway_0mahhu9,
+    p15_ent_Gateway_14opik5,
+    p16_ent_Gateway_158gr2b,
+    p17_ent_Gateway_169iiwi,
+    p18_ent_Gateway_16n6xz3,
+    p19_ent_Gateway_17xz5l0,
+    p20_ent_Gateway_1ftaae9,
+    p21_exi_Gateway_0daa5oh,
+    p22_exi_Gateway_0epjznx,
+    p23_exi_Gateway_0jabxgx,
+    p24_exi_Gateway_0mx8shy,
+    p25_exi_Gateway_0numoc6,
+    p26_exi_Gateway_0smi6f2,
+    p27_exi_Gateway_11qg2si,
+    p28_exi_Gateway_1c21jfq,
+    p29_exi_Gateway_1jqz7ab,
+    p30_sink,
+    p31_source,
+    evt_t7_Use_portable_x-ray,
+    evt_t9_Perform_spirometry_once_the_patient_has_stabilized,
+    evt_t17_Draw_blood_cultures,
+    evt_t14_Document_and_reconcile_current_medications,
+    evt_t6_Check_arterial_blood_gases_where_appropriate,
+    evt_t15_Perform_electrocardiogram,
+    evt_t5_Identify_patient_wishes_with_respect_to_goals_of_care_and/or_treatment_limitations,
+    evt_t2_Perform_other_diagnostic_interventions_as_appropriate,
+    evt_t3_Conduct_baseline_blood_work,
+    evt_t4_Perform_Posteroanterior_and_lateral_x-ray,
+    evt_t10_Check_patient_history,
+    evt_t8_Perform_physical_examination,
+    evt_t16_Admit_to_hospital,
+    evt_t12_Examine_cardiac_markers,
+    evt_t0_Mark_resuscitation_need,
+    evt_t11_Assess_level_of_care_required,
+    evt_t1_Use_expiratory_view,
+    evt_t13_Trial_immediate_resuscitation,
+    end_tick_a,
+    end_tick_b;
+
+MARKING
+    p31_source: 1,
+    end_tick_a: 1;
+
+TRANSITION t0_Mark_resuscitation_need
+    CONSUME p23_exi_Gateway_0jabxgx: 1;
+    PRODUCE evt_t0_Mark_resuscitation_need: 1;
+
+TRANSITION t1_Use_expiratory_view
+    CONSUME p28_exi_Gateway_1c21jfq: 1;
+    PRODUCE evt_t1_Use_expiratory_view: 1;
+
+TRANSITION t2_Perform_other_diagnostic_interventions_as_appropriate
+    CONSUME p27_exi_Gateway_11qg2si: 1;
+    PRODUCE evt_t2_Perform_other_diagnostic_interventions_as_appropriate: 1;
+
+TRANSITION t3_Conduct_baseline_blood_work
+    CONSUME p6_ent_Activity_0cjcyo5: 1;
+    PRODUCE evt_t3_Conduct_baseline_blood_work: 1;
+
+TRANSITION t4_Perform_Posteroanterior_and_lateral_x-ray
+    CONSUME p13_ent_Gateway_04ye07n: 1;
+    PRODUCE evt_t4_Perform_Posteroanterior_and_lateral_x-ray: 1;
+
+TRANSITION t5_Identify_patient_wishes_with_respect_to_goals_of_care_and/or_treatment_limitations
+    CONSUME p7_ent_Activity_0jyxwir: 1;
+    PRODUCE evt_t5_Identify_patient_wishes_with_respect_to_goals_of_care_and/or_treatment_limitations: 1;
+
+TRANSITION t6_Check_arterial_blood_gases_where_appropriate
+    CONSUME p29_exi_Gateway_1jqz7ab: 1;
+    PRODUCE evt_t6_Check_arterial_blood_gases_where_appropriate: 1;
+
+TRANSITION t7_Use_portable_x-ray
+    CONSUME p25_exi_Gateway_0numoc6: 1;
+    PRODUCE evt_t7_Use_portable_x-ray: 1;
+
+TRANSITION t8_Perform_physical_examination
+    CONSUME p31_source: 1;
+    PRODUCE evt_t8_Perform_physical_examination: 1;
+
+TRANSITION t9_Perform_spirometry_once_the_patient_has_stabilized
+    CONSUME p24_exi_Gateway_0mx8shy: 1;
+    PRODUCE evt_t9_Perform_spirometry_once_the_patient_has_stabilized: 1;
+
+TRANSITION t10_Check_patient_history
+    CONSUME p8_ent_Activity_181w910: 1;
+    PRODUCE evt_t10_Check_patient_history: 1;
+
+TRANSITION t11_Assess_level_of_care_required
+    CONSUME p0_Flow_022qijv: 1, p1_Flow_061j5jc: 1, p2_Flow_0dhh9k2: 1, p3_Flow_0r4i5o6: 1, p4_Flow_0tjxm3d: 1, p5_Flow_1wrfpza: 1, p12_ent_Gateway_008pmcw: 1, p14_ent_Gateway_0mahhu9: 1, p15_ent_Gateway_14opik5: 1, p18_ent_Gateway_16n6xz3: 1, p19_ent_Gateway_17xz5l0: 1;
+    PRODUCE evt_t11_Assess_level_of_care_required: 1;
+
+TRANSITION t12_Examine_cardiac_markers
+    CONSUME p21_exi_Gateway_0daa5oh: 1;
+    PRODUCE evt_t12_Examine_cardiac_markers: 1;
+
+TRANSITION t13_Trial_immediate_resuscitation
+    CONSUME p9_ent_Activity_1gbtitx: 1;
+    PRODUCE evt_t13_Trial_immediate_resuscitation: 1;
+
+TRANSITION t14_Document_and_reconcile_current_medications
+    CONSUME p10_ent_Activity_1m14wki: 1;
+    PRODUCE evt_t14_Document_and_reconcile_current_medications: 1;
+
+TRANSITION t15_Perform_electrocardiogram
+    CONSUME p11_ent_Activity_1qj7itt: 1;
+    PRODUCE evt_t15_Perform_electrocardiogram: 1;
+
+TRANSITION t16_Admit_to_hospital
+    CONSUME p26_exi_Gateway_0smi6f2: 1;
+    PRODUCE evt_t16_Admit_to_hospital: 1;
+
+TRANSITION t17_Draw_blood_cultures
+    CONSUME p22_exi_Gateway_0epjznx: 1;
+    PRODUCE evt_t17_Draw_blood_cultures: 1;
+
+TRANSITION t18_Gateway_158gr2b
+    CONSUME p16_ent_Gateway_158gr2b: 1;
+    PRODUCE p6_ent_Activity_0cjcyo5: 1, p7_ent_Activity_0jyxwir: 1, p8_ent_Activity_181w910: 1, p10_ent_Activity_1m14wki: 1, p11_ent_Activity_1qj7itt: 1, p21_exi_Gateway_0daa5oh: 1, p22_exi_Gateway_0epjznx: 1, p24_exi_Gateway_0mx8shy: 1, p25_exi_Gateway_0numoc6: 1, p27_exi_Gateway_11qg2si: 1, p29_exi_Gateway_1jqz7ab: 1;
+
+TRANSITION t19_Gateway_169iiwi
+    CONSUME p17_ent_Gateway_169iiwi: 1;
+    PRODUCE p28_exi_Gateway_1c21jfq: 1;
+
+TRANSITION t20_Gateway_1ftaae9
+    CONSUME p20_ent_Gateway_1ftaae9: 1;
+    PRODUCE p30_sink: 1;
+
+TRANSITION t21_sfl_Flow_0ogg6gv
+    CONSUME p25_exi_Gateway_0numoc6: 1;
+    PRODUCE p17_ent_Gateway_169iiwi: 1;
+
+TRANSITION t22_sfl_Flow_0tbyjkh
+    CONSUME p22_exi_Gateway_0epjznx: 1;
+    PRODUCE p14_ent_Gateway_0mahhu9: 1;
+
+TRANSITION t23_sfl_Flow_0z1kmpy
+    CONSUME p27_exi_Gateway_11qg2si: 1;
+    PRODUCE p19_ent_Gateway_17xz5l0: 1;
+
+TRANSITION t24_sfl_Flow_0zr0k8r
+    CONSUME p28_exi_Gateway_1c21jfq: 1;
+    PRODUCE p13_ent_Gateway_04ye07n: 1;
+
+TRANSITION t25_sfl_Flow_10tp3bo
+    CONSUME p26_exi_Gateway_0smi6f2: 1;
+    PRODUCE p20_ent_Gateway_1ftaae9: 1;
+
+TRANSITION t26_sfl_Flow_1hxyrs4
+    CONSUME p24_exi_Gateway_0mx8shy: 1;
+    PRODUCE p18_ent_Gateway_16n6xz3: 1;
+
+TRANSITION t27_sfl_Flow_1nn867l
+    CONSUME p29_exi_Gateway_1jqz7ab: 1;
+    PRODUCE p12_ent_Gateway_008pmcw: 1;
+
+TRANSITION t28_sfl_Flow_1plhz2k
+    CONSUME p21_exi_Gateway_0daa5oh: 1;
+    PRODUCE p15_ent_Gateway_14opik5: 1;
+
+TRANSITION t29_sfl_Flow_1tpqlni
+    CONSUME p23_exi_Gateway_0jabxgx: 1;
+    PRODUCE p16_ent_Gateway_158gr2b: 1;
+
+TRANSITION reset_t7_Use_portable_x-ray
+    CONSUME evt_t7_Use_portable_x-ray: 1;
+    PRODUCE p17_ent_Gateway_169iiwi: 1;
+
+TRANSITION reset_t9_Perform_spirometry_once_the_patient_has_stabilized
+    CONSUME evt_t9_Perform_spirometry_once_the_patient_has_stabilized: 1;
+    PRODUCE p18_ent_Gateway_16n6xz3: 1;
+
+TRANSITION reset_t17_Draw_blood_cultures
+    CONSUME evt_t17_Draw_blood_cultures: 1;
+    PRODUCE p14_ent_Gateway_0mahhu9: 1;
+
+TRANSITION reset_t14_Document_and_reconcile_current_medications
+    CONSUME evt_t14_Document_and_reconcile_current_medications: 1;
+    PRODUCE p0_Flow_022qijv: 1;
+
+TRANSITION reset_t6_Check_arterial_blood_gases_where_appropriate
+    CONSUME evt_t6_Check_arterial_blood_gases_where_appropriate: 1;
+    PRODUCE p12_ent_Gateway_008pmcw: 1;
+
+TRANSITION reset_t15_Perform_electrocardiogram
+    CONSUME evt_t15_Perform_electrocardiogram: 1;
+    PRODUCE p3_Flow_0r4i5o6: 1;
+
+TRANSITION reset_t5_Identify_patient_wishes_with_respect_to_goals_of_care_and/or_treatment_limitations
+    CONSUME evt_t5_Identify_patient_wishes_with_respect_to_goals_of_care_and/or_treatment_limitations: 1;
+    PRODUCE p1_Flow_061j5jc: 1;
+
+TRANSITION reset_t2_Perform_other_diagnostic_interventions_as_appropriate
+    CONSUME evt_t2_Perform_other_diagnostic_interventions_as_appropriate: 1;
+    PRODUCE p19_ent_Gateway_17xz5l0: 1;
+
+TRANSITION reset_t3_Conduct_baseline_blood_work
+    CONSUME evt_t3_Conduct_baseline_blood_work: 1;
+    PRODUCE p2_Flow_0dhh9k2: 1;
+
+TRANSITION reset_t4_Perform_Posteroanterior_and_lateral_x-ray
+    CONSUME evt_t4_Perform_Posteroanterior_and_lateral_x-ray: 1;
+    PRODUCE p5_Flow_1wrfpza: 1;
+
+TRANSITION reset_t10_Check_patient_history
+    CONSUME evt_t10_Check_patient_history: 1;
+    PRODUCE p4_Flow_0tjxm3d: 1;
+
+TRANSITION reset_t8_Perform_physical_examination
+    CONSUME evt_t8_Perform_physical_examination: 1;
+    PRODUCE p23_exi_Gateway_0jabxgx: 1;
+
+TRANSITION reset_t16_Admit_to_hospital
+    CONSUME evt_t16_Admit_to_hospital: 1;
+    PRODUCE p20_ent_Gateway_1ftaae9: 1;
+
+TRANSITION reset_t12_Examine_cardiac_markers
+    CONSUME evt_t12_Examine_cardiac_markers: 1;
+    PRODUCE p15_ent_Gateway_14opik5: 1;
+
+TRANSITION reset_t0_Mark_resuscitation_need
+    CONSUME evt_t0_Mark_resuscitation_need: 1;
+    PRODUCE p9_ent_Activity_1gbtitx: 1;
+
+TRANSITION reset_t11_Assess_level_of_care_required
+    CONSUME evt_t11_Assess_level_of_care_required: 1;
+    PRODUCE p26_exi_Gateway_0smi6f2: 1;
+
+TRANSITION reset_t1_Use_expiratory_view
+    CONSUME evt_t1_Use_expiratory_view: 1;
+    PRODUCE p13_ent_Gateway_04ye07n: 1;
+
+TRANSITION reset_t13_Trial_immediate_resuscitation
+    CONSUME evt_t13_Trial_immediate_resuscitation: 1;
+    PRODUCE p16_ent_Gateway_158gr2b: 1;
+
+TRANSITION t_end_loop
+    CONSUME p30_sink: 1, end_tick_a: 1;
+    PRODUCE p30_sink: 1, end_tick_b: 1;
+
+TRANSITION t_end_loop_back
+    CONSUME p30_sink: 1, end_tick_b: 1;
+    PRODUCE p30_sink: 1, end_tick_a: 1;

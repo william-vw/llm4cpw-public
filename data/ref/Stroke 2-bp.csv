@@ -1,0 +1,22 @@
+,Evaluate in the ED to be considered for admission to hospital,Immediate care should be provided at a specialized TIA/minor stroke clinic,Other stroke-prevention treatments tailored to each patient,patient should be referred to an outpatient clinic with stroke-prevention services,Perform glucose measurement,Extended-release Dipyridamole + Aspirin (Aggrenox) 200 mg Dipyridamole + 25 mg Aspirin twice daily (initial dose includes ASA 160 mg),Referral to an outpatient clinic with stroke-prevention services for comprehensive evaluation and management within 1 month of symptom onset,Brain CT scan,Repeat blood glucose measurement,patient should be referred for evaluation at a specialized TIA/minor stroke clinic,Evaluate temperature as part of routine vital signs every 4 hours for first 48 hours,investigate potential infection,initiate antipyretic and antimicrobial therapy,evaluation should occur at an appropriately resourced ED,Consider inpatient evaluation and management for stroke prevention,"Clopidogrel 300 mg as a loading dose, followed by 75 mg daily.",Give patients appropriate cross-continuum secondary prevention assessments and therapies,Rectal or gastric ASA should be offered,"Aspirin (ASA) 160 mg as a loading dose, then a daily dose of 81–325 mg (usually 81 mg for maintenance)",initiate temperature-reducing measures,Correct hypoglycemia immediately
+Evaluate in the ED to be considered for admission to hospital,+,||,||,||,||,||,||,||,||,||,||,||,||,||,||,||,->,||,||,||,||
+Immediate care should be provided at a specialized TIA/minor stroke clinic,||,+,->,+,||,->,->,->,||,+,||,||,||,+,+,->,->,->,->,||,||
+Other stroke-prevention treatments tailored to each patient,||,<-,+,<-,||,<-,+,<-,||,<-,||,||,||,<-,<-,<-,->,<-,<-,||,||
+patient should be referred to an outpatient clinic with stroke-prevention services,||,+,->,+,||,->,->,->,||,+,||,||,||,+,+,->,->,->,->,||,||
+Perform glucose measurement,||,||,||,||,+,||,||,||,->,||,||,||,||,||,||,||,->,||,||,||,->
+Extended-release Dipyridamole + Aspirin (Aggrenox) 200 mg Dipyridamole + 25 mg Aspirin twice daily (initial dose includes ASA 160 mg),||,<-,->,<-,||,+,->,<-,||,<-,||,||,||,<-,<-,+,->,+,+,||,||
+Referral to an outpatient clinic with stroke-prevention services for comprehensive evaluation and management within 1 month of symptom onset,||,<-,+,<-,||,<-,+,<-,||,<-,||,||,||,<-,<-,<-,->,<-,<-,||,||
+Brain CT scan,||,<-,->,<-,||,->,->,+,||,<-,||,||,||,<-,<-,->,->,->,->,||,||
+Repeat blood glucose measurement,||,||,||,||,<-,||,||,||,+,||,||,||,||,||,||,||,->,||,||,||,->
+patient should be referred for evaluation at a specialized TIA/minor stroke clinic,||,+,->,+,||,->,->,->,||,+,||,||,||,+,+,->,->,->,->,||,||
+Evaluate temperature as part of routine vital signs every 4 hours for first 48 hours,||,||,||,||,||,||,||,||,||,||,+,->,->,||,||,||,->,||,||,->,||
+investigate potential infection,||,||,||,||,||,||,||,||,||,||,<-,+,||,||,||,||,->,||,||,||,||
+initiate antipyretic and antimicrobial therapy,||,||,||,||,||,||,||,||,||,||,<-,||,+,||,||,||,->,||,||,||,||
+evaluation should occur at an appropriately resourced ED,||,+,->,+,||,->,->,->,||,+,||,||,||,+,->,->,->,->,->,||,||
+Consider inpatient evaluation and management for stroke prevention,||,+,->,+,||,->,->,->,||,+,||,||,||,<-,+,->,->,->,->,||,||
+"Clopidogrel 300 mg as a loading dose, followed by 75 mg daily.",||,<-,->,<-,||,+,->,<-,||,<-,||,||,||,<-,<-,+,->,+,+,||,||
+Give patients appropriate cross-continuum secondary prevention assessments and therapies,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,+,<-,<-,<-,<-
+Rectal or gastric ASA should be offered,||,<-,->,<-,||,+,->,<-,||,<-,||,||,||,<-,<-,+,->,+,+,||,||
+"Aspirin (ASA) 160 mg as a loading dose, then a daily dose of 81–325 mg (usually 81 mg for maintenance)",||,<-,->,<-,||,+,->,<-,||,<-,||,||,||,<-,<-,+,->,+,+,||,||
+initiate temperature-reducing measures,||,||,||,||,||,||,||,||,||,||,<-,||,||,||,||,||,->,||,||,+,||
+Correct hypoglycemia immediately,||,||,||,||,<-,||,||,||,<-,||,||,||,||,||,||,||,->,||,||,||,+

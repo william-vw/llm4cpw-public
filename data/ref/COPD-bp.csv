@@ -1,0 +1,20 @@
+,Assess level of care required,Perform spirometry once the patient has stabilized,Check patient history,Admit to hospital,Use expiratory view,Perform Posteroanterior and lateral x-ray,Trial immediate resuscitation,Check arterial blood gases where appropriate,Re-evaluate for admission,Mark: resuscitation need,Perform physical examination,Perform other diagnostic interventions as appropriate,Identify patient wishes with respect to goals of care and/or treatment limitations,Conduct baseline blood work,Draw blood cultures,Use portable x-ray,Perform electrocardiogram,Examine cardiac markers,Document and reconcile current medications
+Assess level of care required,+,<-,<-,->,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-
+Perform spirometry once the patient has stabilized,->,+,||,->,||,||,<-,||,<-,<-,<-,||,||,||,||,||,||,||,||
+Check patient history,->,||,+,->,||,||,<-,||,<-,<-,<-,||,||,||,||,||,||,||,||
+Admit to hospital,<-,<-,<-,+,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-
+Use expiratory view,->,||,||,->,+,->,<-,||,<-,<-,<-,||,||,||,||,<-,||,||,||
+Perform Posteroanterior and lateral x-ray,->,||,||,->,<-,+,<-,||,<-,<-,<-,||,||,||,||,<-,||,||,||
+Trial immediate resuscitation,->,->,->,->,->,->,+,->,->,<-,<-,->,->,->,->,->,->,->,->
+Check arterial blood gases where appropriate,->,||,||,->,||,||,<-,+,<-,<-,<-,||,||,||,||,||,||,||,||
+Re-evaluate for admission,->,->,->,->,->,->,<-,->,+,<-,<-,->,->,->,->,->,->,->,->
+Mark: resuscitation need,->,->,->,->,->,->,->,->,->,+,<-,->,->,->,->,->,->,->,->
+Perform physical examination,->,->,->,->,->,->,->,->,->,->,+,->,->,->,->,->,->,->,->
+Perform other diagnostic interventions as appropriate,->,||,||,->,||,||,<-,||,<-,<-,<-,+,||,||,||,||,||,||,||
+Identify patient wishes with respect to goals of care and/or treatment limitations,->,||,||,->,||,||,<-,||,<-,<-,<-,||,+,||,||,||,||,||,||
+Conduct baseline blood work,->,||,||,->,||,||,<-,||,<-,<-,<-,||,||,+,||,||,||,||,||
+Draw blood cultures,->,||,||,->,||,||,<-,||,<-,<-,<-,||,||,||,+,||,||,||,||
+Use portable x-ray,->,||,||,->,->,->,<-,||,<-,<-,<-,||,||,||,||,+,||,||,||
+Perform electrocardiogram,->,||,||,->,||,||,<-,||,<-,<-,<-,||,||,||,||,||,+,||,||
+Examine cardiac markers,->,||,||,->,||,||,<-,||,<-,<-,<-,||,||,||,||,||,||,+,||
+Document and reconcile current medications,->,||,||,->,||,||,<-,||,<-,<-,<-,||,||,||,||,||,||,||,+

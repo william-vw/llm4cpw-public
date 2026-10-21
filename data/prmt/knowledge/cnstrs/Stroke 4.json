@@ -1,0 +1,22 @@
+[
+    {
+        "name": "stroke41",
+        "type": "raw",
+        "formula": "X \"Rapid initial evaluation for airway, breathing, and circulation\""
+    },
+    {
+        "name": "stroke42",
+        "type": "raw",
+        "formula": "F (\"Give patients appropriate cross-continuum secondary prevention assessments and therapies\" AND XX @end)"
+    },
+    {
+        "name": "stroke43",
+        "type": "raw",
+        "formula": "G (F \"Immediate expert healthcare provider interpretation of the brain imaging\" -> (NOT \"Evaluate patients for endovascular therapy\" U \"Immediate expert healthcare provider interpretation of the brain imaging\"))"
+    },
+    {
+        "name": "stroke44",
+        "type": "raw",
+        "formula": "(NOT \"Evaluate patients for endovascular therapy\" U \"Neurological examination to determine focal neurological deficits and assess stroke severity on a standardized stroke scale (NIHSS or CNS for stroke)\")"
+    }
+]

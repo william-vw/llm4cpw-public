@@ -1,0 +1,17 @@
+[
+    {
+        "name": "hf1",
+        "type": "raw",
+        "formula": "(NOT \"Risk assessment / stratification\" U \"Serum creatinine and electrolyte levels, troponin measurements, complete blood count, electrocardiogram, chest x-ray examination\")"
+    },
+    {
+        "name": "hf2",
+        "type": "raw",
+        "formula": "G (F \"Echocardiogram\" -> (NOT \"Risk assessment / stratification\" U \"Echocardiogram\"))"
+    },
+    {
+        "name": "hf3",
+        "type": "raw",
+        "formula": "(NOT \"Risk assessment / stratification\" U \"Monitor heart rate, blood pressure, oxygen saturation until stabilized\")"
+    }
+]

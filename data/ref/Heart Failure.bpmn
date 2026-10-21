@@ -1,0 +1,1503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL"
+    xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+    xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+    xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+    xmlns:qbp="http://www.qbp-simulator.com/Schema201212"
+    xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:drools="http://www.jboss.org/drools"
+    xmlns:xsi="xsi" id="_cjlskKz9ED6KRoYwfI_lwg" targetNamespace="http://www.omg.org/bpmn20"
+    exporter="jBPM Process Modeler" exporterVersion="2.0">
+    <bpmn2:collaboration id="_EE0FF4BA-03F8-4EFF-9EA9-5409A479D14C" name="Default Collaboration">
+        <bpmn2:participant id="_FA8642A0-DF7D-400B-B3F9-874A0222B6FE" name="Pool Participant"
+            processRef="HF_Module1_RiskStratification2" />
+    </bpmn2:collaboration>
+    <bpmn2:process id="HF_Module1_RiskStratification2" name="HF_Module1_RiskStratification(2)"
+        processType="Public" drools:packageName="com.example" drools:version="1.0"
+        drools:adHoc="false">
+        <bpmn2:extensionElements>
+            <qbp:processSimulationInfo id="qbp_b727d73c-114e-4e5d-a2fb-23eec97f7ca2"
+                processInstances="" startDateTime="2025-11-26T09:00:00.000-05:00" currency="EUR"
+                caseConfigType="COUNT" uiRawSimulationDuration="NaN">
+                <qbp:arrivalRateDistribution>
+                    <qbp:byTimetable>
+                        <qbp:distribution type="FIXED" mean="0" rawMean="0" arg1="NaN" arg2="NaN"
+                            timetableId="DEFAULT_TIMETABLE">
+                            <qbp:timeUnit>minutes</qbp:timeUnit>
+                        </qbp:distribution>
+                    </qbp:byTimetable>
+                </qbp:arrivalRateDistribution>
+                <qbp:timetables>
+                    <qbp:timetable id="DEFAULT_TIMETABLE" default="true" name="Default Timetable">
+                        <qbp:rules>
+                            <qbp:rule fromTime="09:00:00.000+00:00" toTime="17:00:00.000+00:00"
+                                fromWeekDay="MONDAY" toWeekDay="SUNDAY" />
+                        </qbp:rules>
+                    </qbp:timetable>
+                </qbp:timetables>
+                <qbp:resources>
+                    <qbp:resource id="QBP_DEFAULT_RESOURCE" name="Default Resource" totalAmount="1"
+                        timetableId="DEFAULT_TIMETABLE" />
+                </qbp:resources>
+                <qbp:elements>
+                    <qbp:element id="_BBB29E42-2F99-4B33-BE9F-FB16AE2BA1FC"
+                        elementId="_BBB29E42-2F99-4B33-BE9F-FB16AE2BA1FC">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:element>
+                    <qbp:element id="_BEB390D8-2407-46FF-BDDE-66FE45EC9373"
+                        elementId="_BEB390D8-2407-46FF-BDDE-66FE45EC9373">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:element>
+                    <qbp:element id="T_Labs" elementId="T_Labs">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:element>
+                    <qbp:element id="T_Echo" elementId="T_Echo">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:element>
+                    <qbp:element id="T_Monitor" elementId="T_Monitor">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:element>
+                    <qbp:element id="T_RiskAssessment" elementId="T_RiskAssessment">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:element>
+                    <qbp:element id="T_Low_Followup" elementId="T_Low_Followup">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:element>
+                    <qbp:element id="T_Avg_AdmitInpatient" elementId="T_Avg_AdmitInpatient">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:element>
+                    <qbp:element id="T_High_Ventilation" elementId="T_High_Ventilation">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:element>
+                    <qbp:element id="T_High_TransferICU" elementId="T_High_TransferICU">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:element>
+                    <qbp:element id="Activity_0gxp8k2" elementId="Activity_0gxp8k2">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:element>
+                    <qbp:element id="Activity_1gjswtq" elementId="Activity_1gjswtq">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:element>
+                </qbp:elements>
+                <qbp:sequenceFlows>
+                    <qbp:sequenceFlow elementId="_1046AB6C-6F7D-4F37-A6DE-F5255EED27B8">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="F9">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="F2">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="_ADD54B97-70F2-44E7-A9CE-7463BE94D504">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="F7">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="_1686226B-8424-4FB5-9F2E-8246376EBD4B">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="F16">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="F19">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="F8">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="F21">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_0n6mp6t">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_0blof5w">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_1jngle8">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_1c9uwqa">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_0f2vg48" executionProbability="0">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_0ozgl6s" executionProbability="0">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_0pyqqfq" executionProbability="0">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_144nk8m">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_1mqp4xz">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_1a293mm">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_1iiynpu">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_0w02as7">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_0q7tben">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_1riizjo">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_02r6yhq" executionProbability="0">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_1knq1du" executionProbability="0">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_0e2evtq" executionProbability="0">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_09bfthr">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_18cgevq" executionProbability="0">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_1rumvkr" executionProbability="0">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_0h8nrex">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_0kktab9" executionProbability="0">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_0qq9984" executionProbability="0">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_1uzwhit" executionProbability="0">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_03jko77">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_1qd7jod" executionProbability="0">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_0ler5rc">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_078ug3p">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_0myget3" executionProbability="0">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_1qbimo4">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_1o12f3q" executionProbability="0">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_0dyhh0q" executionProbability="0">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                    <qbp:sequenceFlow elementId="Flow_0jx5ela" executionProbability="0">
+                        <qbp:durationDistribution type="FIXED" mean="0" rawMean="0" arg1="NaN"
+                            arg2="NaN">
+                            <qbp:timeUnit>seconds</qbp:timeUnit>
+                        </qbp:durationDistribution>
+                    </qbp:sequenceFlow>
+                </qbp:sequenceFlows>
+                <qbp:variables />
+                <qbp:casePriorities />
+                <qbp:errors>
+                    <qbp:error id="processInstances" elementId="Total number of cases"
+                        message="Total number of cases must not be empty" />
+                    <qbp:error id="_BBB29E42-2F99-4B33-BE9F-FB16AE2BA1FC-roles"
+                        elementId="_BBB29E42-2F99-4B33-BE9F-FB16AE2BA1FC"
+                        message="Task must have a role/role group" />
+                    <qbp:error id="_BEB390D8-2407-46FF-BDDE-66FE45EC9373-roles"
+                        elementId="_BEB390D8-2407-46FF-BDDE-66FE45EC9373"
+                        message="Task must have a role/role group" />
+                    <qbp:error id="T_Labs-roles" elementId="T_Labs"
+                        message="Task must have a role/role group" />
+                    <qbp:error id="T_Echo-roles" elementId="T_Echo"
+                        message="Task must have a role/role group" />
+                    <qbp:error id="T_Monitor-roles" elementId="T_Monitor"
+                        message="Task must have a role/role group" />
+                    <qbp:error id="T_RiskAssessment-roles" elementId="T_RiskAssessment"
+                        message="Task must have a role/role group" />
+                    <qbp:error id="T_Low_Followup-roles" elementId="T_Low_Followup"
+                        message="Task must have a role/role group" />
+                    <qbp:error id="T_Avg_AdmitInpatient-roles" elementId="T_Avg_AdmitInpatient"
+                        message="Task must have a role/role group" />
+                    <qbp:error id="T_High_Ventilation-roles" elementId="T_High_Ventilation"
+                        message="Task must have a role/role group" />
+                    <qbp:error id="T_High_TransferICU-roles" elementId="T_High_TransferICU"
+                        message="Task must have a role/role group" />
+                    <qbp:error id="Activity_0gxp8k2-roles" elementId="Activity_0gxp8k2"
+                        message="Task must have a role/role group" />
+                    <qbp:error id="Activity_1gjswtq-roles" elementId="Activity_1gjswtq"
+                        message="Task must have a role/role group" />
+                    <qbp:error id="gateway-probability-_ADD54B97-70F2-44E7-A9CE-7463BE94D504"
+                        elementId="_ADD54B97-70F2-44E7-A9CE-7463BE94D504"
+                        message="Probability must not be empty" />
+                    <qbp:error id="gateway-probability-F16" elementId="F16"
+                        message="Probability must not be empty" />
+                    <qbp:error id="gateway-probability-Flow_0n6mp6t" elementId="Flow_0n6mp6t"
+                        message="Probability must not be empty" />
+                    <qbp:error id="gatewayProbabilitySumError-Gateway_0rftpko"
+                        elementId="Gateway_0rftpko"
+                        message="The sum of execution probabilities for gateway Gateway_0rftpko must be 100%" />
+                    <qbp:error id="gatewayProbabilitySumError-XG_RiskGroup" elementId="XG_RiskGroup"
+                        message="The sum of execution probabilities for gateway XG_RiskGroup must be 100%" />
+                    <qbp:error id="gatewayProbabilitySumError-Gateway_1ka7c91"
+                        elementId="Gateway_1ka7c91"
+                        message="The sum of execution probabilities for gateway Gateway_1ka7c91 must be 100%" />
+                    <qbp:error id="gatewayProbabilitySumError-Gateway_0fxfg1i"
+                        elementId="Gateway_0fxfg1i"
+                        message="The sum of execution probabilities for gateway Gateway_0fxfg1i must be 100%" />
+                    <qbp:error id="gatewayProbabilitySumError-Gateway_1078buc"
+                        elementId="Gateway_1078buc"
+                        message="The sum of execution probabilities for gateway Gateway_1078buc must be 100%" />
+                </qbp:errors>
+                <qbp:uiTimeZone>America/Toronto</qbp:uiTimeZone>
+            </qbp:processSimulationInfo>
+        </bpmn2:extensionElements>
+        <bpmn2:sequenceFlow id="_1046AB6C-6F7D-4F37-A6DE-F5255EED27B8"
+            sourceRef="_84936A37-661C-435C-A4A9-BA815D74BE3F" targetRef="PG_DiagnosticsJoin" />
+        <bpmn2:sequenceFlow id="F9" sourceRef="T_Labs" targetRef="PG_DiagnosticsJoin" />
+        <bpmn2:sequenceFlow id="F2" sourceRef="PG_DiagnosticsSplit" targetRef="T_Labs" />
+        <bpmn2:sequenceFlow id="_ADD54B97-70F2-44E7-A9CE-7463BE94D504" name="yes"
+            sourceRef="XG_Echo" targetRef="_84936A37-661C-435C-A4A9-BA815D74BE3F">
+            <bpmn2:extensionElements>
+                <drools:metaData name="isAutoConnection.target">
+                    <drools:metaValue>true</drools:metaValue>
+                </drools:metaData>
+            </bpmn2:extensionElements>
+        </bpmn2:sequenceFlow>
+        <bpmn2:sequenceFlow id="F7" sourceRef="PG_DiagnosticsSplit" targetRef="XG_Echo" />
+        <bpmn2:sequenceFlow id="_1686226B-8424-4FB5-9F2E-8246376EBD4B" sourceRef="T_Echo"
+            targetRef="_84936A37-661C-435C-A4A9-BA815D74BE3F">
+            <bpmn2:extensionElements>
+                <drools:metaData name="isAutoConnection.target">
+                    <drools:metaValue>true</drools:metaValue>
+                </drools:metaData>
+            </bpmn2:extensionElements>
+        </bpmn2:sequenceFlow>
+        <bpmn2:sequenceFlow id="F16" name="no" sourceRef="XG_Echo" targetRef="T_Echo">
+            <bpmn2:extensionElements>
+                <drools:metaData name="elementname">
+                    <drools:metaValue>No recent echocardiogram</drools:metaValue>
+                </drools:metaData>
+            </bpmn2:extensionElements>
+        </bpmn2:sequenceFlow>
+        <bpmn2:sequenceFlow id="F19" sourceRef="T_Monitor" targetRef="PG_DiagnosticsJoin" />
+        <bpmn2:sequenceFlow id="F8" sourceRef="PG_DiagnosticsSplit" targetRef="T_Monitor" />
+        <bpmn2:sequenceFlow id="F21" sourceRef="T_RiskAssessment" targetRef="XG_RiskGroup" />
+        <bpmn2:sequenceFlow id="Flow_0n6mp6t" name="no" sourceRef="Gateway_0rftpko"
+            targetRef="T_High_Ventilation" />
+        <bpmn2:sequenceFlow id="Flow_0blof5w" sourceRef="T_High_Ventilation"
+            targetRef="Gateway_0dhp7yv" />
+        <bpmn2:sequenceFlow id="Flow_1jngle8" sourceRef="Activity_0gxp8k2"
+            targetRef="Gateway_0dhp7yv" />
+        <bpmn2:exclusiveGateway id="_84936A37-661C-435C-A4A9-BA815D74BE3F"
+            gatewayDirection="Converging">
+            <bpmn2:incoming>_1686226B-8424-4FB5-9F2E-8246376EBD4B</bpmn2:incoming>
+            <bpmn2:incoming>_ADD54B97-70F2-44E7-A9CE-7463BE94D504</bpmn2:incoming>
+            <bpmn2:outgoing>_1046AB6C-6F7D-4F37-A6DE-F5255EED27B8</bpmn2:outgoing>
+        </bpmn2:exclusiveGateway>
+        <bpmn2:task id="_BBB29E42-2F99-4B33-BE9F-FB16AE2BA1FC" name="Discharge home">
+            <bpmn2:extensionElements>
+                <drools:metaData name="elementname">
+                    <drools:metaValue>Discharge home</drools:metaValue>
+                </drools:metaData>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>Flow_1mqp4xz</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_0w02as7</bpmn2:outgoing>
+        </bpmn2:task>
+        <bpmn2:task id="_BEB390D8-2407-46FF-BDDE-66FE45EC9373" name="Treat in ED">
+            <bpmn2:extensionElements>
+                <drools:metaData name="elementname">
+                    <drools:metaValue>Treat in ED</drools:metaValue>
+                </drools:metaData>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>Flow_0e2evtq</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_09bfthr</bpmn2:outgoing>
+        </bpmn2:task>
+        <bpmn2:startEvent id="SE_Start">
+            <bpmn2:extensionElements>
+                <drools:metaData name="elementname">
+                    <drools:metaValue>Start of Module 1</drools:metaValue>
+                </drools:metaData>
+            </bpmn2:extensionElements>
+            <bpmn2:outgoing>Flow_144nk8m</bpmn2:outgoing>
+        </bpmn2:startEvent>
+        <bpmn2:parallelGateway id="PG_DiagnosticsSplit" gatewayDirection="Diverging">
+            <bpmn2:incoming>Flow_144nk8m</bpmn2:incoming>
+            <bpmn2:outgoing>F8</bpmn2:outgoing>
+            <bpmn2:outgoing>F7</bpmn2:outgoing>
+            <bpmn2:outgoing>F2</bpmn2:outgoing>
+        </bpmn2:parallelGateway>
+        <bpmn2:parallelGateway id="PG_DiagnosticsJoin" gatewayDirection="Converging">
+            <bpmn2:extensionElements>
+                <drools:metaData name="elementname">
+                    <drools:metaValue>Diagnostics completed</drools:metaValue>
+                </drools:metaData>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>F19</bpmn2:incoming>
+            <bpmn2:incoming>F9</bpmn2:incoming>
+            <bpmn2:incoming>_1046AB6C-6F7D-4F37-A6DE-F5255EED27B8</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_1c9uwqa</bpmn2:outgoing>
+        </bpmn2:parallelGateway>
+        <bpmn2:task id="T_Labs"
+            name="Serum creatinine and electrolyte levels, troponin measurements, complete blood count, electrocardiogram, chest x-ray examination">
+            <bpmn2:extensionElements>
+                <drools:metaData name="elementname">
+                    <drools:metaValue>Serum creatinine and electrolyte levels</drools:metaValue>
+                </drools:metaData>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>F2</bpmn2:incoming>
+            <bpmn2:outgoing>F9</bpmn2:outgoing>
+        </bpmn2:task>
+        <bpmn2:exclusiveGateway id="XG_Echo" name="recent echocardiogram available?"
+            gatewayDirection="Diverging">
+            <bpmn2:extensionElements>
+                <drools:metaData name="elementname">
+                    <drools:metaValue>Recent echocardiogram available?</drools:metaValue>
+                </drools:metaData>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>F7</bpmn2:incoming>
+            <bpmn2:outgoing>F16</bpmn2:outgoing>
+            <bpmn2:outgoing>_ADD54B97-70F2-44E7-A9CE-7463BE94D504</bpmn2:outgoing>
+        </bpmn2:exclusiveGateway>
+        <bpmn2:task id="T_Echo" name="Echocardiogram">
+            <bpmn2:extensionElements>
+                <drools:metaData name="elementname">
+                    <drools:metaValue>Echocardiogram</drools:metaValue>
+                </drools:metaData>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>F16</bpmn2:incoming>
+            <bpmn2:outgoing>_1686226B-8424-4FB5-9F2E-8246376EBD4B</bpmn2:outgoing>
+        </bpmn2:task>
+        <bpmn2:task id="T_Monitor"
+            name="Monitor heart rate, blood pressure, oxygen saturation until stabilized">
+            <bpmn2:extensionElements>
+                <drools:metaData name="elementname">
+                    <drools:metaValue>Monitor heart rate, blood pressure, oxygen saturation until
+                        stabilized</drools:metaValue>
+                </drools:metaData>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>F8</bpmn2:incoming>
+            <bpmn2:outgoing>F19</bpmn2:outgoing>
+        </bpmn2:task>
+        <bpmn2:task id="T_RiskAssessment" name="Risk assessment / stratification">
+            <bpmn2:extensionElements>
+                <drools:metaData name="elementname">
+                    <drools:metaValue>Risk assessment / stratification</drools:metaValue>
+                </drools:metaData>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>Flow_1c9uwqa</bpmn2:incoming>
+            <bpmn2:outgoing>F21</bpmn2:outgoing>
+        </bpmn2:task>
+        <bpmn2:exclusiveGateway id="XG_RiskGroup" name="risk stratification outcome?"
+            gatewayDirection="Diverging">
+            <bpmn2:extensionElements>
+                <drools:metaData name="elementname">
+                    <drools:metaValue>Risk stratification patient groups</drools:metaValue>
+                </drools:metaData>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>F21</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_0pyqqfq</bpmn2:outgoing>
+            <bpmn2:outgoing>Flow_1knq1du</bpmn2:outgoing>
+            <bpmn2:outgoing>Flow_1qd7jod</bpmn2:outgoing>
+        </bpmn2:exclusiveGateway>
+        <bpmn2:task id="T_Low_Followup" name="Arrange follow-up (within days) with primary care">
+            <bpmn2:extensionElements>
+                <drools:metaData name="elementname">
+                    <drools:metaValue>Arrange follow-up with primary care within days</drools:metaValue>
+                </drools:metaData>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>Flow_1a293mm</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_1iiynpu</bpmn2:outgoing>
+        </bpmn2:task>
+        <bpmn2:task id="T_Avg_AdmitInpatient"
+            name="Admit to inpatient care (normal nurse-to-patient staffing)">
+            <bpmn2:extensionElements>
+                <drools:metaData name="elementname">
+                    <drools:metaValue>Admit to inpatient unit (normal nurse-to-patient staffing)</drools:metaValue>
+                </drools:metaData>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>Flow_0pyqqfq</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_1riizjo</bpmn2:outgoing>
+        </bpmn2:task>
+        <bpmn2:task id="T_High_Ventilation" name="Noninvasive ventilation">
+            <bpmn2:extensionElements>
+                <drools:metaData name="elementname">
+                    <drools:metaValue>noninvasive ventilation</drools:metaValue>
+                </drools:metaData>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>Flow_0n6mp6t</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_0blof5w</bpmn2:outgoing>
+        </bpmn2:task>
+        <bpmn2:task id="T_High_TransferICU" name="Admit to ICU (high nurse-to-patient staffing)">
+            <bpmn2:extensionElements>
+                <drools:metaData name="elementname">
+                    <drools:metaValue>Transfer to ICU (high nurse-to-patient staffing)</drools:metaValue>
+                </drools:metaData>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>Flow_1o12f3q</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_078ug3p</bpmn2:outgoing>
+        </bpmn2:task>
+        <bpmn2:task id="Activity_0gxp8k2" name="Invasive ventilation">
+            <bpmn2:extensionElements>
+                <drools:metaData name="elementname">
+                    <drools:metaValue>invasive ventilation</drools:metaValue>
+                </drools:metaData>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>Flow_0f2vg48</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_1jngle8</bpmn2:outgoing>
+        </bpmn2:task>
+        <bpmn2:exclusiveGateway id="Gateway_0rftpko" name="invasive?" gatewayDirection="Diverging">
+            <bpmn2:incoming>Flow_0kktab9</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_0n6mp6t</bpmn2:outgoing>
+            <bpmn2:outgoing>Flow_0f2vg48</bpmn2:outgoing>
+        </bpmn2:exclusiveGateway>
+        <bpmn2:exclusiveGateway id="Gateway_0dhp7yv" gatewayDirection="Converging">
+            <bpmn2:incoming>Flow_1jngle8</bpmn2:incoming>
+            <bpmn2:incoming>Flow_0blof5w</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_1uzwhit</bpmn2:outgoing>
+        </bpmn2:exclusiveGateway>
+        <bpmn2:sequenceFlow id="Flow_1c9uwqa" sourceRef="PG_DiagnosticsJoin"
+            targetRef="T_RiskAssessment" />
+        <bpmn2:sequenceFlow id="Flow_0f2vg48" name="yes" sourceRef="Gateway_0rftpko"
+            targetRef="Activity_0gxp8k2" />
+        <bpmn2:sequenceFlow id="Flow_0pyqqfq" name="average intensity" sourceRef="XG_RiskGroup"
+            targetRef="T_Avg_AdmitInpatient" />
+        <bpmn2:sequenceFlow id="Flow_144nk8m" sourceRef="SE_Start" targetRef="PG_DiagnosticsSplit" />
+        <bpmn2:parallelGateway id="Gateway_0jkjljq">
+            <bpmn2:incoming>Flow_18cgevq</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_1mqp4xz</bpmn2:outgoing>
+            <bpmn2:outgoing>Flow_1a293mm</bpmn2:outgoing>
+        </bpmn2:parallelGateway>
+        <bpmn2:sequenceFlow id="Flow_1mqp4xz" sourceRef="Gateway_0jkjljq"
+            targetRef="_BBB29E42-2F99-4B33-BE9F-FB16AE2BA1FC" />
+        <bpmn2:sequenceFlow id="Flow_1a293mm" sourceRef="Gateway_0jkjljq" targetRef="T_Low_Followup" />
+        <bpmn2:sequenceFlow id="Flow_1iiynpu" sourceRef="T_Low_Followup" targetRef="Gateway_1yicscu" />
+        <bpmn2:parallelGateway id="Gateway_1yicscu">
+            <bpmn2:incoming>Flow_1iiynpu</bpmn2:incoming>
+            <bpmn2:incoming>Flow_0w02as7</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_0q7tben</bpmn2:outgoing>
+        </bpmn2:parallelGateway>
+        <bpmn2:sequenceFlow id="Flow_0w02as7" sourceRef="_BBB29E42-2F99-4B33-BE9F-FB16AE2BA1FC"
+            targetRef="Gateway_1yicscu" />
+        <bpmn2:exclusiveGateway id="Gateway_0xdpgkt">
+            <bpmn2:incoming>Flow_0q7tben</bpmn2:incoming>
+            <bpmn2:incoming>Flow_1riizjo</bpmn2:incoming>
+            <bpmn2:incoming>Flow_1qbimo4</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_02r6yhq</bpmn2:outgoing>
+        </bpmn2:exclusiveGateway>
+        <bpmn2:sequenceFlow id="Flow_0q7tben" sourceRef="Gateway_1yicscu"
+            targetRef="Gateway_0xdpgkt" />
+        <bpmn2:sequenceFlow id="Flow_1riizjo" sourceRef="T_Avg_AdmitInpatient"
+            targetRef="Gateway_0xdpgkt" />
+        <bpmn2:endEvent id="Event_09cc4l6">
+            <bpmn2:incoming>Flow_02r6yhq</bpmn2:incoming>
+        </bpmn2:endEvent>
+        <bpmn2:sequenceFlow id="Flow_02r6yhq" sourceRef="Gateway_0xdpgkt" targetRef="Event_09cc4l6" />
+        <bpmn2:sequenceFlow id="Flow_1knq1du" name="low intensity" sourceRef="XG_RiskGroup"
+            targetRef="Gateway_1ka7c91" />
+        <bpmn2:exclusiveGateway id="Gateway_1ka7c91" name="treat in ED?">
+            <bpmn2:incoming>Flow_1knq1du</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_0e2evtq</bpmn2:outgoing>
+            <bpmn2:outgoing>Flow_1rumvkr</bpmn2:outgoing>
+        </bpmn2:exclusiveGateway>
+        <bpmn2:sequenceFlow id="Flow_0e2evtq" name="yes" sourceRef="Gateway_1ka7c91"
+            targetRef="_BEB390D8-2407-46FF-BDDE-66FE45EC9373" />
+        <bpmn2:exclusiveGateway id="Gateway_0h1qfus">
+            <bpmn2:incoming>Flow_09bfthr</bpmn2:incoming>
+            <bpmn2:incoming>Flow_0h8nrex</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_18cgevq</bpmn2:outgoing>
+        </bpmn2:exclusiveGateway>
+        <bpmn2:sequenceFlow id="Flow_09bfthr" sourceRef="_BEB390D8-2407-46FF-BDDE-66FE45EC9373"
+            targetRef="Gateway_0h1qfus" />
+        <bpmn2:sequenceFlow id="Flow_18cgevq" sourceRef="Gateway_0h1qfus"
+            targetRef="Gateway_0jkjljq" />
+        <bpmn2:task id="Activity_1gjswtq" name="Treat in outpatient settings">
+            <bpmn2:incoming>Flow_1rumvkr</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_0h8nrex</bpmn2:outgoing>
+        </bpmn2:task>
+        <bpmn2:sequenceFlow id="Flow_1rumvkr" name="no" sourceRef="Gateway_1ka7c91"
+            targetRef="Activity_1gjswtq" />
+        <bpmn2:sequenceFlow id="Flow_0h8nrex" sourceRef="Activity_1gjswtq"
+            targetRef="Gateway_0h1qfus" />
+        <bpmn2:parallelGateway id="Gateway_13xyemu">
+            <bpmn2:incoming>Flow_1qd7jod</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_03jko77</bpmn2:outgoing>
+            <bpmn2:outgoing>Flow_0ler5rc</bpmn2:outgoing>
+        </bpmn2:parallelGateway>
+        <bpmn2:exclusiveGateway id="Gateway_0fxfg1i" name="require ventilation?">
+            <bpmn2:incoming>Flow_03jko77</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_0kktab9</bpmn2:outgoing>
+            <bpmn2:outgoing>Flow_0qq9984</bpmn2:outgoing>
+        </bpmn2:exclusiveGateway>
+        <bpmn2:sequenceFlow id="Flow_0kktab9" name="yes" sourceRef="Gateway_0fxfg1i"
+            targetRef="Gateway_0rftpko" />
+        <bpmn2:exclusiveGateway id="Gateway_08z0q3a">
+            <bpmn2:incoming>Flow_0qq9984</bpmn2:incoming>
+            <bpmn2:incoming>Flow_1uzwhit</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_0myget3</bpmn2:outgoing>
+        </bpmn2:exclusiveGateway>
+        <bpmn2:sequenceFlow id="Flow_0qq9984" name="no" sourceRef="Gateway_0fxfg1i"
+            targetRef="Gateway_08z0q3a" />
+        <bpmn2:sequenceFlow id="Flow_1uzwhit" sourceRef="Gateway_0dhp7yv"
+            targetRef="Gateway_08z0q3a" />
+        <bpmn2:sequenceFlow id="Flow_03jko77" sourceRef="Gateway_13xyemu"
+            targetRef="Gateway_0fxfg1i" />
+        <bpmn2:sequenceFlow id="Flow_1qd7jod" name="high intensity" sourceRef="XG_RiskGroup"
+            targetRef="Gateway_13xyemu" />
+        <bpmn2:sequenceFlow id="Flow_0ler5rc" sourceRef="Gateway_13xyemu"
+            targetRef="Gateway_1078buc" />
+        <bpmn2:parallelGateway id="Gateway_1kvtxj9">
+            <bpmn2:incoming>Flow_0myget3</bpmn2:incoming>
+            <bpmn2:incoming>Flow_0dyhh0q</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_1qbimo4</bpmn2:outgoing>
+        </bpmn2:parallelGateway>
+        <bpmn2:sequenceFlow id="Flow_078ug3p" sourceRef="T_High_TransferICU"
+            targetRef="Gateway_0k80b0l" />
+        <bpmn2:sequenceFlow id="Flow_0myget3" sourceRef="Gateway_08z0q3a"
+            targetRef="Gateway_1kvtxj9" />
+        <bpmn2:sequenceFlow id="Flow_1qbimo4" sourceRef="Gateway_1kvtxj9"
+            targetRef="Gateway_0xdpgkt" />
+        <bpmn2:exclusiveGateway id="Gateway_1078buc" name="admit to ICU?">
+            <bpmn2:incoming>Flow_0ler5rc</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_1o12f3q</bpmn2:outgoing>
+            <bpmn2:outgoing>Flow_0jx5ela</bpmn2:outgoing>
+        </bpmn2:exclusiveGateway>
+        <bpmn2:sequenceFlow id="Flow_1o12f3q" name="yes" sourceRef="Gateway_1078buc"
+            targetRef="T_High_TransferICU" />
+        <bpmn2:exclusiveGateway id="Gateway_0k80b0l">
+            <bpmn2:incoming>Flow_078ug3p</bpmn2:incoming>
+            <bpmn2:incoming>Flow_0jx5ela</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_0dyhh0q</bpmn2:outgoing>
+        </bpmn2:exclusiveGateway>
+        <bpmn2:sequenceFlow id="Flow_0dyhh0q" sourceRef="Gateway_0k80b0l"
+            targetRef="Gateway_1kvtxj9" />
+        <bpmn2:sequenceFlow id="Flow_0jx5ela" name="no" sourceRef="Gateway_1078buc"
+            targetRef="Gateway_0k80b0l" />
+    </bpmn2:process>
+    <bpmndi:BPMNDiagram>
+        <bpmndi:BPMNPlane bpmnElement="HF_Module1_RiskStratification2">
+            <bpmndi:BPMNShape id="shape__84936A37-661C-435C-A4A9-BA815D74BE3F"
+                bpmnElement="_84936A37-661C-435C-A4A9-BA815D74BE3F" isMarkerVisible="true">
+                <dc:Bounds x="792" y="436" width="56" height="56" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape__BBB29E42-2F99-4B33-BE9F-FB16AE2BA1FC"
+                bpmnElement="_BBB29E42-2F99-4B33-BE9F-FB16AE2BA1FC">
+                <dc:Bounds x="1865" y="-53" width="150" height="50" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape__BEB390D8-2407-46FF-BDDE-66FE45EC9373"
+                bpmnElement="_BEB390D8-2407-46FF-BDDE-66FE45EC9373">
+                <dc:Bounds x="1493" y="-69" width="177" height="60" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape_SE_Start" bpmnElement="SE_Start">
+                <dc:Bounds x="132" y="196" width="56" height="56" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="-12" y="252" width="65" height="36" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape_PG_DiagnosticsSplit" bpmnElement="PG_DiagnosticsSplit">
+                <dc:Bounds x="341" y="196" width="56" height="56" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="266" y="171" width="88" height="18" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape_PG_DiagnosticsJoin" bpmnElement="PG_DiagnosticsJoin">
+                <dc:Bounds x="942" y="196" width="56" height="56" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="969" y="259" width="111" height="54" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape_T_Labs" bpmnElement="T_Labs">
+                <dc:Bounds x="507" y="36" width="313" height="187" />
+                <bpmndi:BPMNLabel />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape_XG_Echo" bpmnElement="XG_Echo" isMarkerVisible="true">
+                <dc:Bounds x="451" y="436" width="56" height="56" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="460" y="492" width="86" height="72" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape_T_Echo" bpmnElement="T_Echo">
+                <dc:Bounds x="570" y="357" width="160" height="45" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape_T_Monitor" bpmnElement="T_Monitor">
+                <dc:Bounds x="546" y="580" width="240" height="60" />
+                <bpmndi:BPMNLabel />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape_T_RiskAssessment" bpmnElement="T_RiskAssessment">
+                <dc:Bounds x="1045" y="194" width="210" height="60" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape_XG_RiskGroup" bpmnElement="XG_RiskGroup"
+                isMarkerVisible="true">
+                <dc:Bounds x="1312" y="200" width="56" height="56" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1246" y="264" width="168" height="72" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape_T_Low_Followup" bpmnElement="T_Low_Followup">
+                <dc:Bounds x="1840" y="71" width="200" height="60" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape_T_Avg_AdmitInpatient" bpmnElement="T_Avg_AdmitInpatient">
+                <dc:Bounds x="1577" y="198" width="350" height="60" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape_T_High_Ventilation" bpmnElement="T_High_Ventilation">
+                <dc:Bounds x="1765" y="314" width="170" height="60" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape_T_High_TransferICU" bpmnElement="T_High_TransferICU">
+                <dc:Bounds x="1735" y="613" width="220" height="60" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape_Activity_0gxp8k2" bpmnElement="Activity_0gxp8k2">
+                <dc:Bounds x="1768" y="420" width="154" height="64" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape_Gateway_0rftpko" bpmnElement="Gateway_0rftpko"
+                isMarkerVisible="true">
+                <dc:Bounds x="1652" y="379" width="56" height="56" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1595" y="349" width="69" height="18" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="shape_Gateway_0dhp7yv" bpmnElement="Gateway_0dhp7yv"
+                isMarkerVisible="true">
+                <dc:Bounds x="1980" y="368" width="56" height="56" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Gateway_0xyb75s_di" bpmnElement="Gateway_0jkjljq">
+                <dc:Bounds x="1765" y="6" width="50" height="50" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Gateway_0kmls5y_di" bpmnElement="Gateway_1yicscu">
+                <dc:Bounds x="2075" y="6" width="50" height="50" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Gateway_0xdpgkt_di" bpmnElement="Gateway_0xdpgkt"
+                isMarkerVisible="true">
+                <dc:Bounds x="2195" y="203" width="50" height="50" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Event_09cc4l6_di" bpmnElement="Event_09cc4l6">
+                <dc:Bounds x="2322" y="210" width="36" height="36" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Gateway_1ka7c91_di" bpmnElement="Gateway_1ka7c91"
+                isMarkerVisible="true">
+                <dc:Bounds x="1425" y="6" width="50" height="50" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1358" y="-9" width="84" height="18" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Gateway_0h1qfus_di" bpmnElement="Gateway_0h1qfus"
+                isMarkerVisible="true">
+                <dc:Bounds x="1685" y="6" width="50" height="50" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Activity_1gjswtq_di" bpmnElement="Activity_1gjswtq">
+                <dc:Bounds x="1532" y="50" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Gateway_1ej05u2_di" bpmnElement="Gateway_13xyemu">
+                <dc:Bounds x="1413" y="505" width="50" height="50" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Gateway_0fxfg1i_di" bpmnElement="Gateway_0fxfg1i"
+                isMarkerVisible="true">
+                <dc:Bounds x="1583" y="505" width="50" height="50" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1494" y="485" width="87" height="36" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="BPMNShape_0ai9f9o" bpmnElement="Gateway_08z0q3a"
+                isMarkerVisible="true">
+                <dc:Bounds x="2043" y="505" width="50" height="50" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1916" y="475" width="87" height="36" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Gateway_08pbi8n_di" bpmnElement="Gateway_1kvtxj9">
+                <dc:Bounds x="2135" y="505" width="50" height="50" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="BPMNShape_09sjcn7" bpmnElement="Gateway_1078buc"
+                isMarkerVisible="true">
+                <dc:Bounds x="1583" y="618" width="50" height="50" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1504" y="598" width="68" height="36" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Gateway_0k80b0l_di" bpmnElement="Gateway_0k80b0l"
+                isMarkerVisible="true">
+                <dc:Bounds x="2043" y="618" width="50" height="50" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge
+                id="edge_shape__84936A37-661C-435C-A4A9-BA815D74BE3F_to_shape_PG_DiagnosticsJoin"
+                bpmnElement="_1046AB6C-6F7D-4F37-A6DE-F5255EED27B8">
+                <di:waypoint x="848" y="464" />
+                <di:waypoint x="970" y="464" />
+                <di:waypoint x="970" y="252" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="edge_shape_T_Labs_to_shape_PG_DiagnosticsJoin" bpmnElement="F9">
+                <di:waypoint x="820" y="130" />
+                <di:waypoint x="966" y="130" />
+                <di:waypoint x="966" y="200" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="edge_shape_PG_DiagnosticsSplit_to_shape_T_Labs" bpmnElement="F2">
+                <di:waypoint x="366" y="199" />
+                <di:waypoint x="366" y="130" />
+                <di:waypoint x="500" y="130" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="edge_shape_XG_Echo_to_shape__84936A37-661C-435C-A4A9-BA815D74BE3F"
+                bpmnElement="_ADD54B97-70F2-44E7-A9CE-7463BE94D504">
+                <di:waypoint x="507" y="464" />
+                <di:waypoint x="792" y="464" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="637" y="446" width="26" height="18" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="edge_shape_PG_DiagnosticsSplit_to_shape_XG_Echo" bpmnElement="F7">
+                <di:waypoint x="366" y="249" />
+                <di:waypoint x="366" y="460" />
+                <di:waypoint x="455" y="460" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="edge_shape_T_Echo_to_shape__84936A37-661C-435C-A4A9-BA815D74BE3F"
+                bpmnElement="_1686226B-8424-4FB5-9F2E-8246376EBD4B">
+                <di:waypoint x="730" y="380" />
+                <di:waypoint x="820" y="380" />
+                <di:waypoint x="820" y="436" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="edge_shape_XG_Echo_to_shape_T_Echo" bpmnElement="F16">
+                <di:waypoint x="479" y="436" />
+                <di:waypoint x="479" y="369" />
+                <di:waypoint x="570" y="369" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="493" y="351" width="20" height="18" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="edge_shape_T_Monitor_to_shape_PG_DiagnosticsJoin" bpmnElement="F19">
+                <di:waypoint x="786" y="611" />
+                <di:waypoint x="967" y="611" />
+                <di:waypoint x="967" y="249" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="edge_shape_PG_DiagnosticsSplit_to_shape_T_Monitor" bpmnElement="F8">
+                <di:waypoint x="366" y="249" />
+                <di:waypoint x="366" y="611" />
+                <di:waypoint x="546" y="611" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="edge_shape_T_RiskAssessment_to_shape_XG_RiskGroup"
+                bpmnElement="F21">
+                <di:waypoint x="1255" y="225" />
+                <di:waypoint x="1315" y="225" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="edge_shape_Gateway_0rftpko_to_shape_T_High_Ventilation"
+                bpmnElement="Flow_0n6mp6t">
+                <di:waypoint x="1675" y="384" />
+                <di:waypoint x="1675" y="344" />
+                <di:waypoint x="1765" y="344" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1688" y="351" width="20" height="18" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="edge_shape_T_High_Ventilation_to_shape_Gateway_0dhp7yv"
+                bpmnElement="Flow_0blof5w">
+                <di:waypoint x="1935" y="344" />
+                <di:waypoint x="2005" y="344" />
+                <di:waypoint x="2005" y="371" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="edge_shape_Activity_0gxp8k2_to_shape_Gateway_0dhp7yv"
+                bpmnElement="Flow_1jngle8">
+                <di:waypoint x="1922" y="460" />
+                <di:waypoint x="2005" y="460" />
+                <di:waypoint x="2005" y="421" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_1c9uwqa_di" bpmnElement="Flow_1c9uwqa">
+                <di:waypoint x="998" y="224" />
+                <di:waypoint x="1045" y="224" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_0f2vg48_di" bpmnElement="Flow_0f2vg48">
+                <di:waypoint x="1680" y="435" />
+                <di:waypoint x="1680" y="452" />
+                <di:waypoint x="1768" y="452" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1695" y="424" width="26" height="18" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_0pyqqfq_di" bpmnElement="Flow_0pyqqfq">
+                <di:waypoint x="1368" y="228" />
+                <di:waypoint x="1577" y="228" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1403" y="210" width="68" height="36" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_144nk8m_di" bpmnElement="Flow_144nk8m">
+                <di:waypoint x="188" y="224" />
+                <di:waypoint x="341" y="224" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_1mqp4xz_di" bpmnElement="Flow_1mqp4xz">
+                <di:waypoint x="1790" y="6" />
+                <di:waypoint x="1790" y="-18" />
+                <di:waypoint x="1865" y="-18" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_1a293mm_di" bpmnElement="Flow_1a293mm">
+                <di:waypoint x="1790" y="56" />
+                <di:waypoint x="1790" y="101" />
+                <di:waypoint x="1840" y="101" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_1iiynpu_di" bpmnElement="Flow_1iiynpu">
+                <di:waypoint x="2040" y="101" />
+                <di:waypoint x="2100" y="101" />
+                <di:waypoint x="2100" y="56" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_0w02as7_di" bpmnElement="Flow_0w02as7">
+                <di:waypoint x="2015" y="-28" />
+                <di:waypoint x="2100" y="-28" />
+                <di:waypoint x="2100" y="6" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_0q7tben_di" bpmnElement="Flow_0q7tben">
+                <di:waypoint x="2125" y="31" />
+                <di:waypoint x="2220" y="31" />
+                <di:waypoint x="2220" y="203" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_1riizjo_di" bpmnElement="Flow_1riizjo">
+                <di:waypoint x="1927" y="228" />
+                <di:waypoint x="2195" y="228" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_02r6yhq_di" bpmnElement="Flow_02r6yhq">
+                <di:waypoint x="2245" y="228" />
+                <di:waypoint x="2322" y="228" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_1knq1du_di" bpmnElement="Flow_1knq1du">
+                <di:waypoint x="1340" y="200" />
+                <di:waypoint x="1340" y="31" />
+                <di:waypoint x="1425" y="31" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1308" y="83" width="64" height="36" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_0e2evtq_di" bpmnElement="Flow_0e2evtq">
+                <di:waypoint x="1450" y="6" />
+                <di:waypoint x="1450" y="-39" />
+                <di:waypoint x="1493" y="-39" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1452" y="-19" width="26" height="18" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_09bfthr_di" bpmnElement="Flow_09bfthr">
+                <di:waypoint x="1670" y="-39" />
+                <di:waypoint x="1710" y="-39" />
+                <di:waypoint x="1710" y="6" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_18cgevq_di" bpmnElement="Flow_18cgevq">
+                <di:waypoint x="1735" y="31" />
+                <di:waypoint x="1765" y="31" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_1rumvkr_di" bpmnElement="Flow_1rumvkr">
+                <di:waypoint x="1450" y="56" />
+                <di:waypoint x="1450" y="90" />
+                <di:waypoint x="1532" y="90" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1455" y="70" width="20" height="18" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_0h8nrex_di" bpmnElement="Flow_0h8nrex">
+                <di:waypoint x="1632" y="90" />
+                <di:waypoint x="1710" y="90" />
+                <di:waypoint x="1710" y="56" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_0kktab9_di" bpmnElement="Flow_0kktab9">
+                <di:waypoint x="1608" y="505" />
+                <di:waypoint x="1608" y="407" />
+                <di:waypoint x="1652" y="407" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1569" y="445" width="26" height="18" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_0qq9984_di" bpmnElement="Flow_0qq9984">
+                <di:waypoint x="1633" y="530" />
+                <di:waypoint x="2043" y="530" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1649" y="507" width="20" height="18" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_1uzwhit_di" bpmnElement="Flow_1uzwhit">
+                <di:waypoint x="2036" y="396" />
+                <di:waypoint x="2068" y="396" />
+                <di:waypoint x="2068" y="505" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_03jko77_di" bpmnElement="Flow_03jko77">
+                <di:waypoint x="1463" y="530" />
+                <di:waypoint x="1583" y="530" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_1qd7jod_di" bpmnElement="Flow_1qd7jod">
+                <di:waypoint x="1340" y="256" />
+                <di:waypoint x="1340" y="530" />
+                <di:waypoint x="1413" y="530" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1308" y="389" width="64" height="36" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_0ler5rc_di" bpmnElement="Flow_0ler5rc">
+                <di:waypoint x="1438" y="555" />
+                <di:waypoint x="1438" y="643" />
+                <di:waypoint x="1583" y="643" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_078ug3p_di" bpmnElement="Flow_078ug3p">
+                <di:waypoint x="1955" y="643" />
+                <di:waypoint x="2043" y="643" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_0myget3_di" bpmnElement="Flow_0myget3">
+                <di:waypoint x="2093" y="530" />
+                <di:waypoint x="2135" y="530" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_1qbimo4_di" bpmnElement="Flow_1qbimo4">
+                <di:waypoint x="2185" y="530" />
+                <di:waypoint x="2220" y="530" />
+                <di:waypoint x="2220" y="253" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_1o12f3q_di" bpmnElement="Flow_1o12f3q">
+                <di:waypoint x="1633" y="643" />
+                <di:waypoint x="1735" y="643" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1671" y="625" width="26" height="18" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_0dyhh0q_di" bpmnElement="Flow_0dyhh0q">
+                <di:waypoint x="2093" y="643" />
+                <di:waypoint x="2160" y="643" />
+                <di:waypoint x="2160" y="555" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_0jx5ela_di" bpmnElement="Flow_0jx5ela">
+                <di:waypoint x="1608" y="668" />
+                <di:waypoint x="1608" y="720" />
+                <di:waypoint x="2068" y="720" />
+                <di:waypoint x="2068" y="668" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="1828" y="702" width="20" height="18" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+    <bpmn2:relationship type="BPSimData">
+        <bpmn2:extensionElements>
+            <bpsim:BPSimData>
+                <bpsim:Scenario id="default" name="Simulationscenario">
+                    <bpsim:ScenarioParameters />
+                    <bpsim:ElementParameters elementRef="Activity_0gxp8k2">
+                        <bpsim:TimeParameters>
+                            <bpsim:ProcessingTime>
+                                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+                            </bpsim:ProcessingTime>
+                        </bpsim:TimeParameters>
+                        <bpsim:ResourceParameters>
+                            <bpsim:Availability>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Availability>
+                            <bpsim:Quantity>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Quantity>
+                        </bpsim:ResourceParameters>
+                        <bpsim:CostParameters>
+                            <bpsim:UnitCost>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:UnitCost>
+                        </bpsim:CostParameters>
+                    </bpsim:ElementParameters>
+                    <bpsim:ElementParameters elementRef="T_High_TransferICU">
+                        <bpsim:TimeParameters>
+                            <bpsim:ProcessingTime>
+                                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+                            </bpsim:ProcessingTime>
+                        </bpsim:TimeParameters>
+                        <bpsim:ResourceParameters>
+                            <bpsim:Availability>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Availability>
+                            <bpsim:Quantity>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Quantity>
+                        </bpsim:ResourceParameters>
+                        <bpsim:CostParameters>
+                            <bpsim:UnitCost>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:UnitCost>
+                        </bpsim:CostParameters>
+                    </bpsim:ElementParameters>
+                    <bpsim:ElementParameters elementRef="T_High_Ventilation">
+                        <bpsim:TimeParameters>
+                            <bpsim:ProcessingTime>
+                                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+                            </bpsim:ProcessingTime>
+                        </bpsim:TimeParameters>
+                        <bpsim:ResourceParameters>
+                            <bpsim:Availability>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Availability>
+                            <bpsim:Quantity>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Quantity>
+                        </bpsim:ResourceParameters>
+                        <bpsim:CostParameters>
+                            <bpsim:UnitCost>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:UnitCost>
+                        </bpsim:CostParameters>
+                    </bpsim:ElementParameters>
+                    <bpsim:ElementParameters elementRef="T_Avg_AdmitInpatient">
+                        <bpsim:TimeParameters>
+                            <bpsim:ProcessingTime>
+                                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+                            </bpsim:ProcessingTime>
+                        </bpsim:TimeParameters>
+                        <bpsim:ResourceParameters>
+                            <bpsim:Availability>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Availability>
+                            <bpsim:Quantity>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Quantity>
+                        </bpsim:ResourceParameters>
+                        <bpsim:CostParameters>
+                            <bpsim:UnitCost>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:UnitCost>
+                        </bpsim:CostParameters>
+                    </bpsim:ElementParameters>
+                    <bpsim:ElementParameters elementRef="T_Low_Followup">
+                        <bpsim:TimeParameters>
+                            <bpsim:ProcessingTime>
+                                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+                            </bpsim:ProcessingTime>
+                        </bpsim:TimeParameters>
+                        <bpsim:ResourceParameters>
+                            <bpsim:Availability>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Availability>
+                            <bpsim:Quantity>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Quantity>
+                        </bpsim:ResourceParameters>
+                        <bpsim:CostParameters>
+                            <bpsim:UnitCost>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:UnitCost>
+                        </bpsim:CostParameters>
+                    </bpsim:ElementParameters>
+                    <bpsim:ElementParameters elementRef="T_RiskAssessment">
+                        <bpsim:TimeParameters>
+                            <bpsim:ProcessingTime>
+                                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+                            </bpsim:ProcessingTime>
+                        </bpsim:TimeParameters>
+                        <bpsim:ResourceParameters>
+                            <bpsim:Availability>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Availability>
+                            <bpsim:Quantity>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Quantity>
+                        </bpsim:ResourceParameters>
+                        <bpsim:CostParameters>
+                            <bpsim:UnitCost>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:UnitCost>
+                        </bpsim:CostParameters>
+                    </bpsim:ElementParameters>
+                    <bpsim:ElementParameters elementRef="T_Monitor">
+                        <bpsim:TimeParameters>
+                            <bpsim:ProcessingTime>
+                                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+                            </bpsim:ProcessingTime>
+                        </bpsim:TimeParameters>
+                        <bpsim:ResourceParameters>
+                            <bpsim:Availability>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Availability>
+                            <bpsim:Quantity>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Quantity>
+                        </bpsim:ResourceParameters>
+                        <bpsim:CostParameters>
+                            <bpsim:UnitCost>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:UnitCost>
+                        </bpsim:CostParameters>
+                    </bpsim:ElementParameters>
+                    <bpsim:ElementParameters elementRef="T_Echo">
+                        <bpsim:TimeParameters>
+                            <bpsim:ProcessingTime>
+                                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+                            </bpsim:ProcessingTime>
+                        </bpsim:TimeParameters>
+                        <bpsim:ResourceParameters>
+                            <bpsim:Availability>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Availability>
+                            <bpsim:Quantity>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Quantity>
+                        </bpsim:ResourceParameters>
+                        <bpsim:CostParameters>
+                            <bpsim:UnitCost>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:UnitCost>
+                        </bpsim:CostParameters>
+                    </bpsim:ElementParameters>
+                    <bpsim:ElementParameters elementRef="T_CXR">
+                        <bpsim:TimeParameters>
+                            <bpsim:ProcessingTime>
+                                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+                            </bpsim:ProcessingTime>
+                        </bpsim:TimeParameters>
+                        <bpsim:ResourceParameters>
+                            <bpsim:Availability>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Availability>
+                            <bpsim:Quantity>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Quantity>
+                        </bpsim:ResourceParameters>
+                        <bpsim:CostParameters>
+                            <bpsim:UnitCost>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:UnitCost>
+                        </bpsim:CostParameters>
+                    </bpsim:ElementParameters>
+                    <bpsim:ElementParameters elementRef="T_ECG">
+                        <bpsim:TimeParameters>
+                            <bpsim:ProcessingTime>
+                                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+                            </bpsim:ProcessingTime>
+                        </bpsim:TimeParameters>
+                        <bpsim:ResourceParameters>
+                            <bpsim:Availability>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Availability>
+                            <bpsim:Quantity>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Quantity>
+                        </bpsim:ResourceParameters>
+                        <bpsim:CostParameters>
+                            <bpsim:UnitCost>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:UnitCost>
+                        </bpsim:CostParameters>
+                    </bpsim:ElementParameters>
+                    <bpsim:ElementParameters elementRef="T_CBC">
+                        <bpsim:TimeParameters>
+                            <bpsim:ProcessingTime>
+                                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+                            </bpsim:ProcessingTime>
+                        </bpsim:TimeParameters>
+                        <bpsim:ResourceParameters>
+                            <bpsim:Availability>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Availability>
+                            <bpsim:Quantity>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Quantity>
+                        </bpsim:ResourceParameters>
+                        <bpsim:CostParameters>
+                            <bpsim:UnitCost>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:UnitCost>
+                        </bpsim:CostParameters>
+                    </bpsim:ElementParameters>
+                    <bpsim:ElementParameters elementRef="T_Troponin">
+                        <bpsim:TimeParameters>
+                            <bpsim:ProcessingTime>
+                                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+                            </bpsim:ProcessingTime>
+                        </bpsim:TimeParameters>
+                        <bpsim:ResourceParameters>
+                            <bpsim:Availability>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Availability>
+                            <bpsim:Quantity>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Quantity>
+                        </bpsim:ResourceParameters>
+                        <bpsim:CostParameters>
+                            <bpsim:UnitCost>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:UnitCost>
+                        </bpsim:CostParameters>
+                    </bpsim:ElementParameters>
+                    <bpsim:ElementParameters elementRef="T_Labs">
+                        <bpsim:TimeParameters>
+                            <bpsim:ProcessingTime>
+                                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+                            </bpsim:ProcessingTime>
+                        </bpsim:TimeParameters>
+                        <bpsim:ResourceParameters>
+                            <bpsim:Availability>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Availability>
+                            <bpsim:Quantity>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Quantity>
+                        </bpsim:ResourceParameters>
+                        <bpsim:CostParameters>
+                            <bpsim:UnitCost>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:UnitCost>
+                        </bpsim:CostParameters>
+                    </bpsim:ElementParameters>
+                    <bpsim:ElementParameters elementRef="SE_Start">
+                        <bpsim:TimeParameters>
+                            <bpsim:ProcessingTime>
+                                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+                            </bpsim:ProcessingTime>
+                        </bpsim:TimeParameters>
+                    </bpsim:ElementParameters>
+                    <bpsim:ElementParameters elementRef="_696801DA-21DC-44A9-B388-73A9A117E8C0">
+                        <bpsim:TimeParameters>
+                            <bpsim:ProcessingTime>
+                                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+                            </bpsim:ProcessingTime>
+                        </bpsim:TimeParameters>
+                        <bpsim:ResourceParameters>
+                            <bpsim:Availability>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Availability>
+                            <bpsim:Quantity>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Quantity>
+                        </bpsim:ResourceParameters>
+                        <bpsim:CostParameters>
+                            <bpsim:UnitCost>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:UnitCost>
+                        </bpsim:CostParameters>
+                    </bpsim:ElementParameters>
+                    <bpsim:ElementParameters elementRef="_BEB390D8-2407-46FF-BDDE-66FE45EC9373">
+                        <bpsim:TimeParameters>
+                            <bpsim:ProcessingTime>
+                                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+                            </bpsim:ProcessingTime>
+                        </bpsim:TimeParameters>
+                        <bpsim:ResourceParameters>
+                            <bpsim:Availability>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Availability>
+                            <bpsim:Quantity>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Quantity>
+                        </bpsim:ResourceParameters>
+                        <bpsim:CostParameters>
+                            <bpsim:UnitCost>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:UnitCost>
+                        </bpsim:CostParameters>
+                    </bpsim:ElementParameters>
+                    <bpsim:ElementParameters elementRef="_062C3C0C-8C20-44A6-B618-869D56F5497C">
+                        <bpsim:TimeParameters>
+                            <bpsim:ProcessingTime>
+                                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+                            </bpsim:ProcessingTime>
+                        </bpsim:TimeParameters>
+                        <bpsim:ResourceParameters>
+                            <bpsim:Availability>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Availability>
+                            <bpsim:Quantity>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Quantity>
+                        </bpsim:ResourceParameters>
+                        <bpsim:CostParameters>
+                            <bpsim:UnitCost>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:UnitCost>
+                        </bpsim:CostParameters>
+                    </bpsim:ElementParameters>
+                    <bpsim:ElementParameters elementRef="_BBB29E42-2F99-4B33-BE9F-FB16AE2BA1FC">
+                        <bpsim:TimeParameters>
+                            <bpsim:ProcessingTime>
+                                <bpsim:NormalDistribution mean="0" standardDeviation="0" />
+                            </bpsim:ProcessingTime>
+                        </bpsim:TimeParameters>
+                        <bpsim:ResourceParameters>
+                            <bpsim:Availability>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Availability>
+                            <bpsim:Quantity>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:Quantity>
+                        </bpsim:ResourceParameters>
+                        <bpsim:CostParameters>
+                            <bpsim:UnitCost>
+                                <bpsim:FloatingParameter value="0" />
+                            </bpsim:UnitCost>
+                        </bpsim:CostParameters>
+                    </bpsim:ElementParameters>
+                </bpsim:Scenario>
+            </bpsim:BPSimData>
+        </bpmn2:extensionElements>
+        <bpmn2:source>_cjlskKz9ED6KRoYwfI_lwg</bpmn2:source>
+        <bpmn2:target>_cjlskKz9ED6KRoYwfI_lwg</bpmn2:target>
+    </bpmn2:relationship>
+</bpmn2:definitions>

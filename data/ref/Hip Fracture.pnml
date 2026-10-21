@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text></text>
+    </name>
+    <page id="n0">
+      <place id="ent_Gateway_038ui93">
+        <name>
+          <text>ent_Gateway_038ui93</text>
+        </name>
+      </place>
+      <place id="exi_Gateway_0dmr7rz">
+        <name>
+          <text>exi_Gateway_0dmr7rz</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_1fxeuks">
+        <name>
+          <text>ent_Gateway_1fxeuks</text>
+        </name>
+      </place>
+      <place id="ent_T_EDManagement">
+        <name>
+          <text>ent_T_EDManagement</text>
+        </name>
+      </place>
+      <place id="source">
+        <name>
+          <text>source</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="Flow_04z6ue8">
+        <name>
+          <text>Flow_04z6ue8</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_02qyxwz">
+        <name>
+          <text>ent_Gateway_02qyxwz</text>
+        </name>
+      </place>
+      <place id="sink">
+        <name>
+          <text>sink</text>
+        </name>
+      </place>
+      <place id="exi_Gateway_1lou11k">
+        <name>
+          <text>exi_Gateway_1lou11k</text>
+        </name>
+      </place>
+      <place id="Flow_1wjr098">
+        <name>
+          <text>Flow_1wjr098</text>
+        </name>
+      </place>
+      <place id="exi_XG_NonSurgicalHosp">
+        <name>
+          <text>exi_XG_NonSurgicalHosp</text>
+        </name>
+      </place>
+      <place id="ent_Activity_0l5cufl">
+        <name>
+          <text>ent_Activity_0l5cufl</text>
+        </name>
+      </place>
+      <place id="ent_T_SeenByPhysician">
+        <name>
+          <text>ent_T_SeenByPhysician</text>
+        </name>
+      </place>
+      <place id="ent_Activity_02tds1z">
+        <name>
+          <text>ent_Activity_02tds1z</text>
+        </name>
+      </place>
+      <place id="ent_T_MedicationReconciliation">
+        <name>
+          <text>ent_T_MedicationReconciliation</text>
+        </name>
+      </place>
+      <place id="ent_Activity_1qjng5y">
+        <name>
+          <text>ent_Activity_1qjng5y</text>
+        </name>
+      </place>
+      <place id="Flow_1injki6">
+        <name>
+          <text>Flow_1injki6</text>
+        </name>
+      </place>
+      <place id="ent_T_OrthoConsult">
+        <name>
+          <text>ent_T_OrthoConsult</text>
+        </name>
+      </place>
+      <place id="ent_Activity_01k8j17">
+        <name>
+          <text>ent_Activity_01k8j17</text>
+        </name>
+      </place>
+      <transition id="T_NS_Stabilize">
+        <name>
+          <text>Medically stabilize patient while waiting for transfer</text>
+        </name>
+      </transition>
+      <transition id="sfl_Flow_0pxs8kc">
+        <name>
+          <text>sfl_Flow_0pxs8kc</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="c8432eab-ae48-43df-9c56-a289a1f5a05a"/>
+      </transition>
+      <transition id="sfl_Flow_004plwc">
+        <name>
+          <text>sfl_Flow_004plwc</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="8ef3c14b-603e-417f-8c52-3d30cf406e9f"/>
+      </transition>
+      <transition id="Activity_1a31rg3">
+        <name>
+          <text>Consultation with anesthesiologist</text>
+        </name>
+      </transition>
+      <transition id="T_EDManagement">
+        <name>
+          <text>Manage patient hydration, pain, risk of delirium and risk of pressure sores within the ED</text>
+        </name>
+      </transition>
+      <transition id="sfl_Flow_0tyszmm">
+        <name>
+          <text>sfl_Flow_0tyszmm</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="783d6a8a-95b9-46ac-9fd4-3122e9681716"/>
+      </transition>
+      <transition id="Activity_14aruea">
+        <name>
+          <text>Consultation with internist</text>
+        </name>
+      </transition>
+      <transition id="Activity_1t89ztw">
+        <name>
+          <text>Admit patient</text>
+        </name>
+      </transition>
+      <transition id="Activity_0l5cufl">
+        <name>
+          <text>Transfer patient expeditiously to a surgical hospital for operation based on formal protocol</text>
+        </name>
+      </transition>
+      <transition id="T_MedicationReconciliation">
+        <name>
+          <text>Perform medication reconciliation within the ED</text>
+        </name>
+      </transition>
+      <transition id="Activity_01k8j17">
+        <name>
+          <text>Assess and document relevant information [...]</text>
+        </name>
+      </transition>
+      <transition id="Activity_1i7wmma">
+        <name>
+          <text>Perform x-ray</text>
+        </name>
+      </transition>
+      <transition id="Gateway_02qyxwz">
+        <name>
+          <text>Gateway_02qyxwz</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="059359df-68ff-42a1-83b0-e31bf288e879"/>
+      </transition>
+      <transition id="Activity_02tds1z">
+        <name>
+          <text>Provide surgery within 48 hours of the patient's initial presentation</text>
+        </name>
+      </transition>
+      <transition id="T_SeenByPhysician">
+        <name>
+          <text>Consultation with physician</text>
+        </name>
+      </transition>
+      <transition id="Activity_1qjng5y">
+        <name>
+          <text>Repatriate the patient to the local hospital following surgery</text>
+        </name>
+      </transition>
+      <transition id="T_OrthoConsult">
+        <name>
+          <text>Consultation with orthopaedic surgeon</text>
+        </name>
+      </transition>
+      <arc id="6117060608" source="exi_Gateway_0dmr7rz" target="sfl_Flow_0tyszmm"/>
+      <arc id="6116908560" source="exi_Gateway_1lou11k" target="Activity_14aruea"/>
+      <arc id="6116346912" source="ent_Activity_1qjng5y" target="Activity_1qjng5y"/>
+      <arc id="6116903968" source="sfl_Flow_0tyszmm" target="ent_Gateway_1fxeuks"/>
+      <arc id="6117055008" source="exi_Gateway_1lou11k" target="sfl_Flow_004plwc"/>
+      <arc id="6116907552" source="Activity_1a31rg3" target="ent_Gateway_1fxeuks"/>
+      <arc id="6116906544" source="T_SeenByPhysician" target="ent_T_OrthoConsult"/>
+      <arc id="6116352064" source="ent_T_OrthoConsult" target="T_OrthoConsult"/>
+      <arc id="6116904528" source="Activity_01k8j17" target="Flow_04z6ue8"/>
+      <arc id="6116907104" source="T_NS_Stabilize" target="ent_Activity_0l5cufl"/>
+      <arc id="6116906096" source="T_SeenByPhysician" target="exi_Gateway_1lou11k"/>
+      <arc id="6116902512" source="sfl_Flow_004plwc" target="ent_Gateway_038ui93"/>
+      <arc id="6116576384" source="ent_Activity_0l5cufl" target="Activity_0l5cufl"/>
+      <arc id="6116908672" source="ent_Gateway_1fxeuks" target="Activity_1t89ztw"/>
+      <arc id="6108158608" source="ent_Activity_01k8j17" target="Activity_01k8j17"/>
+      <arc id="6116907664" source="Activity_02tds1z" target="ent_Activity_1qjng5y"/>
+      <arc id="6116906656" source="Activity_14aruea" target="ent_Gateway_038ui93"/>
+      <arc id="6116905648" source="T_OrthoConsult" target="exi_Gateway_0dmr7rz"/>
+      <arc id="6116908224" source="Flow_04z6ue8" target="Activity_1t89ztw"/>
+      <arc id="6117001936" source="ent_T_MedicationReconciliation" target="T_MedicationReconciliation"/>
+      <arc id="6116907216" source="Activity_1qjng5y" target="ent_Gateway_02qyxwz"/>
+      <arc id="6116908784" source="exi_Gateway_0dmr7rz" target="Activity_1a31rg3"/>
+      <arc id="6116906768" source="Activity_1t89ztw" target="exi_XG_NonSurgicalHosp"/>
+      <arc id="6115030304" source="ent_T_SeenByPhysician" target="T_SeenByPhysician"/>
+      <arc id="6116908336" source="Flow_1wjr098" target="Activity_1t89ztw"/>
+      <arc id="6116907328" source="Activity_0l5cufl" target="ent_Activity_02tds1z"/>
+      <arc id="6116906320" source="T_SeenByPhysician" target="ent_T_MedicationReconciliation"/>
+      <arc id="6116902736" source="T_MedicationReconciliation" target="Flow_1injki6"/>
+      <arc id="6116908896" source="source" target="Activity_1i7wmma"/>
+      <arc id="6116907888" source="Flow_1injki6" target="Activity_1t89ztw"/>
+      <arc id="6116905872" source="Gateway_02qyxwz" target="sink"/>
+      <arc id="6116904864" source="Activity_1i7wmma" target="ent_T_SeenByPhysician"/>
+      <arc id="6116901280" source="T_EDManagement" target="Flow_1wjr098"/>
+      <arc id="6116908448" source="exi_XG_NonSurgicalHosp" target="T_NS_Stabilize"/>
+      <arc id="6116353968" source="ent_Gateway_02qyxwz" target="Gateway_02qyxwz"/>
+      <arc id="6116357552" source="exi_XG_NonSurgicalHosp" target="sfl_Flow_0pxs8kc"/>
+      <arc id="6116907440" source="T_SeenByPhysician" target="ent_T_EDManagement"/>
+      <arc id="6117050304" source="ent_T_EDManagement" target="T_EDManagement"/>
+      <arc id="6116906432" source="T_SeenByPhysician" target="ent_Activity_01k8j17"/>
+      <arc id="6116354528" source="ent_Activity_02tds1z" target="Activity_02tds1z"/>
+      <arc id="6116908000" source="ent_Gateway_038ui93" target="Activity_1t89ztw"/>
+      <arc id="6116904416" source="sfl_Flow_0pxs8kc" target="ent_Gateway_02qyxwz"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

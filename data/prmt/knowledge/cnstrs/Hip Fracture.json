@@ -1,0 +1,42 @@
+[
+    {
+        "name": "hpf1",
+        "type": "raw",
+        "formula": "(NOT \"Consultation with physician\" U \"Perform x-ray\")"
+    },
+    {
+        "name": "hpf2",
+        "type": "raw",
+        "formula": "(NOT \"Consultation with internist\" U \"Consultation with physician\")"
+    },
+    {
+        "name": "hpf3",
+        "type": "raw",
+        "formula": "(NOT \"Consultation with orthopaedic surgeon\" U \"Consultation with physician\")"
+    },
+    {
+        "name": "hpf4",
+        "type": "raw",
+        "formula": "(NOT \"Consultation with anesthesiologist\" U \"Consultation with physician\")"
+    },
+    {
+        "name": "hpf5",
+        "type": "raw",
+        "formula": "(NOT \"Perform medication reconciliation within the ED\" U \"Consultation with physician\")"
+    },
+    {
+        "name": "hpf6",
+        "type": "raw",
+        "formula": "(NOT \"Manage patient hydration, pain, risk of delirium and risk of pressure sores within the ED\" U \"Consultation with physician\")"
+    },
+    {
+        "name": "hpf7",
+        "type": "raw",
+        "formula": "(NOT \"Assess and document relevant information [...]\" U \"Consultation with physician\")"
+    },
+    {
+        "name": "hpf8",
+        "type": "raw",
+        "formula": "(NOT \"Consultation with anesthesiologist\" U \"Consultation with orthopaedic surgeon\")"
+    }
+]

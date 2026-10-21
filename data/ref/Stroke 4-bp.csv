@@ -1,0 +1,23 @@
+,Immediate expert healthcare provider interpretation of the brain imaging,Patient should be evaluatedimmediately by physicians with expertise in stroke management,"Evaluation should include questionsabout anticoagulant therapy, measurement of platelet count, PTT, and INR",Rapid brain imaging (non-contrast CT or MRI) and CTA (Door to CT/CTA should be less than 25 minutes),Advanced CT and multiphase CTA or Perfusion CT,ECG to detect atrial fibrillation and other acute arrhythmias,"Blood work: CBC, electrolytes, creatinine, glucose, INR, partial thromboplastin time",Neurological examination to determine focal neurological deficits and assess stroke severity on a standardized stroke scale (NIHSS or CNS for stroke),Screen swallowing ability when clinically appropriate,Chest x-ray,Monitor patient closely,Thrombolysis assessment,Evaluate patients for endovascular therapy,"Rapid initial evaluation for airway, breathing, and circulation",Treat patient as a medical emergency. ICH should be promptly recognized,Perform troponin test,CTA or MRA ASAP,Full clinical assessment of the patient's swallowing ability by a speech-language pathologist or appropriately trained specialist who would advise on swallowing ability and the required consistency of diet and fluids,"Screen swallowing ability as part of initial assessment and before initiating oral medication, fluid, or food.",Vascular imaging of the brain and neck arteries ASAP,Make patient NPO (nothing by mouth) initially,Give patients appropriate cross-continuum secondary prevention assessments and therapies
+Immediate expert healthcare provider interpretation of the brain imaging,+,||,||,<-,<-,||,||,||,||,||,||,||,->,<-,||,||,||,||,||,||,||,->
+Patient should be evaluatedimmediately by physicians with expertise in stroke management,||,+,->,||,||,||,||,||,||,||,||,||,||,<-,<-,||,->,||,||,||,||,->
+"Evaluation should include questionsabout anticoagulant therapy, measurement of platelet count, PTT, and INR",||,<-,+,||,||,||,||,||,||,||,||,||,||,<-,<-,||,+,||,||,||,||,->
+Rapid brain imaging (non-contrast CT or MRI) and CTA (Door to CT/CTA should be less than 25 minutes),->,||,||,+,||,||,||,||,||,||,||,||,->,<-,||,||,||,||,||,||,||,->
+Advanced CT and multiphase CTA or Perfusion CT,->,||,||,||,+,||,||,||,||,||,||,||,->,<-,||,||,||,||,||,||,||,->
+ECG to detect atrial fibrillation and other acute arrhythmias,||,||,||,||,||,+,||,||,||,||,||,||,||,<-,||,||,||,||,||,||,||,->
+"Blood work: CBC, electrolytes, creatinine, glucose, INR, partial thromboplastin time",||,||,||,||,||,||,+,||,||,||,||,||,||,<-,||,->,||,||,||,||,||,->
+Neurological examination to determine focal neurological deficits and assess stroke severity on a standardized stroke scale (NIHSS or CNS for stroke),||,||,||,||,||,||,||,+,||,||,||,||,->,<-,||,||,||,||,||,||,||,->
+Screen swallowing ability when clinically appropriate,||,||,||,||,||,||,||,||,+,||,<-,||,||,<-,||,||,||,||,<-,||,<-,->
+Chest x-ray,||,||,||,||,||,||,||,||,||,+,||,||,||,<-,||,||,||,||,||,||,||,->
+Monitor patient closely,||,||,||,||,||,||,||,||,->,||,+,||,||,<-,||,||,||,||,<-,||,<-,->
+Thrombolysis assessment,||,||,||,||,||,||,||,||,||,||,||,+,||,<-,||,||,||,||,||,||,||,->
+Evaluate patients for endovascular therapy,<-,||,||,<-,<-,||,||,<-,||,||,||,||,+,<-,||,||,||,||,||,||,||,->
+"Rapid initial evaluation for airway, breathing, and circulation",->,->,->,->,->,->,->,->,->,->,->,->,->,+,->,->,->,->,->,->,->,->
+Treat patient as a medical emergency. ICH should be promptly recognized,||,->,->,||,||,||,||,||,||,||,||,||,||,<-,+,||,->,||,||,||,||,->
+Perform troponin test,||,||,||,||,||,||,<-,||,||,||,||,||,||,<-,||,+,||,||,||,||,||,->
+CTA or MRA ASAP,||,<-,+,||,||,||,||,||,||,||,||,||,||,<-,<-,||,+,||,||,||,||,->
+Full clinical assessment of the patient's swallowing ability by a speech-language pathologist or appropriately trained specialist who would advise on swallowing ability and the required consistency of diet and fluids,||,||,||,||,||,||,||,||,||,||,||,||,||,<-,||,||,||,+,<-,||,<-,->
+"Screen swallowing ability as part of initial assessment and before initiating oral medication, fluid, or food.",||,||,||,||,||,||,||,||,->,||,->,||,||,<-,||,||,||,->,+,||,<-,->
+Vascular imaging of the brain and neck arteries ASAP,||,||,||,||,||,||,||,||,||,||,||,||,||,<-,||,||,||,||,||,+,||,->
+Make patient NPO (nothing by mouth) initially,||,||,||,||,||,||,||,||,->,||,->,||,||,<-,||,||,||,->,->,||,+,->
+Give patients appropriate cross-continuum secondary prevention assessments and therapies,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,+

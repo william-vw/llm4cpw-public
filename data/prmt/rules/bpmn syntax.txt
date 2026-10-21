@@ -1,0 +1,15 @@
+1. Output ONLY the raw XML — no prose, no markdown fences, no explanation.
+2. The root element must be <definitions> with these namespaces exactly:
+     xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+     xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+     xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+     xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+     targetNamespace="http://www.example.com/bpmn"
+3. Include exactly ONE <process> element.
+4. Every activity MUST be a <task> with a descriptive name= attribute.
+5. Use <exclusiveGateway> for XOR decisions and <parallelGateway> for AND splits/joins. Every <exclusiveGateway> needs a name= attribute that describes the gateway's branching condition. Do not use name= attributes for <parallelGateway>.
+6. Each <exclusiveGateway> split requires a corresponding <exclusiveGateway> join, and each <parallelGateway> split requires a corresponding <parallelGateway> join.
+7. Every flow node (task, gateway) needs a unique id= attribute.
+8. Connect all nodes with <sequenceFlow> elements (sourceRef / targetRef). If the <sequenceFlow> originates from an <exclusiveGateway>, you can add a name= attribute that describes the associated branching condition value.
+9. Include one <startEvent> and one or more <endEvent> elements.
+10. All IDs must be XML-safe (no spaces; use underscores or camelCase).

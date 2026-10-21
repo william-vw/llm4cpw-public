@@ -1,0 +1,12 @@
+[
+    {
+        "name": "stroke11",
+        "type": "raw",
+        "formula": "X \"Rapid initial evaluation for airway, breathing, and circulation\""
+    },
+    {
+        "name": "stroke12",
+        "type": "raw",
+        "formula": "F (\"Give patients appropriate cross-continuum secondary prevention assessments and therapies\" AND XX @end)"
+    }
+]

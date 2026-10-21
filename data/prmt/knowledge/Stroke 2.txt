@@ -1,0 +1,7 @@
+"Correct hypoglycemia immediately" may only occur after "Perform glucose measurement"  takes place.
+
+"Correct hypoglycemia immediately" may only occur after "Repeat blood glucose measurement" potentially takes place.
+
+"Give patients appropriate cross-continuum secondary prevention assessments and therapies" should be the last task in the process.
+
+"Rectal or gastric ASA should be offered" is an alternative for any of the tasks "Aspirin (ASA) 160 mg as a loading dose, then a daily dose of 81–325 mg (usually 81 mg for maintenance)", "Clopidogrel 300 mg as a loading dose, followed by 75 mg daily.", "Extended-release Dipyridamole + Aspirin (Aggrenox) 200 mg Dipyridamole + 25 mg Aspirin twice daily (initial dose includes ASA 160 mg)".

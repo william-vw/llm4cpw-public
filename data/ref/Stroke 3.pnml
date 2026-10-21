@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text></text>
+    </name>
+    <page id="n0">
+      <place id="exi_Gateway_1xx6nwr">
+        <name>
+          <text>exi_Gateway_1xx6nwr</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_11t13oc">
+        <name>
+          <text>ent_Gateway_11t13oc</text>
+        </name>
+      </place>
+      <place id="Flow_19m9zbc">
+        <name>
+          <text>Flow_19m9zbc</text>
+        </name>
+      </place>
+      <place id="source">
+        <name>
+          <text>source</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="ent_Gateway_0ckfdnl">
+        <name>
+          <text>ent_Gateway_0ckfdnl</text>
+        </name>
+      </place>
+      <place id="Flow_09n2zns">
+        <name>
+          <text>Flow_09n2zns</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_0i3ijw8">
+        <name>
+          <text>ent_Gateway_0i3ijw8</text>
+        </name>
+      </place>
+      <place id="ent_Activity_0xmrwmu">
+        <name>
+          <text>ent_Activity_0xmrwmu</text>
+        </name>
+      </place>
+      <place id="exi_Gateway_0n5h0ez">
+        <name>
+          <text>exi_Gateway_0n5h0ez</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_0gzj6nb">
+        <name>
+          <text>ent_Gateway_0gzj6nb</text>
+        </name>
+      </place>
+      <place id="exi_Gateway_1svkp75">
+        <name>
+          <text>exi_Gateway_1svkp75</text>
+        </name>
+      </place>
+      <place id="Flow_0bf1b55">
+        <name>
+          <text>Flow_0bf1b55</text>
+        </name>
+      </place>
+      <place id="ent_Activity_0rfbuau">
+        <name>
+          <text>ent_Activity_0rfbuau</text>
+        </name>
+      </place>
+      <place id="ent_Activity_0z1s8z8">
+        <name>
+          <text>ent_Activity_0z1s8z8</text>
+        </name>
+      </place>
+      <place id="sink">
+        <name>
+          <text>sink</text>
+        </name>
+      </place>
+      <place id="ent_Activity_1affqt1">
+        <name>
+          <text>ent_Activity_1affqt1</text>
+        </name>
+      </place>
+      <place id="ent_Activity_06pegrd">
+        <name>
+          <text>ent_Activity_06pegrd</text>
+        </name>
+      </place>
+      <place id="Flow_04b88o0">
+        <name>
+          <text>Flow_04b88o0</text>
+        </name>
+      </place>
+      <place id="exi_Gateway_1u6khv0">
+        <name>
+          <text>exi_Gateway_1u6khv0</text>
+        </name>
+      </place>
+      <place id="Flow_0ix55fz">
+        <name>
+          <text>Flow_0ix55fz</text>
+        </name>
+      </place>
+      <place id="ent_Activity_0twgmyz">
+        <name>
+          <text>ent_Activity_0twgmyz</text>
+        </name>
+      </place>
+      <transition id="sfl_Flow_0v1q7l6">
+        <name>
+          <text>sfl_Flow_0v1q7l6</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="071d0eeb-c549-40cd-b6c3-129089bd2ade"/>
+      </transition>
+      <transition id="sfl_Flow_1057fdi">
+        <name>
+          <text>sfl_Flow_1057fdi</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="c188ecb4-d552-4d70-b401-4bca5ca821f3"/>
+      </transition>
+      <transition id="Activity_0xmrwmu">
+        <name>
+          <text>Encourage early mobilization and adequate hydration for all acute stroke patients to help prevent venous thromboembolism</text>
+        </name>
+      </transition>
+      <transition id="Activity_06pegrd">
+        <name>
+          <text>Assess nutrition and hydration status of stroke patients within the first 48 hours of admission using a valid screening tool</text>
+        </name>
+      </transition>
+      <transition id="Activity_1affqt1">
+        <name>
+          <text>Assess patient for risk of developing venous thromboembolism</text>
+        </name>
+      </transition>
+      <transition id="Activity_0s2vtav">
+        <name>
+          <text>Patient should be mobilized</text>
+        </name>
+      </transition>
+      <transition id="Activity_1yl1883">
+        <name>
+          <text>Admit the patient to a specialized, geographicallydefined hospital unit dedicated to the management of stroke patients with the following requirements:1- The core stroke unit team should consist of health care professionals with stroke expertise in medicine, nursing, occupational therapy, physiotherapy, speech-language pathology, social work, and clinical nutrition (a dietitian).2- To have the necessary stroke expertise, the health care professionals on the core stroke unit team should be individuals who spend the vast majority of their time treating stroke patients and regularly complete education about stroke care.3- Patients should have access to a specialized interprofessional team 7 days a week</text>
+        </name>
+      </transition>
+      <transition id="sfl_Flow_0m1utl0">
+        <name>
+          <text>sfl_Flow_0m1utl0</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="09eff225-6866-4fa7-9d32-a1954fa8cd80"/>
+      </transition>
+      <transition id="Activity_0z1s8z8">
+        <name>
+          <text>Complete AlphaFIM on or by day 3 after admission(target day 3, admission day is day 1)</text>
+        </name>
+      </transition>
+      <transition id="sfl_Flow_012vxcl">
+        <name>
+          <text>sfl_Flow_012vxcl</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="2c7ec952-d585-4196-ab81-d57566c2fc82"/>
+      </transition>
+      <transition id="Activity_1uf1t21">
+        <name>
+          <text>Give patients appropriate cross-continuum secondary prevention assessments and therapies</text>
+        </name>
+      </transition>
+      <transition id="Gateway_11t13oc">
+        <name>
+          <text>Gateway_11t13oc</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="b2c8bff9-8bf0-40fa-875b-b843d4447f8f"/>
+      </transition>
+      <transition id="Activity_0twgmyz">
+        <name>
+          <text>Physiotherapy, speech-language pathology, and occupational therapy team members should assess stroke patients within 48 hours of admission to hospital and formulate a management plan</text>
+        </name>
+      </transition>
+      <transition id="Activity_0r95hhl">
+        <name>
+          <text>Mobilize patient</text>
+        </name>
+      </transition>
+      <transition id="Activity_0rfbuau">
+        <name>
+          <text>Use standardized, valid assessment tools to evaluate patients’ stroke-related impairments and functional status</text>
+        </name>
+      </transition>
+      <transition id="Activity_1a4xmof">
+        <name>
+          <text>Give patient a referral to a dietitian within 7 days of admission for recommendations and consideration of enteral nutrition support if nutritional and fluid requirements cannot be met</text>
+        </name>
+      </transition>
+      <transition id="sfl_Flow_1ruld61">
+        <name>
+          <text>sfl_Flow_1ruld61</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="15dc1a98-2941-424e-b509-24948cc0738b"/>
+      </transition>
+      <transition id="Gateway_0i3ijw8">
+        <name>
+          <text>Gateway_0i3ijw8</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="1c1ebc7e-a5e5-4ab6-96dc-1a9019ac4747"/>
+      </transition>
+      <arc id="5704851968" source="Flow_09n2zns" target="Activity_1uf1t21"/>
+      <arc id="5704850960" source="Activity_0s2vtav" target="ent_Gateway_0i3ijw8"/>
+      <arc id="5704846368" source="sfl_Flow_1ruld61" target="ent_Gateway_0i3ijw8"/>
+      <arc id="5704849952" source="Activity_1yl1883" target="ent_Activity_1affqt1"/>
+      <arc id="5704852528" source="Flow_04b88o0" target="Activity_1uf1t21"/>
+      <arc id="5704851520" source="source" target="Activity_1yl1883"/>
+      <arc id="5704961616" source="exi_Gateway_0n5h0ez" target="sfl_Flow_1ruld61"/>
+      <arc id="5697695824" source="ent_Gateway_11t13oc" target="Gateway_11t13oc"/>
+      <arc id="5704264272" source="ent_Activity_0rfbuau" target="Activity_0rfbuau"/>
+      <arc id="5704846928" source="sfl_Flow_0v1q7l6" target="ent_Gateway_0ckfdnl"/>
+      <arc id="5704850512" source="Activity_1yl1883" target="ent_Activity_06pegrd"/>
+      <arc id="5704849504" source="sfl_Flow_012vxcl" target="exi_Gateway_0n5h0ez"/>
+      <arc id="5704269424" source="ent_Activity_06pegrd" target="Activity_06pegrd"/>
+      <arc id="5704852080" source="ent_Gateway_0ckfdnl" target="Activity_1uf1t21"/>
+      <arc id="5704970352" source="exi_Gateway_1xx6nwr" target="sfl_Flow_0v1q7l6"/>
+      <arc id="5704973936" source="exi_Gateway_1u6khv0" target="sfl_Flow_1057fdi"/>
+      <arc id="5704851072" source="Gateway_11t13oc" target="ent_Gateway_0gzj6nb"/>
+      <arc id="5704847488" source="Activity_1affqt1" target="Flow_09n2zns"/>
+      <arc id="5704850064" source="Activity_1yl1883" target="ent_Activity_0twgmyz"/>
+      <arc id="5704849056" source="Activity_0twgmyz" target="Flow_19m9zbc"/>
+      <arc id="5704845472" source="Activity_0z1s8z8" target="Flow_0ix55fz"/>
+      <arc id="5704851632" source="exi_Gateway_1svkp75" target="Activity_0r95hhl"/>
+      <arc id="5704850624" source="Activity_06pegrd" target="exi_Gateway_1xx6nwr"/>
+      <arc id="5704847040" source="sfl_Flow_1057fdi" target="exi_Gateway_1svkp75"/>
+      <arc id="5704552656" source="ent_Activity_0z1s8z8" target="Activity_0z1s8z8"/>
+      <arc id="5704849616" source="Activity_1yl1883" target="ent_Activity_0z1s8z8"/>
+      <arc id="5704852192" source="Flow_0ix55fz" target="Activity_1uf1t21"/>
+      <arc id="5704847600" source="Gateway_0i3ijw8" target="ent_Gateway_0gzj6nb"/>
+      <arc id="5704850176" source="Activity_1yl1883" target="ent_Activity_0rfbuau"/>
+      <arc id="5704471312" source="ent_Gateway_0i3ijw8" target="Gateway_0i3ijw8"/>
+      <arc id="5704851744" source="exi_Gateway_1xx6nwr" target="Activity_1a4xmof"/>
+      <arc id="5704850736" source="Activity_1uf1t21" target="sink"/>
+      <arc id="5696084816" source="ent_Activity_0twgmyz" target="Activity_0twgmyz"/>
+      <arc id="5704852304" source="ent_Gateway_0gzj6nb" target="Activity_1uf1t21"/>
+      <arc id="5704850288" source="Activity_1yl1883" target="ent_Activity_0xmrwmu"/>
+      <arc id="5704968560" source="exi_Gateway_1svkp75" target="sfl_Flow_0m1utl0"/>
+      <arc id="5704846704" source="Activity_0r95hhl" target="ent_Gateway_11t13oc"/>
+      <arc id="5704849280" source="Activity_1a4xmof" target="ent_Gateway_0ckfdnl"/>
+      <arc id="5704845696" source="Activity_0xmrwmu" target="Flow_04b88o0"/>
+      <arc id="5704254864" source="ent_Activity_1affqt1" target="Activity_1affqt1"/>
+      <arc id="5704851856" source="Flow_19m9zbc" target="Activity_1uf1t21"/>
+      <arc id="5704850848" source="sfl_Flow_0m1utl0" target="ent_Gateway_11t13oc"/>
+      <arc id="5704849840" source="Activity_1yl1883" target="exi_Gateway_1u6khv0"/>
+      <arc id="5704971696" source="exi_Gateway_1u6khv0" target="sfl_Flow_012vxcl"/>
+      <arc id="5704852416" source="Flow_0bf1b55" target="Activity_1uf1t21"/>
+      <arc id="5704851408" source="exi_Gateway_0n5h0ez" target="Activity_0s2vtav"/>
+      <arc id="5695944176" source="ent_Activity_0xmrwmu" target="Activity_0xmrwmu"/>
+      <arc id="5704845808" source="Activity_0rfbuau" target="Flow_0bf1b55"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

@@ -1,0 +1,32 @@
+[
+    {
+        "name": "copd1",
+        "type": "raw",
+        "formula": "(NOT \"Trial immediate resuscitation\" U \"Perform physical examination\")"
+    },
+    {
+        "name": "copd2",
+        "type": "raw",
+        "formula": "X \"Perform physical examination\""
+    },
+    {
+        "name": "copd3_1",
+        "type": "raw",
+        "formula": "G (\"Mark: resuscitation need\" -> XX \"Trial immediate resuscitation\")"
+    },
+    {
+        "name": "copd3_2",
+        "type": "raw",
+        "formula": "G (XX \"Mark: resuscitation need\" -> \"Perform physical examination\")"
+    },
+    {
+        "name": "copd4",
+        "type": "raw",
+        "formula": "(NOT \"Conduct baseline blood work\" U \"Perform physical examination\")"
+    },
+    {
+        "name": "copd5",
+        "type": "raw",
+        "formula": "(NOT \"Admit to hospital\" U \"Assess level of care required\")"
+    }
+]

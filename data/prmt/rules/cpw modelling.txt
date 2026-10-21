@@ -1,0 +1,26 @@
+1. Clinical pathway scope
+Model the pathway as a process for handling a patient case. This means that organizational statements, policy recommendations, staffing guidance, or general system-readiness statements do not belong in the process. 
+Extract activities from the recommended-practices content, not from explanatory notes, examples, field-evaluation comments, or indicator lists.
+If a section gives criteria “as a guide”, model the criteria as support for decisions found elsewhere rather than as separate elements.
+Do not add a condition to the beginning of the process checking whether the patient has the health condition that is the topic of the guideline.
+
+2. Clinical findings, criteria, and indicators
+Clinical findings, severity markers, abnormal results, risk indicators, and example criteria usually describe decisions or activity details. They should not become standalone activities unless the source text explicitly describes them as actions.
+
+3. Diagnostic and assessment grouping
+The components of diagnostic tests, baseline workups, assessment bundles, and clinical panels should remain grouped when they represent one clinical workup or assessment activity.
+Separate them only when the text treats them as separate actions, some of their components are relevant to a decision, or some of their components depend on a condition outcome.
+
+4. Admission and discharge
+Admission and discharge activities should only be modeled when explicitly stated in the text.
+Admission and discharge should normally appear as downstream disposition outcomes, not as early default activities, unless the text explicitly says otherwise.
+
+5. Negative recommendations
+A negative recommendation, such as “X is not recommended”, should not be converted into a normal activity.
+If the negative recommendation is structurally relevant, represent it as an empty branch after an XOR gateway.
+
+6. Avoiding task delays
+When a task X should not be delayed, this can be indicated in the text such as "Y should not delay X". Both X and Y should be represented as activities, but, it is not necessary for X to come after Y.
+
+7. Time windows
+If a guideline makes different recommendations depending on the time window, these time windows should be encoded as conditions, and the recommendations as activities that depend on these conditions.

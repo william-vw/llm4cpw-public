@@ -1,0 +1,36 @@
+1. Source-text fidelity
+Only model activities, conditions, roles, objects, and branches that are explicitly stated or clearly implied by the provided source text or knowledge statements. 
+Do NOT invent steps, roles, or decision branches that aren't supported by the text. In particular, do NOT create activities such as "wait for", "skip", "do nothing", or similar activities unless they are explicitly stated in the source text.
+Do NOT include duplicate activities.
+
+2. Modelling conditions
+Statements introduced by wording such as "if", "when", "unless", "for patients with", "in patients who", "where appropriate", "based on", or similar conditional language, typically represent conditions.
+The rest of the statement typically describes the alternative actions taken for each outcome of the condition.
+Conditions should be represented as gateways, not as activities, and the alternative actions should be put in the gateway's branches.
+The condition description should be represented as the gateway branching condition.
+If a condition describes only one branch, the other branch should remain empty and continue through the flow. Do not add a fake activity merely to balance the gateway.
+To the extent possible, identical conditions should be represented using the same gateway. 
+
+3. Alternative actions
+Phrases separated by disjunction (e.g., using "or") represent alternative actions.
+They should be modelled by creating a gateway and putting the alternative actions in the gateway's branches.
+
+4. Gateway selection
+Use an exclusive gateway when the options are mutually exclusive, as indicated by "either", "or", "one of", or "otherwise".
+Use a parallel gateway when multiple activities can occur concurrently and no explicit order or dependency is stated. Use as few parallel gateways possible to indicate such concurrent activities.
+Use a combination of parallel and exclusive gateways when options can either occur concurrently or in a mutually exclusive way, as indicated by "and/or". In particular, start with a parallel gateway, and in each parallel gateway branch, put an exclusive gateway that makes each action optional.
+
+5. Sequencing and concurrency
+Do not infer sequence from numbering, section order, headings, or document layout alone.
+Use sequence only when the source text or provided knowledge statements indicate a prerequisite relationship or explicit temporal order, such as "then", "before", "after", "prior to", "once", "until", or "followed by".
+If no explicit order or prerequisite is stated, model activities as concurrent rather than forcing an arbitrary serial order.
+
+6. Granularity and list handling
+Split a list into separate activities when the listed items are distinct actions or alternative options. Do not split lists that only describe criteria or examples.
+Similarly, split a single activity into multiple activities when it covers multiple distinct actions, especially when some of those actions have different conditions.
+However, do not split an activity if the text lists multiple ways of performing the same activity in parenthesis, or when the text lists multiple reasons for performing the same activity.
+
+7. Activity labels
+Keep activity labels close to the wording in the source text. 
+Retain timing, frequency, threshold, and contextual information in activity labels or gateway conditions.
+Do not replace full terms with acronyms unless the acronym appears in the source text.

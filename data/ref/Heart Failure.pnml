@@ -1,0 +1,318 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text></text>
+    </name>
+    <page id="n0">
+      <place id="exi_Gateway_0rftpko">
+        <name>
+          <text>exi_Gateway_0rftpko</text>
+        </name>
+      </place>
+      <place id="ent_T_Labs">
+        <name>
+          <text>ent_T_Labs</text>
+        </name>
+      </place>
+      <place id="exi_Gateway_0fxfg1i">
+        <name>
+          <text>exi_Gateway_0fxfg1i</text>
+        </name>
+      </place>
+      <place id="ent__BBB29E42-2F99-4B33-BE9F-FB16AE2BA1FC">
+        <name>
+          <text>ent__BBB29E42-2F99-4B33-BE9F-FB16AE2BA1FC</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_0xdpgkt">
+        <name>
+          <text>ent_Gateway_0xdpgkt</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_0dhp7yv">
+        <name>
+          <text>ent_Gateway_0dhp7yv</text>
+        </name>
+      </place>
+      <place id="Flow_1iiynpu">
+        <name>
+          <text>Flow_1iiynpu</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_0h1qfus">
+        <name>
+          <text>ent_Gateway_0h1qfus</text>
+        </name>
+      </place>
+      <place id="exi_Gateway_1ka7c91">
+        <name>
+          <text>exi_Gateway_1ka7c91</text>
+        </name>
+      </place>
+      <place id="F9">
+        <name>
+          <text>F9</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_08z0q3a">
+        <name>
+          <text>ent_Gateway_08z0q3a</text>
+        </name>
+      </place>
+      <place id="ent_T_Low_Followup">
+        <name>
+          <text>ent_T_Low_Followup</text>
+        </name>
+      </place>
+      <place id="exi_XG_Echo">
+        <name>
+          <text>exi_XG_Echo</text>
+        </name>
+      </place>
+      <place id="exi_XG_RiskGroup">
+        <name>
+          <text>exi_XG_RiskGroup</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_0k80b0l">
+        <name>
+          <text>ent_Gateway_0k80b0l</text>
+        </name>
+      </place>
+      <place id="ent_T_Monitor">
+        <name>
+          <text>ent_T_Monitor</text>
+        </name>
+      </place>
+      <place id="Flow_0w02as7">
+        <name>
+          <text>Flow_0w02as7</text>
+        </name>
+      </place>
+      <place id="source">
+        <name>
+          <text>source</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="exi_Gateway_1078buc">
+        <name>
+          <text>exi_Gateway_1078buc</text>
+        </name>
+      </place>
+      <place id="ent__84936A37-661C-435C-A4A9-BA815D74BE3F">
+        <name>
+          <text>ent__84936A37-661C-435C-A4A9-BA815D74BE3F</text>
+        </name>
+      </place>
+      <place id="sink">
+        <name>
+          <text>sink</text>
+        </name>
+      </place>
+      <place id="F19">
+        <name>
+          <text>F19</text>
+        </name>
+      </place>
+      <transition id="_BBB29E42-2F99-4B33-BE9F-FB16AE2BA1FC">
+        <name>
+          <text>Discharge home</text>
+        </name>
+      </transition>
+      <transition id="sfl_Flow_0qq9984">
+        <name>
+          <text>sfl_Flow_0qq9984</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="b7e25769-d669-402d-9c5b-6867ee5cd33d"/>
+      </transition>
+      <transition id="sfl_Flow_0kktab9">
+        <name>
+          <text>sfl_Flow_0kktab9</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="c5afd90f-858c-4f71-8996-a571a951fa5d"/>
+      </transition>
+      <transition id="T_RiskAssessment">
+        <name>
+          <text>Risk assessment / stratification</text>
+        </name>
+      </transition>
+      <transition id="Activity_1gjswtq">
+        <name>
+          <text>Treat in outpatient settings</text>
+        </name>
+      </transition>
+      <transition id="T_High_Ventilation">
+        <name>
+          <text>Noninvasive ventilation</text>
+        </name>
+      </transition>
+      <transition id="sfl_Flow_1qd7jod">
+        <name>
+          <text>sfl_Flow_1qd7jod</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="ffe8ba46-b513-4d32-8db2-9188d1d47dfe"/>
+      </transition>
+      <transition id="T_High_TransferICU">
+        <name>
+          <text>Admit to ICU (high nurse-to-patient staffing)</text>
+        </name>
+      </transition>
+      <transition id="5b53514f-ba87-4332-898c-4ac2453db8b3">
+        <name>
+          <text>5b53514f-ba87-4332-898c-4ac2453db8b3</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="e62f4f10-235b-4519-84de-c556a79f7778"/>
+      </transition>
+      <transition id="10e8f870-729b-4e81-981b-94b85b42e953">
+        <name>
+          <text>10e8f870-729b-4e81-981b-94b85b42e953</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="348594a5-b0f2-4004-a6f3-a6dd2250415d"/>
+      </transition>
+      <transition id="sfl_Flow_0jx5ela">
+        <name>
+          <text>sfl_Flow_0jx5ela</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="01c2f2f1-27e8-4254-bb72-9c713c5086c6"/>
+      </transition>
+      <transition id="4d3f032d-834b-4b95-bdfc-ec107cf6d23c">
+        <name>
+          <text>4d3f032d-834b-4b95-bdfc-ec107cf6d23c</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="eab52aff-6824-44fc-a97a-01fa126192eb"/>
+      </transition>
+      <transition id="Gateway_0dhp7yv">
+        <name>
+          <text>Gateway_0dhp7yv</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="5d096f41-f36a-4ad4-949d-2129948cd44c"/>
+      </transition>
+      <transition id="sfl_Flow_1knq1du">
+        <name>
+          <text>sfl_Flow_1knq1du</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="95221e54-48bd-4147-83ac-befe9151dfc5"/>
+      </transition>
+      <transition id="Activity_0gxp8k2">
+        <name>
+          <text>Invasive ventilation</text>
+        </name>
+      </transition>
+      <transition id="T_Labs">
+        <name>
+          <text>Serum creatinine and electrolyte levels, troponin measurements, complete blood count, electrocardiogram, chest x-ray examination</text>
+        </name>
+      </transition>
+      <transition id="sfl__ADD54B97-70F2-44E7-A9CE-7463BE94D504">
+        <name>
+          <text>sfl__ADD54B97-70F2-44E7-A9CE-7463BE94D504</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="82af6fc2-f468-450a-aa28-a9ada91aa210"/>
+      </transition>
+      <transition id="Gateway_0h1qfus">
+        <name>
+          <text>Gateway_0h1qfus</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="eb6377b8-217c-494e-bdf6-e87c5688e7fc"/>
+      </transition>
+      <transition id="T_Echo">
+        <name>
+          <text>Echocardiogram</text>
+        </name>
+      </transition>
+      <transition id="T_Monitor">
+        <name>
+          <text>Monitor heart rate, blood pressure, oxygen saturation until stabilized</text>
+        </name>
+      </transition>
+      <transition id="T_Avg_AdmitInpatient">
+        <name>
+          <text>Admit to inpatient care (normal nurse-to-patient staffing)</text>
+        </name>
+      </transition>
+      <transition id="T_Low_Followup">
+        <name>
+          <text>Arrange follow-up (within days) with primary care</text>
+        </name>
+      </transition>
+      <transition id="Gateway_0xdpgkt">
+        <name>
+          <text>Gateway_0xdpgkt</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="b243dae9-e025-4f24-918b-5bab29886a34"/>
+      </transition>
+      <transition id="_BEB390D8-2407-46FF-BDDE-66FE45EC9373">
+        <name>
+          <text>Treat in ED</text>
+        </name>
+      </transition>
+      <arc id="12984525312" source="ent_Gateway_0xdpgkt" target="Gateway_0xdpgkt"/>
+      <arc id="12984532480" source="ent_T_Low_Followup" target="T_Low_Followup"/>
+      <arc id="12985406464" source="sfl_Flow_0qq9984" target="ent_Gateway_08z0q3a"/>
+      <arc id="12985410048" source="T_Low_Followup" target="Flow_1iiynpu"/>
+      <arc id="12984527888" source="source" target="4d3f032d-834b-4b95-bdfc-ec107cf6d23c"/>
+      <arc id="12985412624" source="ent_Gateway_08z0q3a" target="5b53514f-ba87-4332-898c-4ac2453db8b3"/>
+      <arc id="12985411616" source="exi_Gateway_1ka7c91" target="_BEB390D8-2407-46FF-BDDE-66FE45EC9373"/>
+      <arc id="12985403440" source="sfl_Flow_0jx5ela" target="ent_Gateway_0k80b0l"/>
+      <arc id="12985410608" source="Activity_1gjswtq" target="ent_Gateway_0h1qfus"/>
+      <arc id="12985406016" source="_BEB390D8-2407-46FF-BDDE-66FE45EC9373" target="ent_Gateway_0h1qfus"/>
+      <arc id="12985409600" source="_BBB29E42-2F99-4B33-BE9F-FB16AE2BA1FC" target="Flow_0w02as7"/>
+      <arc id="12985408592" source="sfl_Flow_1qd7jod" target="exi_Gateway_1078buc"/>
+      <arc id="12985412176" source="F9" target="T_RiskAssessment"/>
+      <arc id="12985411168" source="Gateway_0h1qfus" target="ent_T_Low_Followup"/>
+      <arc id="12985402992" source="sfl__ADD54B97-70F2-44E7-A9CE-7463BE94D504" target="ent__84936A37-661C-435C-A4A9-BA815D74BE3F"/>
+      <arc id="12985196160" source="ent__BBB29E42-2F99-4B33-BE9F-FB16AE2BA1FC" target="_BBB29E42-2F99-4B33-BE9F-FB16AE2BA1FC"/>
+      <arc id="12985376384" source="exi_Gateway_0fxfg1i" target="sfl_Flow_0qq9984"/>
+      <arc id="12985379968" source="exi_Gateway_0fxfg1i" target="sfl_Flow_0kktab9"/>
+      <arc id="12985409152" source="5b53514f-ba87-4332-898c-4ac2453db8b3" target="ent_Gateway_0xdpgkt"/>
+      <arc id="12985411728" source="exi_Gateway_0rftpko" target="Activity_0gxp8k2"/>
+      <arc id="12985408144" source="Gateway_0xdpgkt" target="sink"/>
+      <arc id="12985410720" source="4d3f032d-834b-4b95-bdfc-ec107cf6d23c" target="exi_XG_Echo"/>
+      <arc id="12985412288" source="F19" target="T_RiskAssessment"/>
+      <arc id="12985411280" source="exi_XG_Echo" target="T_Echo"/>
+      <arc id="12985406576" source="sfl_Flow_0kktab9" target="exi_Gateway_0rftpko"/>
+      <arc id="12985375488" source="Flow_0w02as7" target="10e8f870-729b-4e81-981b-94b85b42e953"/>
+      <arc id="12985411840" source="exi_Gateway_1078buc" target="T_High_TransferICU"/>
+      <arc id="12985408256" source="T_Avg_AdmitInpatient" target="ent_Gateway_0xdpgkt"/>
+      <arc id="12985197840" source="Flow_1iiynpu" target="10e8f870-729b-4e81-981b-94b85b42e953"/>
+      <arc id="12985201424" source="exi_XG_RiskGroup" target="sfl_Flow_1qd7jod"/>
+      <arc id="12985407248" source="T_Echo" target="ent__84936A37-661C-435C-A4A9-BA815D74BE3F"/>
+      <arc id="12985409824" source="T_RiskAssessment" target="exi_XG_RiskGroup"/>
+      <arc id="12985412400" source="ent__84936A37-661C-435C-A4A9-BA815D74BE3F" target="T_RiskAssessment"/>
+      <arc id="12985407808" source="10e8f870-729b-4e81-981b-94b85b42e953" target="ent_Gateway_0xdpgkt"/>
+      <arc id="12985411392" source="exi_Gateway_1ka7c91" target="Activity_1gjswtq"/>
+      <arc id="12985410160" source="T_High_TransferICU" target="ent_Gateway_0k80b0l"/>
+      <arc id="12976347984" source="ent_T_Labs" target="T_Labs"/>
+      <arc id="12984820048" source="ent_T_Monitor" target="T_Monitor"/>
+      <arc id="12985410384" source="4d3f032d-834b-4b95-bdfc-ec107cf6d23c" target="ent_T_Labs"/>
+      <arc id="12985204560" source="exi_Gateway_1078buc" target="sfl_Flow_0jx5ela"/>
+      <arc id="12985409376" source="Activity_0gxp8k2" target="ent_Gateway_0dhp7yv"/>
+      <arc id="12985408368" source="Gateway_0h1qfus" target="ent__BBB29E42-2F99-4B33-BE9F-FB16AE2BA1FC"/>
+      <arc id="12985371008" source="exi_XG_RiskGroup" target="sfl_Flow_1knq1du"/>
+      <arc id="12985410944" source="sfl_Flow_1knq1du" target="exi_Gateway_1ka7c91"/>
+      <arc id="12985409936" source="sfl_Flow_1qd7jod" target="exi_Gateway_0fxfg1i"/>
+      <arc id="12985412512" source="exi_Gateway_0rftpko" target="T_High_Ventilation"/>
+      <arc id="12985296816" source="ent_Gateway_0h1qfus" target="Gateway_0h1qfus"/>
+      <arc id="12985407920" source="T_Labs" target="F9"/>
+      <arc id="12985411504" source="ent_Gateway_0k80b0l" target="5b53514f-ba87-4332-898c-4ac2453db8b3"/>
+      <arc id="12985410496" source="4d3f032d-834b-4b95-bdfc-ec107cf6d23c" target="ent_T_Monitor"/>
+      <arc id="12985381312" source="exi_XG_Echo" target="sfl__ADD54B97-70F2-44E7-A9CE-7463BE94D504"/>
+      <arc id="12985406912" source="T_High_Ventilation" target="ent_Gateway_0dhp7yv"/>
+      <arc id="12975845840" source="ent_Gateway_0dhp7yv" target="Gateway_0dhp7yv"/>
+      <arc id="12985409488" source="Gateway_0dhp7yv" target="ent_Gateway_08z0q3a"/>
+      <arc id="12985402320" source="T_Monitor" target="F19"/>
+      <arc id="12985412064" source="exi_XG_RiskGroup" target="T_Avg_AdmitInpatient"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

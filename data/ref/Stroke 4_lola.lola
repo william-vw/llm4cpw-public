@@ -1,0 +1,295 @@
+PLACE
+    p0_Flow_09toqec,
+    p1_Flow_0f98fr8,
+    p2_Flow_1d3jdi2,
+    p3_Flow_1w27zy7,
+    p4_Flow_1xv9lar,
+    p5_ent_Activity_0g46ts0,
+    p6_ent_Activity_0r50tea,
+    p7_ent_Activity_12zuvbf,
+    p8_ent_Activity_18d9arj,
+    p9_ent_Activity_1g4wqtb,
+    p10_ent_Activity_1l1hudq,
+    p11_ent_Activity_1mrrfmh,
+    p12_ent_Activity_1nzxm10,
+    p13_ent_Gateway_0ne1v5e,
+    p14_ent_Gateway_0p41vu9,
+    p15_ent_Gateway_0wivcuy,
+    p16_ent_Gateway_0z31d7f,
+    p17_ent_Gateway_0zp83y2,
+    p18_ent_Gateway_1b2unmm,
+    p19_ent_Gateway_1b561pb,
+    p20_ent_Gateway_1c5znts,
+    p21_ent_Gateway_1fibwsg,
+    p22_ent_Gateway_1r864d3,
+    p23_exi_Gateway_0549j6k,
+    p24_exi_Gateway_0d3r6np,
+    p25_exi_Gateway_0l2vio1,
+    p26_exi_Gateway_0m56ggk,
+    p27_exi_Gateway_0thruyh,
+    p28_exi_Gateway_0xhmaag,
+    p29_exi_Gateway_0znjgwu,
+    p30_exi_Gateway_104hy99,
+    p31_exi_Gateway_10r2jbc,
+    p32_exi_Gateway_16ljb8v,
+    p33_sink,
+    p34_source,
+    evt_t14_ECG_to_detect_atrial_fibrillation_and_other_acute_arrhythmias,
+    evt_t3_CTA_or_MRA_ASAP,
+    evt_t16_Advanced_CT_and_multiphase_CTA_or_Perfusion_CT,
+    evt_t6_Immediate_expert_healthcare_provider_interpretation_of_the_brain_imaging,
+    evt_t2_Evaluation_should_include_questionsabout_anticoagulant_therapy_measurement_of_platelet_count_PTT_and_INR,
+    evt_t8_Vascular_imaging_of_the_brain_and_neck_arteries_ASAP,
+    evt_t21_Blood_work_CBC_electrolytes_creatinine_glucose_INR_partial_thromboplastin_time_and_troponin_test_if_clinically_indicated,
+    evt_t19_Chest_x-ray,
+    evt_t13_Evaluate_patients_for_endovascular_therapy,
+    evt_t11_Make_patient_NPO_nothing_by_mouth_initially,
+    evt_t18_Screen_swallowing_ability_when_clinically_appropriate,
+    evt_t10_Full_clinical_assessment_of_the_patient's_swallowing_ability_by_a_speech-language_pathologist_or_appropriately_trained_specialist_who_would_advise_on_swallowing_ability_and_the_required_consistency_of_diet_and_fluids,
+    evt_t5_Patient_should_be_evaluatedimmediately_by_physicians_with_expertise_in_stroke_management,
+    evt_t4_Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies,
+    evt_t15_Treat_patient_as_a_medical_emergency._ICH_should_be_promptly_recognized,
+    evt_t9_Rapid_initial_evaluation_for_airway_breathing_and_circulation,
+    evt_t20_Thrombolysis_assessment,
+    evt_t7_Neurological_examination_to_determine_focal_neurological_deficits_and_assess_stroke_severity_on_a_standardized_stroke_scale_NIHSS_or_CNS_for_stroke,
+    evt_t17_Rapid_brain_imaging_non-contrast_CT_or_MRI_and_CTA_Door_to_CT/CTA_should_be_less_than_25_minutes,
+    evt_t1_Monitor_patient_closely,
+    evt_t12_Screen_swallowing_ability_as_part_of_initial_assessment_and_before_initiating_oral_medication_fluid_or_food.,
+    end_tick_a,
+    end_tick_b;
+
+MARKING
+    p34_source: 1,
+    end_tick_a: 1;
+
+TRANSITION t0
+    CONSUME p4_Flow_1xv9lar: 1, p14_ent_Gateway_0p41vu9: 1;
+    PRODUCE p27_exi_Gateway_0thruyh: 1;
+
+TRANSITION t1_Monitor_patient_closely
+    CONSUME p30_exi_Gateway_104hy99: 1;
+    PRODUCE evt_t1_Monitor_patient_closely: 1;
+
+TRANSITION t2_Evaluation_should_include_questionsabout_anticoagulant_therapy_measurement_of_platelet_count_PTT_and_INR
+    CONSUME p23_exi_Gateway_0549j6k: 1;
+    PRODUCE evt_t2_Evaluation_should_include_questionsabout_anticoagulant_therapy_measurement_of_platelet_count_PTT_and_INR: 1;
+
+TRANSITION t3_CTA_or_MRA_ASAP
+    CONSUME p23_exi_Gateway_0549j6k: 1;
+    PRODUCE evt_t3_CTA_or_MRA_ASAP: 1;
+
+TRANSITION t4_Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies
+    CONSUME p0_Flow_09toqec: 1, p1_Flow_0f98fr8: 1, p2_Flow_1d3jdi2: 1, p3_Flow_1w27zy7: 1, p13_ent_Gateway_0ne1v5e: 1, p15_ent_Gateway_0wivcuy: 1, p21_ent_Gateway_1fibwsg: 1, p22_ent_Gateway_1r864d3: 1;
+    PRODUCE evt_t4_Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies: 1;
+
+TRANSITION t5_Patient_should_be_evaluatedimmediately_by_physicians_with_expertise_in_stroke_management
+    CONSUME p5_ent_Activity_0g46ts0: 1;
+    PRODUCE evt_t5_Patient_should_be_evaluatedimmediately_by_physicians_with_expertise_in_stroke_management: 1;
+
+TRANSITION t6_Immediate_expert_healthcare_provider_interpretation_of_the_brain_imaging
+    CONSUME p25_exi_Gateway_0l2vio1: 1;
+    PRODUCE evt_t6_Immediate_expert_healthcare_provider_interpretation_of_the_brain_imaging: 1;
+
+TRANSITION t7_Neurological_examination_to_determine_focal_neurological_deficits_and_assess_stroke_severity_on_a_standardized_stroke_scale_NIHSS_or_CNS_for_stroke
+    CONSUME p6_ent_Activity_0r50tea: 1;
+    PRODUCE evt_t7_Neurological_examination_to_determine_focal_neurological_deficits_and_assess_stroke_severity_on_a_standardized_stroke_scale_NIHSS_or_CNS_for_stroke: 1;
+
+TRANSITION t8_Vascular_imaging_of_the_brain_and_neck_arteries_ASAP
+    CONSUME p32_exi_Gateway_16ljb8v: 1;
+    PRODUCE evt_t8_Vascular_imaging_of_the_brain_and_neck_arteries_ASAP: 1;
+
+TRANSITION t9_Rapid_initial_evaluation_for_airway_breathing_and_circulation
+    CONSUME p34_source: 1;
+    PRODUCE evt_t9_Rapid_initial_evaluation_for_airway_breathing_and_circulation: 1;
+
+TRANSITION t10_Full_clinical_assessment_of_the_patient's_swallowing_ability_by_a_speech-language_pathologist_or_appropriately_trained_specialist_who_would_advise_on_swallowing_ability_and_the_required_consistency_of_diet_and_fluids
+    CONSUME p24_exi_Gateway_0d3r6np: 1;
+    PRODUCE evt_t10_Full_clinical_assessment_of_the_patient's_swallowing_ability_by_a_speech-language_pathologist_or_appropriately_trained_specialist_who_would_advise_on_swallowing_ability_and_the_required_consistency_of_diet_and_fluids: 1;
+
+TRANSITION t11_Make_patient_NPO_nothing_by_mouth_initially
+    CONSUME p28_exi_Gateway_0xhmaag: 1;
+    PRODUCE evt_t11_Make_patient_NPO_nothing_by_mouth_initially: 1;
+
+TRANSITION t12_Screen_swallowing_ability_as_part_of_initial_assessment_and_before_initiating_oral_medication_fluid_or_food.
+    CONSUME p7_ent_Activity_12zuvbf: 1;
+    PRODUCE evt_t12_Screen_swallowing_ability_as_part_of_initial_assessment_and_before_initiating_oral_medication_fluid_or_food.: 1;
+
+TRANSITION t13_Evaluate_patients_for_endovascular_therapy
+    CONSUME p27_exi_Gateway_0thruyh: 1;
+    PRODUCE evt_t13_Evaluate_patients_for_endovascular_therapy: 1;
+
+TRANSITION t14_ECG_to_detect_atrial_fibrillation_and_other_acute_arrhythmias
+    CONSUME p8_ent_Activity_18d9arj: 1;
+    PRODUCE evt_t14_ECG_to_detect_atrial_fibrillation_and_other_acute_arrhythmias: 1;
+
+TRANSITION t15_Treat_patient_as_a_medical_emergency._ICH_should_be_promptly_recognized
+    CONSUME p26_exi_Gateway_0m56ggk: 1;
+    PRODUCE evt_t15_Treat_patient_as_a_medical_emergency._ICH_should_be_promptly_recognized: 1;
+
+TRANSITION t16_Advanced_CT_and_multiphase_CTA_or_Perfusion_CT
+    CONSUME p31_exi_Gateway_10r2jbc: 1;
+    PRODUCE evt_t16_Advanced_CT_and_multiphase_CTA_or_Perfusion_CT: 1;
+
+TRANSITION t17_Rapid_brain_imaging_non-contrast_CT_or_MRI_and_CTA_Door_to_CT/CTA_should_be_less_than_25_minutes
+    CONSUME p29_exi_Gateway_0znjgwu: 1;
+    PRODUCE evt_t17_Rapid_brain_imaging_non-contrast_CT_or_MRI_and_CTA_Door_to_CT/CTA_should_be_less_than_25_minutes: 1;
+
+TRANSITION t18_Screen_swallowing_ability_when_clinically_appropriate
+    CONSUME p9_ent_Activity_1g4wqtb: 1;
+    PRODUCE evt_t18_Screen_swallowing_ability_when_clinically_appropriate: 1;
+
+TRANSITION t19_Chest_x-ray
+    CONSUME p10_ent_Activity_1l1hudq: 1;
+    PRODUCE evt_t19_Chest_x-ray: 1;
+
+TRANSITION t20_Thrombolysis_assessment
+    CONSUME p11_ent_Activity_1mrrfmh: 1;
+    PRODUCE evt_t20_Thrombolysis_assessment: 1;
+
+TRANSITION t21_Blood_work_CBC_electrolytes_creatinine_glucose_INR_partial_thromboplastin_time_and_troponin_test_if_clinically_indicated
+    CONSUME p12_ent_Activity_1nzxm10: 1;
+    PRODUCE evt_t21_Blood_work_CBC_electrolytes_creatinine_glucose_INR_partial_thromboplastin_time_and_troponin_test_if_clinically_indicated: 1;
+
+TRANSITION t22_Gateway_0zp83y2
+    CONSUME p17_ent_Gateway_0zp83y2: 1;
+    PRODUCE p13_ent_Gateway_0ne1v5e: 1;
+
+TRANSITION t23
+    CONSUME p16_ent_Gateway_0z31d7f: 1, p18_ent_Gateway_1b2unmm: 1;
+    PRODUCE p22_ent_Gateway_1r864d3: 1;
+
+TRANSITION t24
+    CONSUME p19_ent_Gateway_1b561pb: 1, p20_ent_Gateway_1c5znts: 1;
+    PRODUCE p25_exi_Gateway_0l2vio1: 1;
+
+TRANSITION t25_sfl_Flow_10n332a
+    CONSUME p30_exi_Gateway_104hy99: 1;
+    PRODUCE p16_ent_Gateway_0z31d7f: 1;
+
+TRANSITION t26_sfl_Flow_174pbej
+    CONSUME p25_exi_Gateway_0l2vio1: 1;
+    PRODUCE p14_ent_Gateway_0p41vu9: 1;
+
+TRANSITION t27_sfl_Flow_18aoc4d
+    CONSUME p31_exi_Gateway_10r2jbc: 1;
+    PRODUCE p20_ent_Gateway_1c5znts: 1;
+
+TRANSITION t28_sfl_Flow_19glxch
+    CONSUME p23_exi_Gateway_0549j6k: 1;
+    PRODUCE p17_ent_Gateway_0zp83y2: 1;
+
+TRANSITION t29_sfl_Flow_1ch5aes
+    CONSUME p29_exi_Gateway_0znjgwu: 1;
+    PRODUCE p19_ent_Gateway_1b561pb: 1;
+
+TRANSITION t30_sfl_Flow_1fncmd8
+    CONSUME p28_exi_Gateway_0xhmaag: 1;
+    PRODUCE p22_ent_Gateway_1r864d3: 1;
+
+TRANSITION t31_sfl_Flow_1jvye5a
+    CONSUME p26_exi_Gateway_0m56ggk: 1;
+    PRODUCE p13_ent_Gateway_0ne1v5e: 1;
+
+TRANSITION t32_sfl_Flow_1sfwyh4
+    CONSUME p32_exi_Gateway_16ljb8v: 1;
+    PRODUCE p15_ent_Gateway_0wivcuy: 1;
+
+TRANSITION t33_sfl_Flow_1tvufxc
+    CONSUME p27_exi_Gateway_0thruyh: 1;
+    PRODUCE p21_ent_Gateway_1fibwsg: 1;
+
+TRANSITION t34_sfl_Flow_1xhj9y7
+    CONSUME p24_exi_Gateway_0d3r6np: 1;
+    PRODUCE p18_ent_Gateway_1b2unmm: 1;
+
+TRANSITION reset_t14_ECG_to_detect_atrial_fibrillation_and_other_acute_arrhythmias
+    CONSUME evt_t14_ECG_to_detect_atrial_fibrillation_and_other_acute_arrhythmias: 1;
+    PRODUCE p1_Flow_0f98fr8: 1;
+
+TRANSITION reset_t3_CTA_or_MRA_ASAP
+    CONSUME evt_t3_CTA_or_MRA_ASAP: 1;
+    PRODUCE p17_ent_Gateway_0zp83y2: 1;
+
+TRANSITION reset_t16_Advanced_CT_and_multiphase_CTA_or_Perfusion_CT
+    CONSUME evt_t16_Advanced_CT_and_multiphase_CTA_or_Perfusion_CT: 1;
+    PRODUCE p20_ent_Gateway_1c5znts: 1;
+
+TRANSITION reset_t6_Immediate_expert_healthcare_provider_interpretation_of_the_brain_imaging
+    CONSUME evt_t6_Immediate_expert_healthcare_provider_interpretation_of_the_brain_imaging: 1;
+    PRODUCE p14_ent_Gateway_0p41vu9: 1;
+
+TRANSITION reset_t2_Evaluation_should_include_questionsabout_anticoagulant_therapy_measurement_of_platelet_count_PTT_and_INR
+    CONSUME evt_t2_Evaluation_should_include_questionsabout_anticoagulant_therapy_measurement_of_platelet_count_PTT_and_INR: 1;
+    PRODUCE p17_ent_Gateway_0zp83y2: 1;
+
+TRANSITION reset_t8_Vascular_imaging_of_the_brain_and_neck_arteries_ASAP
+    CONSUME evt_t8_Vascular_imaging_of_the_brain_and_neck_arteries_ASAP: 1;
+    PRODUCE p15_ent_Gateway_0wivcuy: 1;
+
+TRANSITION reset_t21_Blood_work_CBC_electrolytes_creatinine_glucose_INR_partial_thromboplastin_time_and_troponin_test_if_clinically_indicated
+    CONSUME evt_t21_Blood_work_CBC_electrolytes_creatinine_glucose_INR_partial_thromboplastin_time_and_troponin_test_if_clinically_indicated: 1;
+    PRODUCE p0_Flow_09toqec: 1;
+
+TRANSITION reset_t19_Chest_x-ray
+    CONSUME evt_t19_Chest_x-ray: 1;
+    PRODUCE p2_Flow_1d3jdi2: 1;
+
+TRANSITION reset_t13_Evaluate_patients_for_endovascular_therapy
+    CONSUME evt_t13_Evaluate_patients_for_endovascular_therapy: 1;
+    PRODUCE p21_ent_Gateway_1fibwsg: 1;
+
+TRANSITION reset_t11_Make_patient_NPO_nothing_by_mouth_initially
+    CONSUME evt_t11_Make_patient_NPO_nothing_by_mouth_initially: 1;
+    PRODUCE p7_ent_Activity_12zuvbf: 1;
+
+TRANSITION reset_t18_Screen_swallowing_ability_when_clinically_appropriate
+    CONSUME evt_t18_Screen_swallowing_ability_when_clinically_appropriate: 1;
+    PRODUCE p16_ent_Gateway_0z31d7f: 1;
+
+TRANSITION reset_t10_Full_clinical_assessment_of_the_patient's_swallowing_ability_by_a_speech-language_pathologist_or_appropriately_trained_specialist_who_would_advise_on_swallowing_ability_and_the_required_consistency_of_diet_and_fluids
+    CONSUME evt_t10_Full_clinical_assessment_of_the_patient's_swallowing_ability_by_a_speech-language_pathologist_or_appropriately_trained_specialist_who_would_advise_on_swallowing_ability_and_the_required_consistency_of_diet_and_fluids: 1;
+    PRODUCE p18_ent_Gateway_1b2unmm: 1;
+
+TRANSITION reset_t5_Patient_should_be_evaluatedimmediately_by_physicians_with_expertise_in_stroke_management
+    CONSUME evt_t5_Patient_should_be_evaluatedimmediately_by_physicians_with_expertise_in_stroke_management: 1;
+    PRODUCE p23_exi_Gateway_0549j6k: 1;
+
+TRANSITION reset_t4_Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies
+    CONSUME evt_t4_Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies: 1;
+    PRODUCE p33_sink: 1;
+
+TRANSITION reset_t15_Treat_patient_as_a_medical_emergency._ICH_should_be_promptly_recognized
+    CONSUME evt_t15_Treat_patient_as_a_medical_emergency._ICH_should_be_promptly_recognized: 1;
+    PRODUCE p5_ent_Activity_0g46ts0: 1;
+
+TRANSITION reset_t9_Rapid_initial_evaluation_for_airway_breathing_and_circulation
+    CONSUME evt_t9_Rapid_initial_evaluation_for_airway_breathing_and_circulation: 1;
+    PRODUCE p12_ent_Activity_1nzxm10: 1, p11_ent_Activity_1mrrfmh: 1, p10_ent_Activity_1l1hudq: 1, p28_exi_Gateway_0xhmaag: 1, p32_exi_Gateway_16ljb8v: 1, p8_ent_Activity_18d9arj: 1, p29_exi_Gateway_0znjgwu: 1, p31_exi_Gateway_10r2jbc: 1, p26_exi_Gateway_0m56ggk: 1, p6_ent_Activity_0r50tea: 1;
+
+TRANSITION reset_t20_Thrombolysis_assessment
+    CONSUME evt_t20_Thrombolysis_assessment: 1;
+    PRODUCE p3_Flow_1w27zy7: 1;
+
+TRANSITION reset_t7_Neurological_examination_to_determine_focal_neurological_deficits_and_assess_stroke_severity_on_a_standardized_stroke_scale_NIHSS_or_CNS_for_stroke
+    CONSUME evt_t7_Neurological_examination_to_determine_focal_neurological_deficits_and_assess_stroke_severity_on_a_standardized_stroke_scale_NIHSS_or_CNS_for_stroke: 1;
+    PRODUCE p4_Flow_1xv9lar: 1;
+
+TRANSITION reset_t17_Rapid_brain_imaging_non-contrast_CT_or_MRI_and_CTA_Door_to_CT/CTA_should_be_less_than_25_minutes
+    CONSUME evt_t17_Rapid_brain_imaging_non-contrast_CT_or_MRI_and_CTA_Door_to_CT/CTA_should_be_less_than_25_minutes: 1;
+    PRODUCE p19_ent_Gateway_1b561pb: 1;
+
+TRANSITION reset_t1_Monitor_patient_closely
+    CONSUME evt_t1_Monitor_patient_closely: 1;
+    PRODUCE p9_ent_Activity_1g4wqtb: 1;
+
+TRANSITION reset_t12_Screen_swallowing_ability_as_part_of_initial_assessment_and_before_initiating_oral_medication_fluid_or_food.
+    CONSUME evt_t12_Screen_swallowing_ability_as_part_of_initial_assessment_and_before_initiating_oral_medication_fluid_or_food.: 1;
+    PRODUCE p24_exi_Gateway_0d3r6np: 1, p30_exi_Gateway_104hy99: 1;
+
+TRANSITION t_end_loop
+    CONSUME p33_sink: 1, end_tick_a: 1;
+    PRODUCE p33_sink: 1, end_tick_b: 1;
+
+TRANSITION t_end_loop_back
+    CONSUME p33_sink: 1, end_tick_b: 1;
+    PRODUCE p33_sink: 1, end_tick_a: 1;

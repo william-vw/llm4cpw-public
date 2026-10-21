@@ -1,0 +1,484 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text></text>
+    </name>
+    <page id="n0">
+      <place id="ent_Gateway_0urjjn3">
+        <name>
+          <text>ent_Gateway_0urjjn3</text>
+        </name>
+      </place>
+      <place id="exi_Gateway_1f59etw">
+        <name>
+          <text>exi_Gateway_1f59etw</text>
+        </name>
+      </place>
+      <place id="exi_Gateway_19ap300">
+        <name>
+          <text>exi_Gateway_19ap300</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_1uzinu8">
+        <name>
+          <text>ent_Gateway_1uzinu8</text>
+        </name>
+      </place>
+      <place id="exi_Gateway_1s8splk">
+        <name>
+          <text>exi_Gateway_1s8splk</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_1uoiq0u">
+        <name>
+          <text>ent_Gateway_1uoiq0u</text>
+        </name>
+      </place>
+      <place id="exi_Gateway_0qnyged">
+        <name>
+          <text>exi_Gateway_0qnyged</text>
+        </name>
+      </place>
+      <place id="ent_Activity_06e0hxs">
+        <name>
+          <text>ent_Activity_06e0hxs</text>
+        </name>
+      </place>
+      <place id="exi_Gateway_04qyg2d">
+        <name>
+          <text>exi_Gateway_04qyg2d</text>
+        </name>
+      </place>
+      <place id="Flow_0iyej3i">
+        <name>
+          <text>Flow_0iyej3i</text>
+        </name>
+      </place>
+      <place id="ent_Activity_11aod7z">
+        <name>
+          <text>ent_Activity_11aod7z</text>
+        </name>
+      </place>
+      <place id="exi_Gateway_0laox4w">
+        <name>
+          <text>exi_Gateway_0laox4w</text>
+        </name>
+      </place>
+      <place id="source">
+        <name>
+          <text>source</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="ent_Gateway_1sf04z5">
+        <name>
+          <text>ent_Gateway_1sf04z5</text>
+        </name>
+      </place>
+      <place id="ent_Activity_0dwd38r">
+        <name>
+          <text>ent_Activity_0dwd38r</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_1n80g9l">
+        <name>
+          <text>ent_Gateway_1n80g9l</text>
+        </name>
+      </place>
+      <place id="exi_Gateway_0v0b82v">
+        <name>
+          <text>exi_Gateway_0v0b82v</text>
+        </name>
+      </place>
+      <place id="ent_Activity_1c6s5um">
+        <name>
+          <text>ent_Activity_1c6s5um</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_13hgxyn">
+        <name>
+          <text>ent_Gateway_13hgxyn</text>
+        </name>
+      </place>
+      <place id="sink">
+        <name>
+          <text>sink</text>
+        </name>
+      </place>
+      <place id="exi_Gateway_0qe8owo">
+        <name>
+          <text>exi_Gateway_0qe8owo</text>
+        </name>
+      </place>
+      <place id="exi_Gateway_1vbjyd9">
+        <name>
+          <text>exi_Gateway_1vbjyd9</text>
+        </name>
+      </place>
+      <place id="ent_Activity_11p6hi8">
+        <name>
+          <text>ent_Activity_11p6hi8</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_0w634w0">
+        <name>
+          <text>ent_Gateway_0w634w0</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_1q7fvdo">
+        <name>
+          <text>ent_Gateway_1q7fvdo</text>
+        </name>
+      </place>
+      <place id="Flow_1u2n9j0">
+        <name>
+          <text>Flow_1u2n9j0</text>
+        </name>
+      </place>
+      <place id="exi_Gateway_0q27gcc">
+        <name>
+          <text>exi_Gateway_0q27gcc</text>
+        </name>
+      </place>
+      <place id="exi_Gateway_01prrg9">
+        <name>
+          <text>exi_Gateway_01prrg9</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_0vuhiq1">
+        <name>
+          <text>ent_Gateway_0vuhiq1</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_0o5mbyt">
+        <name>
+          <text>ent_Gateway_0o5mbyt</text>
+        </name>
+      </place>
+      <place id="ent_Gateway_0izv3u5">
+        <name>
+          <text>ent_Gateway_0izv3u5</text>
+        </name>
+      </place>
+      <transition id="Activity_1xq5evs">
+        <name>
+          <text>Repeat blood glucose measurement</text>
+        </name>
+      </transition>
+      <transition id="Activity_1ikqh4n">
+        <name>
+          <text>Referral to an outpatient clinic with stroke-prevention services for comprehensive evaluation and management within 1 month of symptom onset</text>
+        </name>
+      </transition>
+      <transition id="sfl_Flow_0m7we44">
+        <name>
+          <text>sfl_Flow_0m7we44</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="6023c5cb-a8c6-43f3-b00b-d3fc85459087"/>
+      </transition>
+      <transition id="08d58755-e8f2-4b76-8e95-6096794feb2c">
+        <name>
+          <text>08d58755-e8f2-4b76-8e95-6096794feb2c</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="21a60b70-8027-435d-a5c7-6e9018ded3d9"/>
+      </transition>
+      <transition id="sfl_Flow_1wc1wjf">
+        <name>
+          <text>sfl_Flow_1wc1wjf</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="a3ef9507-f9dc-4a22-9aad-6448b032bc88"/>
+      </transition>
+      <transition id="Activity_11p6hi8">
+        <name>
+          <text>investigate potential infection</text>
+        </name>
+      </transition>
+      <transition id="Activity_18mn4vn">
+        <name>
+          <text>Evaluate in the ED to be considered for admission to hospital</text>
+        </name>
+      </transition>
+      <transition id="Gateway_0w634w0">
+        <name>
+          <text>Gateway_0w634w0</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="c4e4b8a8-194f-403e-b08b-a1fc4682604a"/>
+      </transition>
+      <transition id="sfl_Flow_0c6wtqq">
+        <name>
+          <text>sfl_Flow_0c6wtqq</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="84b7bbb4-d28a-40e7-a0c6-bfa26b055545"/>
+      </transition>
+      <transition id="Activity_06e0hxs">
+        <name>
+          <text>Perform glucose measurement</text>
+        </name>
+      </transition>
+      <transition id="sfl_Flow_0j8qnot">
+        <name>
+          <text>sfl_Flow_0j8qnot</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="cec24c26-f0f9-4dc2-9d5c-5f926446006a"/>
+      </transition>
+      <transition id="sfl_Flow_1mmx492">
+        <name>
+          <text>sfl_Flow_1mmx492</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="cd2828a8-cf30-4c03-b103-439427133d56"/>
+      </transition>
+      <transition id="Activity_16mzwfk">
+        <name>
+          <text>Rectal or gastric ASA should be offered</text>
+        </name>
+      </transition>
+      <transition id="Activity_1ghc4an">
+        <name>
+          <text>initiate antipyretic and antimicrobial therapy</text>
+        </name>
+      </transition>
+      <transition id="Activity_0nwugoj">
+        <name>
+          <text>Aspirin (ASA) 160 mg as a loading dose, then a daily dose of 81–325 mg (usually 81 mg for maintenance)</text>
+        </name>
+      </transition>
+      <transition id="Activity_0d6z69u">
+        <name>
+          <text>Brain CT scan</text>
+        </name>
+      </transition>
+      <transition id="21c01d7a-bb0e-44ad-aaa4-418794ab9837">
+        <name>
+          <text>21c01d7a-bb0e-44ad-aaa4-418794ab9837</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="860c7502-b1ae-4332-af11-61ff3417c9c9"/>
+      </transition>
+      <transition id="Gateway_1sf04z5">
+        <name>
+          <text>Gateway_1sf04z5</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="8a5c43cf-2f39-4419-851d-daa7097e0e71"/>
+      </transition>
+      <transition id="sfl_Flow_1o55o8y">
+        <name>
+          <text>sfl_Flow_1o55o8y</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="99d27083-08e6-4e3f-ad7b-6cf951bf90db"/>
+      </transition>
+      <transition id="Activity_0j4n94s">
+        <name>
+          <text>patient should be referred to an outpatient clinic with stroke-prevention services</text>
+        </name>
+      </transition>
+      <transition id="Activity_0dwd38r">
+        <name>
+          <text>initiate temperature-reducing measures</text>
+        </name>
+      </transition>
+      <transition id="sfl_Flow_1gc9326">
+        <name>
+          <text>sfl_Flow_1gc9326</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="cf7728fe-801d-47c3-b25a-92be03fda759"/>
+      </transition>
+      <transition id="Activity_0wkp3es">
+        <name>
+          <text>Correct hypoglycemia immediately</text>
+        </name>
+      </transition>
+      <transition id="Activity_1n92f33">
+        <name>
+          <text>Extended-release Dipyridamole + Aspirin (Aggrenox) 200 mg Dipyridamole + 25 mg Aspirin twice daily (initial dose includes ASA 160 mg)</text>
+        </name>
+      </transition>
+      <transition id="sfl_Flow_1ror77w">
+        <name>
+          <text>sfl_Flow_1ror77w</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="e07b5f77-cdd8-4984-a8cc-314a977240ba"/>
+      </transition>
+      <transition id="Gateway_0urjjn3">
+        <name>
+          <text>Gateway_0urjjn3</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="0a9990c9-3def-4b9e-bb73-78c688d9503f"/>
+      </transition>
+      <transition id="sfl_Flow_155nghu">
+        <name>
+          <text>sfl_Flow_155nghu</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="0f5630e0-0679-4dd8-8510-fa9fd0c05084"/>
+      </transition>
+      <transition id="Activity_19ytogb">
+        <name>
+          <text>Clopidogrel 300 mg as a loading dose, followed by 75 mg daily.</text>
+        </name>
+      </transition>
+      <transition id="Activity_0gh1m4z">
+        <name>
+          <text>Immediate care should be provided at a specialized TIA/minor stroke clinic</text>
+        </name>
+      </transition>
+      <transition id="sfl_Flow_0plv15t">
+        <name>
+          <text>sfl_Flow_0plv15t</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="3e54b740-56e1-49e9-a5a4-42435a8e6844"/>
+      </transition>
+      <transition id="Activity_1sg5ww2">
+        <name>
+          <text>Other stroke-prevention treatments tailored to each patient</text>
+        </name>
+      </transition>
+      <transition id="Activity_19y0anb">
+        <name>
+          <text>Give patients appropriate cross-continuum secondary prevention assessments and therapies</text>
+        </name>
+      </transition>
+      <transition id="sfl_Flow_1v3u74v">
+        <name>
+          <text>sfl_Flow_1v3u74v</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="7837cc2b-e3bd-4101-93e6-491e6b42349c"/>
+      </transition>
+      <transition id="Gateway_13hgxyn">
+        <name>
+          <text>Gateway_13hgxyn</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="4340f879-1126-4459-8ce5-54c1df6d175a"/>
+      </transition>
+      <transition id="sfl_Flow_0br2iz8">
+        <name>
+          <text>sfl_Flow_0br2iz8</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="ad1d95a4-b152-41b3-97d0-0877440098e3"/>
+      </transition>
+      <transition id="Activity_11aod7z">
+        <name>
+          <text>Evaluate temperature as part of routine vital signs every 4 hours for first 48 hours</text>
+        </name>
+      </transition>
+      <transition id="Activity_1c6s5um">
+        <name>
+          <text>Consider inpatient evaluation and management for stroke prevention</text>
+        </name>
+      </transition>
+      <transition id="Gateway_1n80g9l">
+        <name>
+          <text>Gateway_1n80g9l</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="97df0e70-28f8-49a0-893d-84eed957ed7d"/>
+      </transition>
+      <transition id="Activity_1j89x2a">
+        <name>
+          <text>evaluation should occur at an appropriately resourced ED</text>
+        </name>
+      </transition>
+      <transition id="Activity_0ak6axd">
+        <name>
+          <text>patient should be referred for evaluation at a specialized TIA/minor stroke clinic</text>
+        </name>
+      </transition>
+      <arc id="6079590400" source="sfl_Flow_0br2iz8" target="exi_Gateway_04qyg2d"/>
+      <arc id="6079588384" source="sfl_Flow_0c6wtqq" target="ent_Gateway_0o5mbyt"/>
+      <arc id="6078957616" source="ent_Activity_11aod7z" target="Activity_11aod7z"/>
+      <arc id="6079596592" source="ent_Gateway_1uoiq0u" target="21c01d7a-bb0e-44ad-aaa4-418794ab9837"/>
+      <arc id="6079234128" source="ent_Gateway_0urjjn3" target="Gateway_0urjjn3"/>
+      <arc id="6079596704" source="exi_Gateway_1s8splk" target="Activity_19ytogb"/>
+      <arc id="6079592640" source="08d58755-e8f2-4b76-8e95-6096794feb2c" target="ent_Activity_06e0hxs"/>
+      <arc id="6079551696" source="exi_Gateway_1vbjyd9" target="sfl_Flow_1mmx492"/>
+      <arc id="6079590624" source="Activity_19y0anb" target="sink"/>
+      <arc id="6079596816" source="exi_Gateway_0v0b82v" target="Activity_0j4n94s"/>
+      <arc id="6079592752" source="08d58755-e8f2-4b76-8e95-6096794feb2c" target="exi_Gateway_0qnyged"/>
+      <arc id="6079590736" source="sfl_Flow_0j8qnot" target="exi_Gateway_0v0b82v"/>
+      <arc id="6079596928" source="exi_Gateway_0laox4w" target="Activity_1sg5ww2"/>
+      <arc id="6079586704" source="sfl_Flow_0m7we44" target="ent_Gateway_1uoiq0u"/>
+      <arc id="6079594912" source="exi_Gateway_0v0b82v" target="Activity_1j89x2a"/>
+      <arc id="6079592864" source="08d58755-e8f2-4b76-8e95-6096794feb2c" target="ent_Activity_11aod7z"/>
+      <arc id="6079508928" source="exi_Gateway_1vbjyd9" target="sfl_Flow_0plv15t"/>
+      <arc id="6079588832" source="sfl_Flow_1mmx492" target="ent_Gateway_0w634w0"/>
+      <arc id="6079400432" source="ent_Activity_06e0hxs" target="Activity_06e0hxs"/>
+      <arc id="6079595024" source="ent_Gateway_1q7fvdo" target="Activity_19y0anb"/>
+      <arc id="6079592976" source="Gateway_1n80g9l" target="exi_Gateway_19ap300"/>
+      <arc id="6079588944" source="21c01d7a-bb0e-44ad-aaa4-418794ab9837" target="ent_Gateway_1q7fvdo"/>
+      <arc id="6076443216" source="exi_Gateway_0qnyged" target="sfl_Flow_0j8qnot"/>
+      <arc id="6078958176" source="ent_Gateway_1n80g9l" target="Gateway_1n80g9l"/>
+      <arc id="6079580768" source="sfl_Flow_155nghu" target="ent_Gateway_1sf04z5"/>
+      <arc id="6079595136" source="ent_Gateway_0o5mbyt" target="Activity_19y0anb"/>
+      <arc id="6079593088" source="Activity_1j89x2a" target="ent_Activity_1c6s5um"/>
+      <arc id="6079591072" source="Gateway_1sf04z5" target="ent_Gateway_0w634w0"/>
+      <arc id="6079595248" source="ent_Gateway_0vuhiq1" target="Activity_19y0anb"/>
+      <arc id="6079593200" source="sfl_Flow_1o55o8y" target="ent_Gateway_1q7fvdo"/>
+      <arc id="6079591184" source="Activity_1ghc4an" target="ent_Gateway_1uoiq0u"/>
+      <arc id="6079589168" source="Activity_1c6s5um" target="ent_Gateway_13hgxyn"/>
+      <arc id="6079595360" source="exi_Gateway_1s8splk" target="Activity_1n92f33"/>
+      <arc id="6079593312" source="Activity_0nwugoj" target="ent_Gateway_0urjjn3"/>
+      <arc id="6079445856" source="exi_Gateway_0q27gcc" target="sfl_Flow_1o55o8y"/>
+      <arc id="6079591296" source="Gateway_0w634w0" target="exi_Gateway_0laox4w"/>
+      <arc id="6078956496" source="ent_Gateway_1sf04z5" target="Gateway_1sf04z5"/>
+      <arc id="6079595472" source="exi_Gateway_1f59etw" target="Activity_18mn4vn"/>
+      <arc id="6079591408" source="Activity_0dwd38r" target="Flow_0iyej3i"/>
+      <arc id="6079589392" source="Activity_0ak6axd" target="ent_Gateway_13hgxyn"/>
+      <arc id="6079595584" source="ent_Gateway_0izv3u5" target="Activity_19y0anb"/>
+      <arc id="6078962768" source="Flow_0iyej3i" target="21c01d7a-bb0e-44ad-aaa4-418794ab9837"/>
+      <arc id="6079591520" source="Activity_1sg5ww2" target="ent_Gateway_0vuhiq1"/>
+      <arc id="6079589504" source="Activity_11p6hi8" target="Flow_1u2n9j0"/>
+      <arc id="6079548560" source="exi_Gateway_04qyg2d" target="sfl_Flow_0m7we44"/>
+      <arc id="6079440032" source="source" target="08d58755-e8f2-4b76-8e95-6096794feb2c"/>
+      <arc id="6079587488" source="Gateway_13hgxyn" target="ent_Gateway_1uzinu8"/>
+      <arc id="6079497392" source="Flow_1u2n9j0" target="21c01d7a-bb0e-44ad-aaa4-418794ab9837"/>
+      <arc id="6079546544" source="exi_Gateway_0qnyged" target="sfl_Flow_1wc1wjf"/>
+      <arc id="6079595696" source="exi_Gateway_04qyg2d" target="Activity_1ghc4an"/>
+      <arc id="6079593648" source="Activity_16mzwfk" target="ent_Gateway_0urjjn3"/>
+      <arc id="6079438016" source="ent_Gateway_0w634w0" target="Gateway_0w634w0"/>
+      <arc id="6079503552" source="exi_Gateway_19ap300" target="sfl_Flow_0c6wtqq"/>
+      <arc id="6079591632" source="Activity_1ikqh4n" target="ent_Gateway_0vuhiq1"/>
+      <arc id="6079589616" source="Activity_11aod7z" target="exi_Gateway_0q27gcc"/>
+      <arc id="6079595808" source="exi_Gateway_19ap300" target="Activity_0wkp3es"/>
+      <arc id="6079593760" source="Activity_1xq5evs" target="ent_Gateway_1n80g9l"/>
+      <arc id="6079589728" source="Activity_0j4n94s" target="ent_Gateway_13hgxyn"/>
+      <arc id="6079587712" source="Activity_0wkp3es" target="ent_Gateway_0o5mbyt"/>
+      <arc id="6079497616" source="exi_Gateway_1f59etw" target="sfl_Flow_1ror77w"/>
+      <arc id="6079595920" source="exi_Gateway_01prrg9" target="Activity_1xq5evs"/>
+      <arc id="6079593872" source="Activity_0gh1m4z" target="ent_Gateway_13hgxyn"/>
+      <arc id="6079589840" source="Activity_1n92f33" target="ent_Gateway_0urjjn3"/>
+      <arc id="6079499744" source="exi_Gateway_01prrg9" target="sfl_Flow_1v3u74v"/>
+      <arc id="6079587824" source="sfl_Flow_1wc1wjf" target="ent_Gateway_1uzinu8"/>
+      <arc id="6079446528" source="exi_Gateway_0q27gcc" target="sfl_Flow_0br2iz8"/>
+      <arc id="6079596032" source="exi_Gateway_1s8splk" target="Activity_0nwugoj"/>
+      <arc id="6079593984" source="sfl_Flow_1gc9326" target="exi_Gateway_1s8splk"/>
+      <arc id="6076446240" source="ent_Gateway_13hgxyn" target="Gateway_13hgxyn"/>
+      <arc id="6079581776" source="sfl_Flow_1v3u74v" target="ent_Gateway_1n80g9l"/>
+      <arc id="6079587936" source="Gateway_0urjjn3" target="ent_Gateway_1sf04z5"/>
+      <arc id="6079579760" source="sfl_Flow_1ror77w" target="ent_Gateway_0izv3u5"/>
+      <arc id="6079596144" source="exi_Gateway_0laox4w" target="Activity_1ikqh4n"/>
+      <arc id="6079594096" source="08d58755-e8f2-4b76-8e95-6096794feb2c" target="exi_Gateway_1f59etw"/>
+      <arc id="6079592080" source="sfl_Flow_0plv15t" target="exi_Gateway_0qe8owo"/>
+      <arc id="6079590064" source="Activity_06e0hxs" target="exi_Gateway_01prrg9"/>
+      <arc id="6078959296" source="ent_Activity_11p6hi8" target="Activity_11p6hi8"/>
+      <arc id="6079596256" source="ent_Gateway_1uzinu8" target="Activity_0d6z69u"/>
+      <arc id="6079594208" source="exi_Gateway_1s8splk" target="Activity_16mzwfk"/>
+      <arc id="6079590176" source="sfl_Flow_0br2iz8" target="ent_Activity_11p6hi8"/>
+      <arc id="6075653952" source="ent_Activity_1c6s5um" target="Activity_1c6s5um"/>
+      <arc id="6079588160" source="Activity_19ytogb" target="ent_Gateway_0urjjn3"/>
+      <arc id="6079596368" source="exi_Gateway_0v0b82v" target="Activity_0ak6axd"/>
+      <arc id="6079586144" source="Activity_18mn4vn" target="ent_Gateway_0izv3u5"/>
+      <arc id="6076446576" source="ent_Activity_0dwd38r" target="Activity_0dwd38r"/>
+      <arc id="6079592304" source="Activity_0d6z69u" target="exi_Gateway_1vbjyd9"/>
+      <arc id="6079502208" source="exi_Gateway_0qe8owo" target="sfl_Flow_1gc9326"/>
+      <arc id="6079590288" source="sfl_Flow_0br2iz8" target="ent_Activity_0dwd38r"/>
+      <arc id="6079555504" source="exi_Gateway_0qe8owo" target="sfl_Flow_155nghu"/>
+      <arc id="6079596480" source="exi_Gateway_0v0b82v" target="Activity_0gh1m4z"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

@@ -1,0 +1,32 @@
+[
+    {
+        "name": "stroke21",
+        "type": "raw",
+        "formula": "(NOT \"Correct hypoglycemia immediately\" U \"Perform glucose measurement\")"
+    },
+    {
+        "name": "stroke22",
+        "type": "raw",
+        "formula": "G (F \"Repeat blood glucose measurement\" -> (NOT \"Correct hypoglycemia immediately\" U \"Repeat blood glucose measurement\"))"
+    },
+    {
+        "name": "stroke23",
+        "type": "raw",
+        "formula": "F (\"Give patients appropriate cross-continuum secondary prevention assessments and therapies\" AND XX @end)"
+    },
+    {
+        "name": "stroke2_a1_1",
+        "type": "raw",
+        "formula": "(G (\"Aspirin (ASA) 160 mg as a loading dose, then a daily dose of 81–325 mg (usually 81 mg for maintenance)\" -> NOT F \"Rectal or gastric ASA should be offered\") AND G (\"Rectal or gastric ASA should be offered\" -> NOT F \"Aspirin (ASA) 160 mg as a loading dose, then a daily dose of 81–325 mg (usually 81 mg for maintenance)\"))"
+    },
+    {
+        "name": "stroke2_a1_2",
+        "type": "raw",
+        "formula": "(G (\"Clopidogrel 300 mg as a loading dose, followed by 75 mg daily.\" -> NOT F \"Rectal or gastric ASA should be offered\") AND G (\"Rectal or gastric ASA should be offered\" -> NOT F \"Clopidogrel 300 mg as a loading dose, followed by 75 mg daily.\"))"
+    },
+    {
+        "name": "stroke2_a1_3",
+        "type": "raw",
+        "formula": "(G (\"Extended-release Dipyridamole + Aspirin (Aggrenox) 200 mg Dipyridamole + 25 mg Aspirin twice daily (initial dose includes ASA 160 mg)\" -> NOT F \"Rectal or gastric ASA should be offered\") AND G (\"Rectal or gastric ASA should be offered\" -> NOT F \"Extended-release Dipyridamole + Aspirin (Aggrenox) 200 mg Dipyridamole + 25 mg Aspirin twice daily (initial dose includes ASA 160 mg)\"))"
+    }
+]

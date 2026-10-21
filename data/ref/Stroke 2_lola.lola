@@ -1,0 +1,311 @@
+PLACE
+    p0_Flow_0iyej3i,
+    p1_Flow_1u2n9j0,
+    p2_ent_Activity_06e0hxs,
+    p3_ent_Activity_0dwd38r,
+    p4_ent_Activity_11aod7z,
+    p5_ent_Activity_11p6hi8,
+    p6_ent_Activity_1c6s5um,
+    p7_ent_Gateway_0izv3u5,
+    p8_ent_Gateway_0o5mbyt,
+    p9_ent_Gateway_0urjjn3,
+    p10_ent_Gateway_0vuhiq1,
+    p11_ent_Gateway_0w634w0,
+    p12_ent_Gateway_13hgxyn,
+    p13_ent_Gateway_1n80g9l,
+    p14_ent_Gateway_1q7fvdo,
+    p15_ent_Gateway_1sf04z5,
+    p16_ent_Gateway_1uoiq0u,
+    p17_ent_Gateway_1uzinu8,
+    p18_exi_Gateway_01prrg9,
+    p19_exi_Gateway_04qyg2d,
+    p20_exi_Gateway_0laox4w,
+    p21_exi_Gateway_0q27gcc,
+    p22_exi_Gateway_0qe8owo,
+    p23_exi_Gateway_0qnyged,
+    p24_exi_Gateway_0v0b82v,
+    p25_exi_Gateway_19ap300,
+    p26_exi_Gateway_1f59etw,
+    p27_exi_Gateway_1s8splk,
+    p28_exi_Gateway_1vbjyd9,
+    p29_sink,
+    p30_source,
+    evt_t9_Evaluate_temperature_as_part_of_routine_vital_signs_every_4_hours_for_first_48_hours,
+    evt_t8_Correct_hypoglycemia_immediately,
+    evt_t17_Referral_to_an_outpatient_clinic_with_stroke-prevention_services_for_comprehensive_evaluation_and_management_within_1_month_of_symptom_onset,
+    evt_t6_patient_should_be_referred_to_an_outpatient_clinic_with_stroke-prevention_services,
+    evt_t12_Evaluate_in_the_ED_to_be_considered_for_admission_to_hospital,
+    evt_t4_initiate_temperature-reducing_measures,
+    evt_t20_Other_stroke-prevention_treatments_tailored_to_each_patient,
+    evt_t11_Rectal_or_gastric_ASA_should_be_offered,
+    evt_t21_Repeat_blood_glucose_measurement,
+    evt_t19_Extended-release_Dipyridamole_+_Aspirin_Aggrenox_200_mg_Dipyridamole_+_25_mg_Aspirin_twice_daily_initial_dose_includes_ASA_160_mg,
+    evt_t2_patient_should_be_referred_for_evaluation_at_a_specialized_TIA/minor_stroke_clinic,
+    evt_t16_initiate_antipyretic_and_antimicrobial_therapy,
+    evt_t14_Clopidogrel_300_mg_as_a_loading_dose_followed_by_75_mg_daily.,
+    evt_t13_Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies,
+    evt_t5_Immediate_care_should_be_provided_at_a_specialized_TIA/minor_stroke_clinic,
+    evt_t10_investigate_potential_infection,
+    evt_t15_Consider_inpatient_evaluation_and_management_for_stroke_prevention,
+    evt_t3_Brain_CT_scan,
+    evt_t7_Aspirin_ASA_160_mg_as_a_loading_dose_then_a_daily_dose_of_81–325_mg_usually_81_mg_for_maintenance,
+    evt_t1_Perform_glucose_measurement,
+    evt_t18_evaluation_should_occur_at_an_appropriately_resourced_ED,
+    end_tick_a,
+    end_tick_b;
+
+MARKING
+    p30_source: 1,
+    end_tick_a: 1;
+
+TRANSITION t0
+    CONSUME p30_source: 1;
+    PRODUCE p2_ent_Activity_06e0hxs: 1, p4_ent_Activity_11aod7z: 1, p23_exi_Gateway_0qnyged: 1, p26_exi_Gateway_1f59etw: 1;
+
+TRANSITION t1_Perform_glucose_measurement
+    CONSUME p2_ent_Activity_06e0hxs: 1;
+    PRODUCE evt_t1_Perform_glucose_measurement: 1;
+
+TRANSITION t2_patient_should_be_referred_for_evaluation_at_a_specialized_TIA/minor_stroke_clinic
+    CONSUME p24_exi_Gateway_0v0b82v: 1;
+    PRODUCE evt_t2_patient_should_be_referred_for_evaluation_at_a_specialized_TIA/minor_stroke_clinic: 1;
+
+TRANSITION t3_Brain_CT_scan
+    CONSUME p17_ent_Gateway_1uzinu8: 1;
+    PRODUCE evt_t3_Brain_CT_scan: 1;
+
+TRANSITION t4_initiate_temperature-reducing_measures
+    CONSUME p3_ent_Activity_0dwd38r: 1;
+    PRODUCE evt_t4_initiate_temperature-reducing_measures: 1;
+
+TRANSITION t5_Immediate_care_should_be_provided_at_a_specialized_TIA/minor_stroke_clinic
+    CONSUME p24_exi_Gateway_0v0b82v: 1;
+    PRODUCE evt_t5_Immediate_care_should_be_provided_at_a_specialized_TIA/minor_stroke_clinic: 1;
+
+TRANSITION t6_patient_should_be_referred_to_an_outpatient_clinic_with_stroke-prevention_services
+    CONSUME p24_exi_Gateway_0v0b82v: 1;
+    PRODUCE evt_t6_patient_should_be_referred_to_an_outpatient_clinic_with_stroke-prevention_services: 1;
+
+TRANSITION t7_Aspirin_ASA_160_mg_as_a_loading_dose_then_a_daily_dose_of_81–325_mg_usually_81_mg_for_maintenance
+    CONSUME p27_exi_Gateway_1s8splk: 1;
+    PRODUCE evt_t7_Aspirin_ASA_160_mg_as_a_loading_dose_then_a_daily_dose_of_81–325_mg_usually_81_mg_for_maintenance: 1;
+
+TRANSITION t8_Correct_hypoglycemia_immediately
+    CONSUME p25_exi_Gateway_19ap300: 1;
+    PRODUCE evt_t8_Correct_hypoglycemia_immediately: 1;
+
+TRANSITION t9_Evaluate_temperature_as_part_of_routine_vital_signs_every_4_hours_for_first_48_hours
+    CONSUME p4_ent_Activity_11aod7z: 1;
+    PRODUCE evt_t9_Evaluate_temperature_as_part_of_routine_vital_signs_every_4_hours_for_first_48_hours: 1;
+
+TRANSITION t10_investigate_potential_infection
+    CONSUME p5_ent_Activity_11p6hi8: 1;
+    PRODUCE evt_t10_investigate_potential_infection: 1;
+
+TRANSITION t11_Rectal_or_gastric_ASA_should_be_offered
+    CONSUME p27_exi_Gateway_1s8splk: 1;
+    PRODUCE evt_t11_Rectal_or_gastric_ASA_should_be_offered: 1;
+
+TRANSITION t12_Evaluate_in_the_ED_to_be_considered_for_admission_to_hospital
+    CONSUME p26_exi_Gateway_1f59etw: 1;
+    PRODUCE evt_t12_Evaluate_in_the_ED_to_be_considered_for_admission_to_hospital: 1;
+
+TRANSITION t13_Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies
+    CONSUME p7_ent_Gateway_0izv3u5: 1, p8_ent_Gateway_0o5mbyt: 1, p10_ent_Gateway_0vuhiq1: 1, p14_ent_Gateway_1q7fvdo: 1;
+    PRODUCE evt_t13_Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies: 1;
+
+TRANSITION t14_Clopidogrel_300_mg_as_a_loading_dose_followed_by_75_mg_daily.
+    CONSUME p27_exi_Gateway_1s8splk: 1;
+    PRODUCE evt_t14_Clopidogrel_300_mg_as_a_loading_dose_followed_by_75_mg_daily.: 1;
+
+TRANSITION t15_Consider_inpatient_evaluation_and_management_for_stroke_prevention
+    CONSUME p6_ent_Activity_1c6s5um: 1;
+    PRODUCE evt_t15_Consider_inpatient_evaluation_and_management_for_stroke_prevention: 1;
+
+TRANSITION t16_initiate_antipyretic_and_antimicrobial_therapy
+    CONSUME p19_exi_Gateway_04qyg2d: 1;
+    PRODUCE evt_t16_initiate_antipyretic_and_antimicrobial_therapy: 1;
+
+TRANSITION t17_Referral_to_an_outpatient_clinic_with_stroke-prevention_services_for_comprehensive_evaluation_and_management_within_1_month_of_symptom_onset
+    CONSUME p20_exi_Gateway_0laox4w: 1;
+    PRODUCE evt_t17_Referral_to_an_outpatient_clinic_with_stroke-prevention_services_for_comprehensive_evaluation_and_management_within_1_month_of_symptom_onset: 1;
+
+TRANSITION t18_evaluation_should_occur_at_an_appropriately_resourced_ED
+    CONSUME p24_exi_Gateway_0v0b82v: 1;
+    PRODUCE evt_t18_evaluation_should_occur_at_an_appropriately_resourced_ED: 1;
+
+TRANSITION t19_Extended-release_Dipyridamole_+_Aspirin_Aggrenox_200_mg_Dipyridamole_+_25_mg_Aspirin_twice_daily_initial_dose_includes_ASA_160_mg
+    CONSUME p27_exi_Gateway_1s8splk: 1;
+    PRODUCE evt_t19_Extended-release_Dipyridamole_+_Aspirin_Aggrenox_200_mg_Dipyridamole_+_25_mg_Aspirin_twice_daily_initial_dose_includes_ASA_160_mg: 1;
+
+TRANSITION t20_Other_stroke-prevention_treatments_tailored_to_each_patient
+    CONSUME p20_exi_Gateway_0laox4w: 1;
+    PRODUCE evt_t20_Other_stroke-prevention_treatments_tailored_to_each_patient: 1;
+
+TRANSITION t21_Repeat_blood_glucose_measurement
+    CONSUME p18_exi_Gateway_01prrg9: 1;
+    PRODUCE evt_t21_Repeat_blood_glucose_measurement: 1;
+
+TRANSITION t22_Gateway_0urjjn3
+    CONSUME p9_ent_Gateway_0urjjn3: 1;
+    PRODUCE p15_ent_Gateway_1sf04z5: 1;
+
+TRANSITION t23_Gateway_0w634w0
+    CONSUME p11_ent_Gateway_0w634w0: 1;
+    PRODUCE p20_exi_Gateway_0laox4w: 1;
+
+TRANSITION t24_Gateway_13hgxyn
+    CONSUME p12_ent_Gateway_13hgxyn: 1;
+    PRODUCE p17_ent_Gateway_1uzinu8: 1;
+
+TRANSITION t25_Gateway_1n80g9l
+    CONSUME p13_ent_Gateway_1n80g9l: 1;
+    PRODUCE p25_exi_Gateway_19ap300: 1;
+
+TRANSITION t26_Gateway_1sf04z5
+    CONSUME p15_ent_Gateway_1sf04z5: 1;
+    PRODUCE p11_ent_Gateway_0w634w0: 1;
+
+TRANSITION t27
+    CONSUME p0_Flow_0iyej3i: 1, p1_Flow_1u2n9j0: 1, p16_ent_Gateway_1uoiq0u: 1;
+    PRODUCE p14_ent_Gateway_1q7fvdo: 1;
+
+TRANSITION t28_sfl_Flow_0br2iz8
+    CONSUME p21_exi_Gateway_0q27gcc: 1;
+    PRODUCE p3_ent_Activity_0dwd38r: 1, p5_ent_Activity_11p6hi8: 1, p19_exi_Gateway_04qyg2d: 1;
+
+TRANSITION t29_sfl_Flow_0c6wtqq
+    CONSUME p25_exi_Gateway_19ap300: 1;
+    PRODUCE p8_ent_Gateway_0o5mbyt: 1;
+
+TRANSITION t30_sfl_Flow_0j8qnot
+    CONSUME p23_exi_Gateway_0qnyged: 1;
+    PRODUCE p24_exi_Gateway_0v0b82v: 1;
+
+TRANSITION t31_sfl_Flow_0m7we44
+    CONSUME p19_exi_Gateway_04qyg2d: 1;
+    PRODUCE p16_ent_Gateway_1uoiq0u: 1;
+
+TRANSITION t32_sfl_Flow_0plv15t
+    CONSUME p28_exi_Gateway_1vbjyd9: 1;
+    PRODUCE p22_exi_Gateway_0qe8owo: 1;
+
+TRANSITION t33_sfl_Flow_155nghu
+    CONSUME p22_exi_Gateway_0qe8owo: 1;
+    PRODUCE p15_ent_Gateway_1sf04z5: 1;
+
+TRANSITION t34_sfl_Flow_1gc9326
+    CONSUME p22_exi_Gateway_0qe8owo: 1;
+    PRODUCE p27_exi_Gateway_1s8splk: 1;
+
+TRANSITION t35_sfl_Flow_1mmx492
+    CONSUME p28_exi_Gateway_1vbjyd9: 1;
+    PRODUCE p11_ent_Gateway_0w634w0: 1;
+
+TRANSITION t36_sfl_Flow_1o55o8y
+    CONSUME p21_exi_Gateway_0q27gcc: 1;
+    PRODUCE p14_ent_Gateway_1q7fvdo: 1;
+
+TRANSITION t37_sfl_Flow_1ror77w
+    CONSUME p26_exi_Gateway_1f59etw: 1;
+    PRODUCE p7_ent_Gateway_0izv3u5: 1;
+
+TRANSITION t38_sfl_Flow_1v3u74v
+    CONSUME p18_exi_Gateway_01prrg9: 1;
+    PRODUCE p13_ent_Gateway_1n80g9l: 1;
+
+TRANSITION t39_sfl_Flow_1wc1wjf
+    CONSUME p23_exi_Gateway_0qnyged: 1;
+    PRODUCE p17_ent_Gateway_1uzinu8: 1;
+
+TRANSITION reset_t9_Evaluate_temperature_as_part_of_routine_vital_signs_every_4_hours_for_first_48_hours
+    CONSUME evt_t9_Evaluate_temperature_as_part_of_routine_vital_signs_every_4_hours_for_first_48_hours: 1;
+    PRODUCE p21_exi_Gateway_0q27gcc: 1;
+
+TRANSITION reset_t8_Correct_hypoglycemia_immediately
+    CONSUME evt_t8_Correct_hypoglycemia_immediately: 1;
+    PRODUCE p8_ent_Gateway_0o5mbyt: 1;
+
+TRANSITION reset_t17_Referral_to_an_outpatient_clinic_with_stroke-prevention_services_for_comprehensive_evaluation_and_management_within_1_month_of_symptom_onset
+    CONSUME evt_t17_Referral_to_an_outpatient_clinic_with_stroke-prevention_services_for_comprehensive_evaluation_and_management_within_1_month_of_symptom_onset: 1;
+    PRODUCE p10_ent_Gateway_0vuhiq1: 1;
+
+TRANSITION reset_t6_patient_should_be_referred_to_an_outpatient_clinic_with_stroke-prevention_services
+    CONSUME evt_t6_patient_should_be_referred_to_an_outpatient_clinic_with_stroke-prevention_services: 1;
+    PRODUCE p12_ent_Gateway_13hgxyn: 1;
+
+TRANSITION reset_t12_Evaluate_in_the_ED_to_be_considered_for_admission_to_hospital
+    CONSUME evt_t12_Evaluate_in_the_ED_to_be_considered_for_admission_to_hospital: 1;
+    PRODUCE p7_ent_Gateway_0izv3u5: 1;
+
+TRANSITION reset_t4_initiate_temperature-reducing_measures
+    CONSUME evt_t4_initiate_temperature-reducing_measures: 1;
+    PRODUCE p0_Flow_0iyej3i: 1;
+
+TRANSITION reset_t20_Other_stroke-prevention_treatments_tailored_to_each_patient
+    CONSUME evt_t20_Other_stroke-prevention_treatments_tailored_to_each_patient: 1;
+    PRODUCE p10_ent_Gateway_0vuhiq1: 1;
+
+TRANSITION reset_t11_Rectal_or_gastric_ASA_should_be_offered
+    CONSUME evt_t11_Rectal_or_gastric_ASA_should_be_offered: 1;
+    PRODUCE p9_ent_Gateway_0urjjn3: 1;
+
+TRANSITION reset_t21_Repeat_blood_glucose_measurement
+    CONSUME evt_t21_Repeat_blood_glucose_measurement: 1;
+    PRODUCE p13_ent_Gateway_1n80g9l: 1;
+
+TRANSITION reset_t19_Extended-release_Dipyridamole_+_Aspirin_Aggrenox_200_mg_Dipyridamole_+_25_mg_Aspirin_twice_daily_initial_dose_includes_ASA_160_mg
+    CONSUME evt_t19_Extended-release_Dipyridamole_+_Aspirin_Aggrenox_200_mg_Dipyridamole_+_25_mg_Aspirin_twice_daily_initial_dose_includes_ASA_160_mg: 1;
+    PRODUCE p9_ent_Gateway_0urjjn3: 1;
+
+TRANSITION reset_t2_patient_should_be_referred_for_evaluation_at_a_specialized_TIA/minor_stroke_clinic
+    CONSUME evt_t2_patient_should_be_referred_for_evaluation_at_a_specialized_TIA/minor_stroke_clinic: 1;
+    PRODUCE p12_ent_Gateway_13hgxyn: 1;
+
+TRANSITION reset_t16_initiate_antipyretic_and_antimicrobial_therapy
+    CONSUME evt_t16_initiate_antipyretic_and_antimicrobial_therapy: 1;
+    PRODUCE p16_ent_Gateway_1uoiq0u: 1;
+
+TRANSITION reset_t14_Clopidogrel_300_mg_as_a_loading_dose_followed_by_75_mg_daily.
+    CONSUME evt_t14_Clopidogrel_300_mg_as_a_loading_dose_followed_by_75_mg_daily.: 1;
+    PRODUCE p9_ent_Gateway_0urjjn3: 1;
+
+TRANSITION reset_t13_Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies
+    CONSUME evt_t13_Give_patients_appropriate_cross-continuum_secondary_prevention_assessments_and_therapies: 1;
+    PRODUCE p29_sink: 1;
+
+TRANSITION reset_t5_Immediate_care_should_be_provided_at_a_specialized_TIA/minor_stroke_clinic
+    CONSUME evt_t5_Immediate_care_should_be_provided_at_a_specialized_TIA/minor_stroke_clinic: 1;
+    PRODUCE p12_ent_Gateway_13hgxyn: 1;
+
+TRANSITION reset_t10_investigate_potential_infection
+    CONSUME evt_t10_investigate_potential_infection: 1;
+    PRODUCE p1_Flow_1u2n9j0: 1;
+
+TRANSITION reset_t15_Consider_inpatient_evaluation_and_management_for_stroke_prevention
+    CONSUME evt_t15_Consider_inpatient_evaluation_and_management_for_stroke_prevention: 1;
+    PRODUCE p12_ent_Gateway_13hgxyn: 1;
+
+TRANSITION reset_t3_Brain_CT_scan
+    CONSUME evt_t3_Brain_CT_scan: 1;
+    PRODUCE p28_exi_Gateway_1vbjyd9: 1;
+
+TRANSITION reset_t7_Aspirin_ASA_160_mg_as_a_loading_dose_then_a_daily_dose_of_81–325_mg_usually_81_mg_for_maintenance
+    CONSUME evt_t7_Aspirin_ASA_160_mg_as_a_loading_dose_then_a_daily_dose_of_81–325_mg_usually_81_mg_for_maintenance: 1;
+    PRODUCE p9_ent_Gateway_0urjjn3: 1;
+
+TRANSITION reset_t1_Perform_glucose_measurement
+    CONSUME evt_t1_Perform_glucose_measurement: 1;
+    PRODUCE p18_exi_Gateway_01prrg9: 1;
+
+TRANSITION reset_t18_evaluation_should_occur_at_an_appropriately_resourced_ED
+    CONSUME evt_t18_evaluation_should_occur_at_an_appropriately_resourced_ED: 1;
+    PRODUCE p6_ent_Activity_1c6s5um: 1;
+
+TRANSITION t_end_loop
+    CONSUME p29_sink: 1, end_tick_a: 1;
+    PRODUCE p29_sink: 1, end_tick_b: 1;
+
+TRANSITION t_end_loop_back
+    CONSUME p29_sink: 1, end_tick_b: 1;
+    PRODUCE p29_sink: 1, end_tick_a: 1;

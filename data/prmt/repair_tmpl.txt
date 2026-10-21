@@ -1,0 +1,6 @@
+The BPMN XML you produced is not valid. The parser reported:
+
+{error}
+
+Please fix the XML so it parses correctly and still models the same process.
+Output ONLY the corrected raw XML.

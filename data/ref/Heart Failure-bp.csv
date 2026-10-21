@@ -1,0 +1,13 @@
+,"Serum creatinine and electrolyte levels, troponin measurements, complete blood count, electrocardiogram, chest x-ray examination",Risk assessment / stratification,Arrange follow-up (within days) with primary care,Discharge home,Admit to inpatient care (normal nurse-to-patient staffing),Treat in ED,Noninvasive ventilation,Echocardiogram,"Monitor heart rate, blood pressure, oxygen saturation until stabilized",Admit to ICU (high nurse-to-patient staffing),Treat in outpatient settings,Invasive ventilation
+"Serum creatinine and electrolyte levels, troponin measurements, complete blood count, electrocardiogram, chest x-ray examination",+,->,->,->,->,->,->,||,||,->,->,->
+Risk assessment / stratification,<-,+,->,->,->,->,->,<-,<-,->,->,->
+Arrange follow-up (within days) with primary care,<-,<-,+,||,+,<-,+,<-,<-,+,<-,+
+Discharge home,<-,<-,||,+,+,<-,+,<-,<-,+,<-,+
+Admit to inpatient care (normal nurse-to-patient staffing),<-,<-,+,+,+,+,+,<-,<-,+,+,+
+Treat in ED,<-,<-,->,->,+,+,+,<-,<-,+,+,+
+Noninvasive ventilation,<-,<-,+,+,+,+,+,<-,<-,||,+,+
+Echocardiogram,||,->,->,->,->,->,->,+,||,->,->,->
+"Monitor heart rate, blood pressure, oxygen saturation until stabilized",||,->,->,->,->,->,->,||,+,->,->,->
+Admit to ICU (high nurse-to-patient staffing),<-,<-,+,+,+,+,||,<-,<-,+,+,||
+Treat in outpatient settings,<-,<-,->,->,+,+,+,<-,<-,+,+,+
+Invasive ventilation,<-,<-,+,+,+,+,+,<-,<-,||,+,+

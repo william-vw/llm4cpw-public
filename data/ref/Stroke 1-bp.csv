@@ -1,0 +1,19 @@
+,Use a standard triage tool to determine the appropriate location for the care of the patient,Immediate interpretation of brain imaging by healthcare provider with expertise in reading CT and/or MRI,Immediate brain imaging (CT or MRI),ECG to detect atrial fibrillation and other acute arrhythmias,"Blood work: CBC, electrolytes, creatinine, glucose, INR, partial thromboplastin time",Neurological examination to determine focal neurological deficits and assess stroke severity on a standardized stroke scale (NIHSS or CNS for stroke),"Screen swallowing ability as part of initial assessment and before initiating oral medication, fluid, or food.",Chest x-ray,Thrombolysis assessment,"Immediate vascular imaging of the neck arteries (carotid ultrasound, CTA, or MRA)",Monitor patient closely,"Rapid initial evaluation for airway, breathing, and circulation",Full clinical assessment of the patient's swallowing ability by a speech-language pathologist or appropriately trained specialist to advise on swallowing ability and the required consistency of diet and fluids,Vascular imaging of the brain and neck arteries ASAP,Troponin test,Screen swallowing ability  when clinically appropriate,Make patient NPO (nothing by mouth) initially,Give patients appropriate cross-continuum secondary prevention assessments and therapies
+Use a standard triage tool to determine the appropriate location for the care of the patient,+,||,||,||,||,||,||,||,||,||,||,<-,||,||,||,||,||,->
+Immediate interpretation of brain imaging by healthcare provider with expertise in reading CT and/or MRI,||,+,<-,||,||,||,||,||,||,||,||,<-,||,||,||,||,||,->
+Immediate brain imaging (CT or MRI),||,->,+,||,||,||,||,||,||,||,||,<-,||,||,||,||,||,->
+ECG to detect atrial fibrillation and other acute arrhythmias,||,||,||,+,||,||,||,||,||,||,||,<-,||,||,||,||,||,->
+"Blood work: CBC, electrolytes, creatinine, glucose, INR, partial thromboplastin time",||,||,||,||,+,||,||,||,||,||,||,<-,||,||,||,||,||,->
+Neurological examination to determine focal neurological deficits and assess stroke severity on a standardized stroke scale (NIHSS or CNS for stroke),||,||,||,||,||,+,||,||,||,||,||,<-,||,||,||,||,||,->
+"Screen swallowing ability as part of initial assessment and before initiating oral medication, fluid, or food.",||,||,||,||,||,||,+,||,||,||,->,<-,->,||,||,->,<-,->
+Chest x-ray,||,||,||,||,||,||,||,+,||,||,||,<-,||,||,||,||,||,->
+Thrombolysis assessment,||,||,||,||,||,||,||,||,+,||,||,<-,||,||,||,||,||,->
+"Immediate vascular imaging of the neck arteries (carotid ultrasound, CTA, or MRA)",||,||,||,||,||,||,||,||,||,+,||,<-,||,+,||,||,||,->
+Monitor patient closely,||,||,||,||,||,||,<-,||,||,||,+,<-,||,||,||,->,<-,->
+"Rapid initial evaluation for airway, breathing, and circulation",->,->,->,->,->,->,->,->,->,->,->,+,->,->,->,->,->,->
+Full clinical assessment of the patient's swallowing ability by a speech-language pathologist or appropriately trained specialist to advise on swallowing ability and the required consistency of diet and fluids,||,||,||,||,||,||,<-,||,||,||,||,<-,+,||,||,||,<-,->
+Vascular imaging of the brain and neck arteries ASAP,||,||,||,||,||,||,||,||,||,+,||,<-,||,+,||,||,||,->
+Troponin test,||,||,||,||,||,||,||,||,||,||,||,<-,||,||,+,||,||,->
+Screen swallowing ability  when clinically appropriate,||,||,||,||,||,||,<-,||,||,||,<-,<-,||,||,||,+,<-,->
+Make patient NPO (nothing by mouth) initially,||,||,||,||,||,||,->,||,||,||,->,<-,->,||,||,->,+,->
+Give patients appropriate cross-continuum secondary prevention assessments and therapies,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,<-,+
