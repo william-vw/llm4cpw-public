@@ -105,8 +105,8 @@ and records its status (e.g. `failed_mapping`).
    (`*_fixed.bpmn`) and adds diagram layout information (`*_fixed_layout.bpmn`).
 4. **Similarity** – calculates structural similarity to the reference process (node similarity,
    structural similarity, graph edit distance) using [struct_simil.py](libs/cmp4proc/bpmn_comparison/struct_simil.py). 
-   Diff diagrams of reference vs. LLM output
-   process are written as `cmp_ref.svg` and `cmp_out.svg`.
+   Creates diff diagrams of reference vs. LLM output process using [`bpmn_highlighter`](libs/cmp4proc/bpmn_highlighter/api.py), 
+   which are written as `cmp_ref.svg` and `cmp_out.svg`.
 5. **Constraint conformance** – checks the LLM output against (a) LTL_f constraints relevant to the CPW
    (`data/prmt/knowledge/cnstrs/<cpw>.json`) using [ltl_check.py](libs/cmp4proc/ltl/lola/ltl_check.py) 
    and (b) the other constraints in the ontology `constraints.owl` using [activ_cnstr_check.py](libs/cmp4proc/activ_cnstr/activ_cnstr_check.py). 
