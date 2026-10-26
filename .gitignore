@@ -28,8 +28,11 @@ openai api key.txt
 
 # Run output
 out/
+res/
 *.sqlite
 *.sqlite-shm
 *.sqlite-wal
 
 test.ipynb
+# Results
+res/
