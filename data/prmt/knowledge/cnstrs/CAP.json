@@ -10,7 +10,7 @@
         "formula": "G (F \"PCR testing for Legionella\" -> (NOT \"Give antibiotics\" U \"PCR testing for Legionella\"))"
     },
     {
-        "name": "cap3",
+        "name": "cap4",
         "type": "raw",
         "formula": "G (F \"Blood cultures\" -> (NOT \"Give antibiotics\" U \"Blood cultures\"))"
     },

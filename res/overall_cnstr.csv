@@ -1,0 +1,7 @@
+,cpw_name,+ modelling guidelines,+ optimised prompt
+mean,CAP,0.15,0.96
+mean,COPD,0.2,
+mean,overall,0.175,0.96
+std,CAP,0.13,0.08
+std,COPD,0.0,
+std,overall,0.06,0.08

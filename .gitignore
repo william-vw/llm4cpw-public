@@ -31,3 +31,5 @@ out/
 *.sqlite
 *.sqlite-shm
 *.sqlite-wal
+
+test.ipynb

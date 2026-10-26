@@ -3,6 +3,3 @@
 "Risk assessment / stratification" may only occur after "Echocardiogram" potentially takes place.
 
 "Risk assessment / stratification" may only occur after "Monitor heart rate, blood pressure, oxygen saturation until stabilized"  takes place.
-
-"Assess high-risk markers" is part of "Risk assessment / stratification".
-"Calculate heart failure risk score" is part of "Risk assessment / stratification".

@@ -1,0 +1,9 @@
+qbp_name,+ knowledge constraints,overall
+CAP,0.881,0.881
+COPD,0.907,0.907
+Heart Failure,0.9,0.9
+Hip Fracture,0.954,0.954
+Stroke 1,0.831,0.831
+Stroke 2,0.854,0.854
+Stroke 3,0.863,0.863
+Stroke 4,0.752,0.752

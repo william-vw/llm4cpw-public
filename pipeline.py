@@ -20,13 +20,13 @@ Manifest item format:
   "mapping_model": "gpt-5.2",
   "only_successful": false,  #  if true, keep retrying failed attempts until N successful runs are accumulated
   "max_retry_multiplier": 3.0, # (only relevant if only_successful=true) e.g. if runs=5, max_retry_multiplier=3.0; up to 15 attempts total before giving up
-  "qbp": "QBP1",             # process name (matches the reference model)
+  "cpw": "CPW1",             # process name (matches the reference model)
   "task_templates": [        # instantiated into the run folder; must produce exactly
     {"tmpl": "...", "subst": {...}, "out": "instruct.txt"},   # [instructions, input]
     {"tmpl": "...", "subst": {...}, "out": "input.txt"}       # (gpt_direct_responses_api.py
   ],                         # has no built-in system prompt and requires both files)
-  "gold_bpmn": "/tmp/id__QBP1.bpmn" | null,
-  "gold_bpmn_filename": "QBP1.bpmn" | null
+  "gold_bpmn": "/tmp/id__CPW1.bpmn" | null,
+  "gold_bpmn_filename": "CPW1.bpmn" | null
 }
 """
 
@@ -35,10 +35,12 @@ import copy
 import json
 import os
 import re
+import shutil
 import sqlite3
 import subprocess
 import sys
 import time
+import dataclasses
 import uuid
 from collections import deque
 from concurrent.futures import ThreadPoolExecutor, wait, FIRST_COMPLETED
@@ -50,6 +52,7 @@ from libs.bpmn_utils import add_incoming_outgoing, add_dummy_di
 from libs.template import instantiate_files
 from libs.cmp4proc.ltl.lola.ltl_check import check_constraints as check_ltl_cnstrs
 from libs.cmp4proc.activ_cnstr.activ_cnstr_check import check_constraints as check_activ_cnstrs
+from rdflib import Graph, Literal, Namespace, RDF, RDFS
 
 from libs.automatedActivityMapping import align
 from libs.cmp4proc.bpmn_comparison.struct_simil import calculate_similarity as calc_struct_simil
@@ -91,6 +94,35 @@ def parse_args():
     return p.parse_args()
 
 
+
+# ════════════════════════════════════════════════════════════════════════════
+# Overall constraint score (LTL + other constraints together)
+# ════════════════════════════════════════════════════════════════════════════
+
+_CNSTR_NS = Namespace("http://notation3.org/constraints.owl#")
+
+
+def load_constraint_map(ontology_path: str, model_name: str):
+    """Return (total, {label: class name}) for the constraints of `model_name` in the ontology.
+    The class name is the constraint's rdf:type in the constraints namespace, without namespace."""
+    g = Graph()
+    g.parse(str(ontology_path), format="turtle")
+
+    candidates = list(g.subjects(RDFS.label, Literal(model_name))) + [_CNSTR_NS[model_name.replace(" ", "_")]]
+    model = next((m for m in candidates if (m, RDF.type, _CNSTR_NS.ProcessModel) in g), None)
+    if model is None:
+        raise KeyError(f"No process model named {model_name!r} in the ontology")
+
+    constraints = set(g.objects(model, _CNSTR_NS.hasConstraint))
+    label_to_class = {}
+    for c in constraints:
+        label = g.value(c, RDFS.label)
+        label = str(label) if label is not None else str(c).rsplit("#", 1)[-1]
+        classes = [str(t).rsplit("#", 1)[-1] for t in g.objects(c, RDF.type)
+                   if str(t).startswith(str(_CNSTR_NS)) and t != _CNSTR_NS.ProcessModel]
+        label_to_class[label] = classes[0] # if classes else None
+    return label_to_class
+
 # ════════════════════════════════════════════════════════════════════════════
 # Database helpers
 # ════════════════════════════════════════════════════════════════════════════
@@ -114,7 +146,7 @@ def db_init(conn: sqlite3.Connection):
         batch_id            TEXT    NOT NULL,
         job_id              TEXT    NOT NULL,
         timestamp           TEXT,
-        qbp_name            TEXT,
+        cpw_name            TEXT,
         framework           TEXT,
         model               TEXT,
         attempt_number      INTEGER,
@@ -147,6 +179,9 @@ def db_init(conn: sqlite3.Connection):
         ltl_conf            TEXT,
         cnstr_score         REAL,
         cnstr_conf          TEXT,
+        cpw_succ_cnstrs INTEGER,        -- constraints (ltl + cnstr) that hold
+        cpw_total_cnstrs      INTEGER,        -- constraints of the process model in the ontology
+        cpw_score       REAL,           -- cpw_succ_cnstrs / cpw_total_cnstrs
 
         -- Prompt configuration
         incl_model_guide    INTEGER,        -- 1 if modelling guidelines were in the prompt
@@ -169,6 +204,12 @@ def db_init(conn: sqlite3.Connection):
         results_db      TEXT
     )""")
 
+    # migrate existing databases
+    existing = {row[1] for row in c.execute("PRAGMA table_info(runs)")}
+    for col, typ in (("cpw_succ_cnstrs", "INTEGER"), ("cpw_total_cnstrs", "INTEGER"), ("cpw_score", "REAL")):
+        if col not in existing:
+            c.execute(f"ALTER TABLE runs ADD COLUMN {col} {typ}")
+
     conn.commit()
 
 
@@ -176,23 +217,25 @@ def db_upsert_run(conn: sqlite3.Connection, r: dict):
     conn.execute("""
     INSERT OR REPLACE INTO runs (
         batch_id, job_id, timestamp,
-        qbp_name, framework, model, attempt_number,
+        cpw_name, framework, model, attempt_number,
         status, error, total_seconds, gen_seconds, map_seconds,
         fix_seconds, layout_seconds, struct_sim_seconds, render_diff_seconds,
         ltl_seconds, cnstr_seconds, svg_seconds,
         gold_bpmn, ltl_cnstr, cnstr_ontology, generated_bpmn, mapped_bpmn,
         node_sim, struct_sim, ged, ltl_score, ltl_conf,
         cnstr_score, cnstr_conf,
+        cpw_succ_cnstrs, cpw_total_cnstrs, cpw_score,
         incl_model_guide, incl_knowl, optim_prmt
     ) VALUES (
         :batch_id, :job_id, datetime('now'),
-        :qbp_name, :framework, :model, :attempt_number,
+        :cpw_name, :framework, :model, :attempt_number,
         :status, :error, :total_seconds, :gen_seconds, :map_seconds,
         :fix_seconds, :layout_seconds, :struct_sim_seconds, :render_diff_seconds,
         :ltl_seconds, :cnstr_seconds, :svg_seconds,
         :gold_bpmn, :ltl_cnstr, :cnstr_ontology, :generated_bpmn, :mapped_bpmn,
         :node_sim, :struct_sim, :ged, :ltl_score, :ltl_conf,
         :cnstr_score, :cnstr_conf,
+        :cpw_succ_cnstrs, :cpw_total_cnstrs, :cpw_score,
         :incl_model_guide, :incl_knowl, :optim_prmt
     )""", r)
     conn.commit()
@@ -324,7 +367,7 @@ def run_gpt_direct(task_file, model: str, code_root: str,
 # Job building
 # ════════════════════════════════════════════════════════════════════════════
 
-def _make_job(eid, qbp, framework, run_idx, task_templates, gold_bpmn,
+def _make_job(eid, cpw, framework, run_idx, task_templates, gold_bpmn,
               gold_bpmn_filename, ltl_cnstr, ltl_cnstr_filename, 
               cnstr_ontology, test, name, model, mapping_model,
               only_successful, max_retry_multiplier,
@@ -332,9 +375,9 @@ def _make_job(eid, qbp, framework, run_idx, task_templates, gold_bpmn,
               verbose, gpt_direct_retry_mode="repair",
               incl_model_guide=False, incl_knowl=False) -> dict:
     return {
-        "job_id":                   f"{eid}:{qbp}:attempt{run_idx}",
+        "job_id":                   f"{eid}:{cpw}:attempt{run_idx}",
         "id":                       eid,
-        "qbp":                      qbp,
+        "cpw":                      cpw,
         "framework":                framework,
         "run_idx":                  run_idx,
         "task_templates":           task_templates,
@@ -361,7 +404,7 @@ def _make_job(eid, qbp, framework, run_idx, task_templates, gold_bpmn,
 def make_retry_job(original_job: dict, attempt_idx: int) -> dict:
     j = copy.deepcopy(original_job)
     j["run_idx"] = attempt_idx
-    j["job_id"]  = f"{original_job['id']}:{original_job['qbp']}:attempt{attempt_idx}"
+    j["job_id"]  = f"{original_job['id']}:{original_job['cpw']}:attempt{attempt_idx}"
     return j
 
 
@@ -386,7 +429,7 @@ def load_jobs(args) -> list:
                 continue
 
             target_runs = int(item.get("runs", 1))
-            qbp = item["qbp"]
+            cpw = item["cpw"]
 
             # Per-manifest item overrides; fall back to global args
             only_succ = item.get("only_successful", args.only_successful)
@@ -394,7 +437,7 @@ def load_jobs(args) -> list:
 
             for run_idx in range(1, target_runs + 1):
                 jobs.append(_make_job(
-                    eid=eid, qbp=qbp, framework=framework,
+                    eid=eid, cpw=cpw, framework=framework,
                     run_idx=run_idx, task_templates=task_templates,
                     gold_bpmn=item.get("gold_bpmn"),
                     gold_bpmn_filename=item.get("gold_bpmn_filename"),
@@ -427,7 +470,7 @@ def load_jobs(args) -> list:
 def run_one_job(job: dict) -> dict:
     t0          = time.time()
     eid         = job["id"]
-    qbp         = job["qbp"]
+    cpw         = job["cpw"]
     run_idx     = job["run_idx"]
     framework   = job["framework"]
     job_id      = job["job_id"]
@@ -469,7 +512,7 @@ def run_one_job(job: dict) -> dict:
             fh.write(instantiate_files(t["tmpl"], t["subst"], None))
         task_file.append(out)
 
-    jprint(f"=== Attempt {run_idx} for '{qbp}' [{framework} {model} (map: {mapping_model})] ===")
+    jprint(f"=== Attempt {run_idx} for '{cpw}' [{framework} {model} (map: {mapping_model})] ===")
 
     gen_bpmn        = None
     fix_seconds         = -1
@@ -479,12 +522,15 @@ def run_one_job(job: dict) -> dict:
     ltl_seconds         = -1
     cnstr_seconds       = -1
     svg_seconds         = -1
+    cpw_succ_cnstrs = None
+    cpw_total_cnstrs      = None
+    cpw_score       = None
 
     # ── Scaffold for early-exit returns ─────────────────────────────────────
     def _result(status: str, error: str = None) -> dict:
         return {
             "job_id":           job_id,
-            "qbp_name":         qbp,
+            "cpw_name":         cpw,
             "framework":        framework,
             "model":            db_model,
             "attempt_number":   run_idx,
@@ -512,6 +558,9 @@ def run_one_job(job: dict) -> dict:
             "ltl_conf":         None,
             "cnstr_score":      None,
             "cnstr_conf":       None,
+            "cpw_succ_cnstrs": None,
+            "cpw_total_cnstrs":      None,
+            "cpw_score":        None,
             "incl_model_guide": incl_model_guide,
             "incl_knowl":       incl_knowl,
             "optim_prmt":       0,
@@ -521,7 +570,12 @@ def run_one_job(job: dict) -> dict:
     jprint("── Step 1: Generate BPMN ─────────────────────────────────────────────")
     t0_gen = time.time()
     if test is not None:
-        gen_bpmn = test
+        if not os.path.isfile(test):
+            jprint(f"✗ Test BPMN not found: {test}")
+            return _result("failed_generation", f"test_bpmn_not_found: {test}")
+        # work on a copy in the run folder so that derived files (pnml, lola, svg) land there
+        gen_bpmn = os.path.join(run_dir, os.path.basename(test))
+        shutil.copyfile(test, gen_bpmn)
         jprint(f"✔ Loaded test: {test}")
     else:
         try:
@@ -558,13 +612,15 @@ def run_one_job(job: dict) -> dict:
     if not gold_bpmn:
         return _result("ok_no_gold")
 
-    # ── Step 2: Activity mapping ──────────────────────────────────────────
-    jprint("── Step 2: Activity mapping ──────────────────────────────────────────")
-    t0_map = time.time()
-    if test is not None and re.match(r"(.*)_mapped.bpmn", test):
+    map_seconds = -1
+    if test is not None:
+        # test mode: the given BPMN is checked as-is (no mapping, fixing or layout)
         mapped_bpmn = gen_bpmn
-        jprint("✔ Ignored mapping for test")
+        jprint("✔ Test mode: skipping mapping, BPMN fixing and layout")
     else:
+        # ── Step 2: Activity mapping ──────────────────────────────────────────
+        jprint("── Step 2: Activity mapping ──────────────────────────────────────────")
+        t0_map = time.time()
         mapped_bpmn = None
         try:
             mapped = gen_bpmn.replace(".bpmn", "_mapped.bpmn")
@@ -578,47 +634,56 @@ def run_one_job(job: dict) -> dict:
             jprint(f"✗ Activity mapping failed: {e}")
             return _result("failed_mapping", str(e))
 
-    map_seconds = round(time.time() - t0_map, 2)
+        map_seconds = round(time.time() - t0_map, 2)
 
-    # -- Step 3: fixing BPMN XML --
-    jprint("── Step 3: Fix BPMN XML ─────────────────")
-    # downstream code requires gateway elements to have incoming and outgoing elements
-    # we don't ask the LLM since this is technically duplication and we don't want to add a potential source of errors
-    jprint("- Fixing gateways")
+        # -- Step 3: fixing BPMN XML --
+        jprint("── Step 3: Fix BPMN XML ─────────────────")
+        # downstream code requires gateway elements to have incoming and outgoing elements
+        # we don't ask the LLM since this is technically duplication and we don't want to add a potential source of errors
+        jprint("- Fixing gateways")
 
-    try:
-        t0_fix = time.time()
-        mapped_fixed_bpmn = f"{mapped_bpmn[:-5]}_fixed.bpmn"
-        add_incoming_outgoing(mapped_bpmn, mapped_fixed_bpmn)
-        fix_seconds = round(time.time() - t0_fix, 2)
-    except Exception as e:
-        jprint(f"✗ Fixing BPMN XML failed: {e}")
-        return _result("failed_fix_bmpn", str(e))
+        try:
+            t0_fix = time.time()
+            mapped_fixed_bpmn = f"{mapped_bpmn[:-5]}_fixed.bpmn"
+            add_incoming_outgoing(mapped_bpmn, mapped_fixed_bpmn)
+            fix_seconds = round(time.time() - t0_fix, 2)
+        except Exception as e:
+            jprint(f"✗ Fixing BPMN XML failed: {e}")
+            return _result("failed_fix_bmpn", str(e))
 
-    # add layout to BPMN files
-    jprint("- Adding layout")
-    mapped_layout_bpmn = f"{mapped_fixed_bpmn[:-5]}_layout.bpmn"
-    try:
-        t0_layout = time.time()
-        add_dummy_di(mapped_fixed_bpmn, mapped_layout_bpmn)
-        layout_seconds = round(time.time() - t0_layout, 2)
-        jprint(f"Layout saved to {mapped_layout_bpmn}")
-    except Exception as e:
-        jprint(f"✗ Adding layout failed: {e}")
-        return _result("failed_add_layout", str(e))
+        # add layout to BPMN files
+        jprint("- Adding layout")
+        mapped_layout_bpmn = f"{mapped_fixed_bpmn[:-5]}_layout.bpmn"
+        try:
+            t0_layout = time.time()
+            add_dummy_di(mapped_fixed_bpmn, mapped_layout_bpmn)
+            layout_seconds = round(time.time() - t0_layout, 2)
+            jprint(f"Layout saved to {mapped_layout_bpmn}")
+        except Exception as e:
+            jprint(f"✗ Adding layout failed: {e}")
+            return _result("failed_add_layout", str(e))
 
-    mapped_bpmn = mapped_layout_bpmn
+        mapped_bpmn = mapped_layout_bpmn
 
     # ── Step 4: Similarity ─────────────────────────────────────
     jprint("── Step 4: Similarity ─────────────────────────────────────")
+    # With knowledge constraints in the prompt (incl_knowl, set by batch_runner), 
+    # compare against the reference model with reified activities (<name>_reif.bpmn), if any
+    has_cnstrs = bool(incl_knowl)
+    sim_ref = gold_bpmn
+    if has_cnstrs:
+        reif_bpmn = os.path.splitext(gold_bpmn)[0] + "_reif.bpmn"
+        if os.path.exists(reif_bpmn):
+            sim_ref = reif_bpmn
+            jprint(f"→ Using reified reference model: {reif_bpmn}")
     t0_struct = time.time()
-    (node_sim, struct_sim, ged, diff), _ = calc_struct_simil(gold_bpmn, mapped_bpmn)[0]
+    (node_sim, struct_sim, ged, diff), _ = calc_struct_simil(sim_ref, mapped_bpmn)[0]
     struct_sim_seconds = round(time.time() - t0_struct, 2)
     jprint(f"→ Structural similarity: {struct_sim}")
     out_folder = os.path.dirname(mapped_bpmn)
     try:
         t0_render = time.time()
-        render_diff(gold_bpmn, mapped_bpmn, diff, backend='pm4py', show_output=False, 
+        render_diff(sim_ref, mapped_bpmn, diff, backend='pm4py', show_output=False, 
                     diag1_out=os.path.join(out_folder, "cmp_ref.svg"), 
                     diag2_out=os.path.join(out_folder, "cmp_out.svg"))
         render_diff_seconds = round(time.time() - t0_render, 2)
@@ -629,11 +694,25 @@ def run_one_job(job: dict) -> dict:
     # ── Step 5: Constraint conformance ─────────────────────────────────
 
     jprint("── Step 5: Constraint conformance ─────────────────────────────────────")
+
+    # get constraint category from label
+    def _label_cat(name): # in case of underscore, drop the part afterwards
+        stripped = name.rsplit("_", 1)[0] if "_" in name else name
+        return stripped # if cpw_cnstrs.get(stripped) == "PrioritizedConditional" else name
+
     # LTL constraints
     try:
         t0_ltl = time.time()
-        res = check_ltl_cnstrs(mapped_bpmn, ltl_cnstr)
-        ltl_score = res.score(); ltl_conf = res.summary()
+        ltl_res = check_ltl_cnstrs(mapped_bpmn, ltl_cnstr)
+        # individual constraints to be ignored 
+        ignore_indiv = set(); ignore_cat = set() # keeps empty if LLM constraints are given
+        if not has_cnstrs: # (only if constraints are not given to LLM)
+            # ignore these (prioritized condition) constraints, since they rely on giving the constraints to LLM
+            ignore_indiv = {"cap6_1", "cap6_2", "copd3_1", "copd3_2"}
+            ignore_cat = {_label_cat(n) for n in ignore_indiv}
+            ltl_res.update_results([r for r in ltl_res.results if r.name not in ignore_indiv])
+        # this is the fine-grained score; not per constraint category, but per individual constraint
+        ltl_score = ltl_res.score(); ltl_conf = ltl_res.summary()
         ltl_seconds = round(time.time() - t0_ltl, 2)
         jprint(f"LTL time: {ltl_seconds}s")
         jprint(f"→ LTL score: {ltl_score}")
@@ -647,8 +726,9 @@ def run_one_job(job: dict) -> dict:
         if not cnstr_ontology:
             raise ValueError("no constraints ontology given (cnstr_ontology)")
         t0_cnstr = time.time()
-        res = check_activ_cnstrs(cnstr_ontology, mapped_bpmn, qbp)
-        cnstr_score = res.score(); cnstr_conf = res.summary()
+        cnstr_res = check_activ_cnstrs(cnstr_ontology, mapped_bpmn, cpw)
+        # this is the fine-grained score; not per constraint category, but per individual constraint
+        cnstr_score = cnstr_res.score(); cnstr_conf = cnstr_res.summary()
         cnstr_seconds = round(time.time() - t0_cnstr, 2)
         jprint(f"→ Constraints (other) score: {cnstr_score}")
         jprint(f"→ Constraints (other) conformance: {cnstr_conf}")
@@ -656,21 +736,49 @@ def run_one_job(job: dict) -> dict:
         jprint(f"✗ Constraint check (other) failed: {e}")
         return _result("failed_cnstr_check", str(e))
 
+    # ── Step 5b: Overall constraint score (ltl + cnstr) ────────────────
+    jprint("── Step 5b: Overall constraint score ─────────────────────────────────")
+    try:
+        # returns constraint categories for this CPW
+        cpw_cnstrs = load_constraint_map(cnstr_ontology, cpw)
+        # e.g. for CAP: {"cap1": "DecisionalDependency",
+        # "cap2": "DecisionalDependency", "cap3": "DecisionalDependency", "cap4": "Conflict",
+        # "cap5": "EntryPoint", "cap6": "PrioritizedConditional"}
+
+         # get constraint categories to be ignored for this CPW
+        ignore_cpw = { n for n in ignore_cat if n in cpw_cnstrs }
+        # leave ignored's out of total constraints
+        cpw_total_cnstrs = len(cpw_cnstrs) - len(ignore_cpw)
+
+        # get (unique) failed constraint categories for this CPW
+        # (set of categories; if an individual of a category failed, entire category failed)
+        failed_cat = {_label_cat(r.name) for res in (ltl_res, cnstr_res) for r in res.filter_results(False)}
+        # (assume that failed_cat is in cpw_cnstrs)
+        cpw_succ_cnstrs = cpw_total_cnstrs - len(failed_cat)
+        cpw_score = cpw_succ_cnstrs / cpw_total_cnstrs if cpw_total_cnstrs else 1.0
+        jprint(f"→ Overall: {cpw_succ_cnstrs}/{cpw_total_cnstrs} constraints hold (score {cpw_score})")
+    except Exception as e:
+        jprint(f"✗ Overall constraint score failed: {e}")
+        return _result("failed_cpw_score", str(e))
+
     # ── Step 6: Convert to SVG ──────────────────────────────────
     jprint("── Step 6: Convert BPMN to SVG ─────────────────")
-    mapped_bpmn_svg = f"{mapped_bpmn[:-5]}.svg"
-    try:
-        t0_svg = time.time()
-        bpmn_to_svg(mapped_bpmn, mapped_bpmn_svg)
-        svg_seconds = round(time.time() - t0_svg, 2)
-    except Exception as e:
-        jprint(f"✗ Conversion to SVG failed: {e}")
-        return _result("failed_conv_svg", str(e))
+    if test is not None:
+        jprint("✔ Test mode: skipping SVG conversion")
+    else:
+        mapped_bpmn_svg = f"{mapped_bpmn[:-5]}.svg"
+        try:
+            t0_svg = time.time()
+            bpmn_to_svg(mapped_bpmn, mapped_bpmn_svg)
+            svg_seconds = round(time.time() - t0_svg, 2)
+        except Exception as e:
+            jprint(f"✗ Conversion to SVG failed: {e}")
+            return _result("failed_conv_svg", str(e))
 
     # ── All done ─────────────────────────────────────────────────────────
     return {
         "job_id":           job_id,
-        "qbp_name":         qbp,
+        "cpw_name":         cpw,
         "framework":        framework_db,
         "model":            db_model,
         "attempt_number":   run_idx,
@@ -698,6 +806,9 @@ def run_one_job(job: dict) -> dict:
         "ltl_conf":         ltl_conf,
         "cnstr_score":      cnstr_score,
         "cnstr_conf":       cnstr_conf,
+        "cpw_succ_cnstrs": cpw_succ_cnstrs,
+        "cpw_total_cnstrs":   cpw_total_cnstrs,
+        "cpw_score":    cpw_score,
         "incl_model_guide": incl_model_guide,
         "incl_knowl":       incl_knowl,
         "optim_prmt":       0,
@@ -751,7 +862,7 @@ def build_exp_state(jobs: list) -> dict:
             target = job["target_runs"]
             mult   = max(float(job.get("max_retry_multiplier", 1)), 1)
             state[eid] = {
-                "qbp":            job["qbp"],
+                "cpw":            job["cpw"],
                 "target":         target,
                 "only_succ":      bool(job.get("only_successful", False)),
                 "max_attempts":   mult * target,
@@ -860,7 +971,7 @@ def main():
             retry = make_retry_job(state["base_job"], attempt_idx)
             total += 1
             print(
-                f"RETRY {state['qbp']} "
+                f"RETRY {state['cpw']} "
                 f"(successes={state['successes']}/{state['target']} "
                 f" attempts={state['attempts']}/{state['max_attempts']} "
                 f" queuing attempt {attempt_idx})",
@@ -896,7 +1007,7 @@ def main():
                         # Wrap unexpected thread-level exceptions
                         r = {
                             "job_id":           job["job_id"],
-                            "qbp_name":         job["qbp"],
+                            "cpw_name":         job["cpw"],
                             "framework":        job["framework"],
                             "model":            job.get("model", ""),
                             "attempt_number":   job["run_idx"],
@@ -924,6 +1035,9 @@ def main():
                             "ltl_conf":         None,
                             "cnstr_score":      None,
                             "cnstr_conf":       None,
+                            "cpw_succ_cnstrs": None,
+                            "cpw_total_cnstrs":      None,
+                            "cpw_score":        None,
                             "incl_model_guide": int(bool(job.get("incl_model_guide"))),
                             "incl_knowl":       int(bool(job.get("incl_knowl"))),
                             "optim_prmt":       0,

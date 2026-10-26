@@ -1,5 +1,6 @@
 "Check for sepsis onset" must be the first task in the process.
 
-After "Check for sepsis onset", add an XOR gateway with two options: "sepsis onset" or "no sepsis onset". In the branch of option "sepsis onset", insert an extra activity "Mark: sepsis onset". Directly after "Mark: sepsis onset", insert the activity "Give antibiotics". This is an ABSOLUTE priority.
-
+After "Check for sepsis onset", add an XOR gateway split with two options: "sepsis onset" or "no sepsis onset". 
+In the branch of option "sepsis onset", insert an extra activity "Mark: sepsis onset". Directly after "Mark: sepsis onset", insert the activity "Give antibiotics". This is an ABSOLUTE priority.
 In the branch of option "no sepsis onset", "Give antibiotics" may only occur after "Perform chest x-ray", "PCR testing for Legionella", and "Blood cultures" potentially take place.
+You can only add the remaining tasks after the XOR gateway merge. They should not be part of either branch of the XOR gateway.

@@ -24,6 +24,9 @@ class CheckResult:
     results: List[ConstraintResult]
     pnml_path: Optional[str]  # None if PNML export was skipped
 
+    def update_results(self, results: List[ConstraintResult]):
+        self.results = results
+
     def filter_results(self, holds: bool) -> List[ConstraintResult]:
         """The constraint results that hold (`holds=True`) or that do not (`holds=False`)."""
         return [result for result in self.results if result.holds == holds]

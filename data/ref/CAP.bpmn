@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" xmlns:xsi="xsi" id="_8uVTMJvmED-MBfJu4wTaKw" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
-  <bpmn2:collaboration id="_36F3808B-2845-46FE-B149-E703A251E1B6" name="Default Collaboration">
-    <bpmn2:participant id="_349D4884-8CDC-4920-99B3-7D62BA5D460E" name="Pool Participant" processRef="CAP"/>
+<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" xmlns:xsi="xsi" id="_7UvkwLN5ED-v4qyhMTgMaQ" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
+  <bpmn2:collaboration id="_D8BCD8BB-F0B5-4461-92F0-D9FB2C72935E" name="Default Collaboration">
+    <bpmn2:participant id="_1C56242F-4610-4050-B34B-0AD0640733B9" name="Pool Participant" processRef="CAP"/>
   </bpmn2:collaboration>
   <bpmn2:process id="CAP" drools:packageName="com.example" drools:version="1.0" drools:adHoc="false" name="CAP" processType="Public">
     <bpmn2:sequenceFlow id="Flow_1tlf9b3" sourceRef="Gateway_060zghm" targetRef="Activity_03s59t1"/>
@@ -85,6 +85,8 @@
         </drools:metaData>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="Flow_0ndg5ga" sourceRef="Gateway_1w94lin" targetRef="Activity_0pcwolc"/>
+    <bpmn2:sequenceFlow id="Flow_1ywa3uq" sourceRef="Activity_0pcwolc" targetRef="Gateway_1tx3brs"/>
     <bpmn2:sequenceFlow id="Flow_02ngku2" sourceRef="Gateway_0kp9ttl" targetRef="Gateway_1tx3brs"/>
     <bpmn2:sequenceFlow id="Flow_0kjt0lf" sourceRef="Activity_0bygra1" targetRef="Gateway_0bklsdg"/>
     <bpmn2:sequenceFlow id="Flow_05w0sng" sourceRef="Gateway_0jsbb0m" targetRef="Gateway_1s291ef"/>
@@ -129,10 +131,6 @@
     <bpmn2:sequenceFlow id="Flow_1yki9wz" sourceRef="Gateway_1h18y9s" targetRef="Event_0adaad9"/>
     <bpmn2:sequenceFlow id="Flow_094nyk9" sourceRef="Gateway_0efuwgc" targetRef="Gateway_1h18y9s"/>
     <bpmn2:sequenceFlow id="Flow_1omeiea" sourceRef="Gateway_18v40dr" targetRef="Gateway_1h18y9s"/>
-    <bpmn2:sequenceFlow id="Flow_17cppob" sourceRef="Activity_021dy7z" targetRef="Gateway_1tx3brs"/>
-    <bpmn2:sequenceFlow id="Flow_1ywa3uq" sourceRef="Activity_0pcwolc" targetRef="Activity_021dy7z"/>
-    <bpmn2:sequenceFlow id="Flow_0fuzwlb" sourceRef="Activity_15kb9ms" targetRef="Activity_0pcwolc"/>
-    <bpmn2:sequenceFlow id="Flow_0ndg5ga" sourceRef="Gateway_1w94lin" targetRef="Activity_15kb9ms"/>
     <bpmn2:sequenceFlow id="Flow_182zhek" sourceRef="Activity_1hyor0c" targetRef="Gateway_1w94lin"/>
     <bpmn2:sequenceFlow id="Flow_00zh3ff" sourceRef="StartEvent_1" targetRef="Activity_1hyor0c"/>
     <bpmn2:startEvent id="StartEvent_1" name="Start">
@@ -173,7 +171,7 @@
           <drools:metaValue><![CDATA[Give antibiotics]]></drools:metaValue>
         </drools:metaData>
       </bpmn2:extensionElements>
-      <bpmn2:incoming>Flow_0fuzwlb</bpmn2:incoming>
+      <bpmn2:incoming>Flow_0ndg5ga</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1ywa3uq</bpmn2:outgoing>
     </bpmn2:task>
     <bpmn2:task id="Activity_0qpi1t6" name="Perform chest x-ray">
@@ -343,8 +341,8 @@ function tests]]></drools:metaValue>
       <bpmn2:outgoing>Flow_087cdix</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
     <bpmn2:exclusiveGateway id="Gateway_1tx3brs" gatewayDirection="Converging">
-      <bpmn2:incoming>Flow_17cppob</bpmn2:incoming>
       <bpmn2:incoming>Flow_02ngku2</bpmn2:incoming>
+      <bpmn2:incoming>Flow_1ywa3uq</bpmn2:incoming>
       <bpmn2:outgoing>Flow_07t0us1</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
     <bpmn2:exclusiveGateway id="Gateway_0lv0n0l" name="admitted to hospital" gatewayDirection="Diverging">
@@ -407,24 +405,6 @@ function tests]]></drools:metaValue>
       <bpmn2:incoming>Flow_094nyk9</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1yki9wz</bpmn2:outgoing>
     </bpmn2:parallelGateway>
-    <bpmn2:task id="Activity_021dy7z" name="Perform chest x-ray">
-      <bpmn2:extensionElements>
-        <drools:metaData name="elementname">
-          <drools:metaValue><![CDATA[Perform chest x-ray]]></drools:metaValue>
-        </drools:metaData>
-      </bpmn2:extensionElements>
-      <bpmn2:incoming>Flow_1ywa3uq</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_17cppob</bpmn2:outgoing>
-    </bpmn2:task>
-    <bpmn2:task id="Activity_15kb9ms" name="Mark: sepsis onset">
-      <bpmn2:extensionElements>
-        <drools:metaData name="elementname">
-          <drools:metaValue><![CDATA[Mark: sepsis onset]]></drools:metaValue>
-        </drools:metaData>
-      </bpmn2:extensionElements>
-      <bpmn2:incoming>Flow_0ndg5ga</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_0fuzwlb</bpmn2:outgoing>
-    </bpmn2:task>
     <bpmn2:task id="Activity_1hyor0c" name="Check for sepsis onset">
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
@@ -439,12 +419,6 @@ function tests]]></drools:metaValue>
     <bpmndi:BPMNPlane bpmnElement="CAP">
       <bpmndi:BPMNShape id="shape_Activity_1hyor0c" bpmnElement="Activity_1hyor0c">
         <dc:Bounds height="80" width="100" x="-810" y="240"/>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="shape_Activity_15kb9ms" bpmnElement="Activity_15kb9ms">
-        <dc:Bounds height="80" width="100" x="-460" y="30"/>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="shape_Activity_021dy7z" bpmnElement="Activity_021dy7z">
-        <dc:Bounds height="80" width="100" x="-90" y="30"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="shape_Gateway_1h18y9s" bpmnElement="Gateway_1h18y9s">
         <dc:Bounds height="56" width="56" x="1625" y="255"/>
@@ -559,24 +533,6 @@ function tests]]></drools:metaValue>
         <di:waypoint x="-710" y="280"/>
         <di:waypoint x="-625" y="280"/>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="edge_shape_Gateway_1w94lin_to_shape_Activity_15kb9ms" bpmnElement="Flow_0ndg5ga">
-        <di:waypoint x="-600" y="255"/>
-        <di:waypoint x="-600" y="70"/>
-        <di:waypoint x="-460" y="70"/>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="edge_shape_Activity_15kb9ms_to_shape_Activity_0pcwolc" bpmnElement="Flow_0fuzwlb">
-        <di:waypoint x="-360" y="70"/>
-        <di:waypoint x="-270" y="70"/>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="edge_shape_Activity_0pcwolc_to_shape_Activity_021dy7z" bpmnElement="Flow_1ywa3uq">
-        <di:waypoint x="-170" y="70"/>
-        <di:waypoint x="-90" y="70"/>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="edge_shape_Activity_021dy7z_to_shape_Gateway_1tx3brs" bpmnElement="Flow_17cppob">
-        <di:waypoint x="10" y="70"/>
-        <di:waypoint x="520" y="70"/>
-        <di:waypoint x="520" y="255"/>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="edge_shape_Gateway_18v40dr_to_shape_Gateway_1h18y9s" bpmnElement="Flow_1omeiea">
         <di:waypoint x="1585" y="110"/>
         <di:waypoint x="1650" y="110"/>
@@ -669,6 +625,16 @@ function tests]]></drools:metaValue>
         <di:waypoint x="475" y="405"/>
         <di:waypoint x="520" y="405"/>
         <di:waypoint x="520" y="305"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Activity_0pcwolc_to_shape_Gateway_1tx3brs" bpmnElement="Flow_1ywa3uq">
+        <di:waypoint x="-170" y="70"/>
+        <di:waypoint x="156" y="155"/>
+        <di:waypoint x="520" y="255"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Gateway_1w94lin_to_shape_Activity_0pcwolc" bpmnElement="Flow_0ndg5ga">
+        <di:waypoint x="-600" y="255"/>
+        <di:waypoint x="-600" y="70"/>
+        <di:waypoint x="-270" y="70"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="edge_shape_Gateway_1w94lin_to_shape_Gateway_1y52gq3" bpmnElement="Flow_087cdix">
         <di:waypoint x="-600" y="305"/>
@@ -805,46 +771,6 @@ function tests]]></drools:metaValue>
         <bpsim:Scenario id="default" name="Simulationscenario">
           <bpsim:ScenarioParameters/>
           <bpsim:ElementParameters elementRef="Activity_1hyor0c">
-            <bpsim:TimeParameters>
-              <bpsim:ProcessingTime>
-                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
-              </bpsim:ProcessingTime>
-            </bpsim:TimeParameters>
-            <bpsim:ResourceParameters>
-              <bpsim:Availability>
-                <bpsim:FloatingParameter value="0"/>
-              </bpsim:Availability>
-              <bpsim:Quantity>
-                <bpsim:FloatingParameter value="0"/>
-              </bpsim:Quantity>
-            </bpsim:ResourceParameters>
-            <bpsim:CostParameters>
-              <bpsim:UnitCost>
-                <bpsim:FloatingParameter value="0"/>
-              </bpsim:UnitCost>
-            </bpsim:CostParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters elementRef="Activity_15kb9ms">
-            <bpsim:TimeParameters>
-              <bpsim:ProcessingTime>
-                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
-              </bpsim:ProcessingTime>
-            </bpsim:TimeParameters>
-            <bpsim:ResourceParameters>
-              <bpsim:Availability>
-                <bpsim:FloatingParameter value="0"/>
-              </bpsim:Availability>
-              <bpsim:Quantity>
-                <bpsim:FloatingParameter value="0"/>
-              </bpsim:Quantity>
-            </bpsim:ResourceParameters>
-            <bpsim:CostParameters>
-              <bpsim:UnitCost>
-                <bpsim:FloatingParameter value="0"/>
-              </bpsim:UnitCost>
-            </bpsim:CostParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters elementRef="Activity_021dy7z">
             <bpsim:TimeParameters>
               <bpsim:ProcessingTime>
                 <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
@@ -1094,7 +1020,7 @@ function tests]]></drools:metaValue>
         </bpsim:Scenario>
       </bpsim:BPSimData>
     </bpmn2:extensionElements>
-    <bpmn2:source>_8uVTMJvmED-MBfJu4wTaKw</bpmn2:source>
-    <bpmn2:target>_8uVTMJvmED-MBfJu4wTaKw</bpmn2:target>
+    <bpmn2:source>_7UvkwLN5ED-v4qyhMTgMaQ</bpmn2:source>
+    <bpmn2:target>_7UvkwLN5ED-v4qyhMTgMaQ</bpmn2:target>
   </bpmn2:relationship>
 </bpmn2:definitions>

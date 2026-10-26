@@ -10,8 +10,3 @@ If "Mark: resuscitation need" occurs, then "Trial immediate resuscitation" must 
 "Admit to hospital" may only occur after "Assess level of care required"  takes place.
 
 "Check vitals" is part of "Perform physical examination".
-
-"Blood urea nitrogen" is part of "Conduct baseline blood work".
-"Complete blood count" is part of "Conduct baseline blood work".
-"Creatinine" is part of "Conduct baseline blood work".
-"Electrolytes" is part of "Conduct baseline blood work".

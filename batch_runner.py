@@ -22,7 +22,7 @@ NR_RUNS               = 1
 ONLY_SUCCESSFUL       = True
 MAX_RETRY_MULTIPLIER  = 3
 
-# ── Manifest — one GPTDirect run over real QBPs ─────────────────────────────
+# ── Manifest — one GPTDirect run over real CPWs ─────────────────────────────
 MANIFESTS = {
     'GPTDirect': {
         "framework":            "GPTDirect",
@@ -34,7 +34,7 @@ MANIFESTS = {
         "only_successful":      ONLY_SUCCESSFUL,
         "max_retry_multiplier": MAX_RETRY_MULTIPLIER,
         "gpt_direct_retry_mode": "repair"
-    },
+    }
 }
 
 INSTRUCT_TMPL_CONFIG = {        
@@ -78,7 +78,7 @@ def main(sys_config, cpw, prompt_config, verbose=False, test=None, runs=NR_RUNS)
     llm_man = MANIFESTS[system]
     cur_man = llm_man.copy()
     cur_man['id']                   = id
-    cur_man['qbp']                  = cpw
+    cur_man['cpw']                  = cpw
     cur_man["model"]                = model
     cur_man["runs"]                 = runs
 
@@ -112,7 +112,7 @@ def main(sys_config, cpw, prompt_config, verbose=False, test=None, runs=NR_RUNS)
 
     # setup test
     if test is not None:
-        cur_man["test"]             = os.path.join("data", "test", f"{test}.bpmn")
+        cur_man["test"]             = test
 
     # experiment-specific files
     manifest_path                   = os.path.join(exp_dir, "batch_manifest.json")
@@ -177,7 +177,7 @@ def parse_args():
     p.add_argument("-c", "--cpw", help="CPW identifier (matches data/cpw/<cpw>.txt), or a comma-separated list of them")
     p.add_argument("-mg", "--incl_model_guide", type=bool, nargs='?', const=True, default=False, help="Include modelling guidelines")
     p.add_argument("-ks", "--incl_knowl", type=bool, nargs='?', const=True, default=False, help="Include knowledge statements")
-    p.add_argument("-t", "--test", help="Test identifier (matches data/test/<test>.bpmn); use _mapped suffix to avoid mapping step as well", required=False, default=None)
+    p.add_argument("-t", "--test", help="Path to a BPMN file to check directly (structural similarity + conformance only)", required=False, default=None)
     p.add_argument("-s", "--system", help=f"System identifier, i.e., one of {','.join(MANIFESTS.keys())}")
     p.add_argument("-m", "--model", help=f"Foundational model suffixed by effort (e.g., gpt-5.4-medium)")
     p.add_argument("-r", "--runs", type=int, default=NR_RUNS, help=f"Number of successful runs per CPW (default {NR_RUNS})")

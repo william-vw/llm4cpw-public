@@ -1,0 +1,17 @@
+,qbp_name,+ knowledge constraints,overall
+mean,CAP,1.0,1.0
+mean,COPD,1.0,1.0
+mean,Heart Failure,1.0,1.0
+mean,Hip Fracture,1.0,1.0
+mean,Stroke 1,1.0,1.0
+mean,Stroke 2,1.0,1.0
+mean,Stroke 3,1.0,1.0
+mean,Stroke 4,1.0,1.0
+std,CAP,,
+std,COPD,,
+std,Heart Failure,,
+std,Hip Fracture,,
+std,Stroke 1,,
+std,Stroke 2,,
+std,Stroke 3,,
+std,Stroke 4,,

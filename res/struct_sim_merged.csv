@@ -1,0 +1,4 @@
+cpw_name,+ modelling guidelines,+ optimised prompt
+CAP,0.804 (0.03),0.873 (0.05)
+COPD,0.814 (0.03),
+overall,0.809 (0.03),0.873 (0.05)

@@ -208,12 +208,12 @@ ns1:hasRightOperand rdf:type owl:ObjectProperty ;
 
 ###  http://notation3.org/constraints.owl#EntryPoint
 :EntryPoint rdf:type owl:Class ;
-       rdfs:subClassOf :Constraint .
+            rdfs:subClassOf :Constraint .
 
 
 ###  http://notation3.org/constraints.owl#ExitPoint
 :ExitPoint rdf:type owl:Class ;
-      rdfs:subClassOf :Constraint .
+           rdfs:subClassOf :Constraint .
 
 
 ###  http://notation3.org/constraints.owl#LtlConstraint
@@ -402,7 +402,6 @@ ns1:WeakUntil rdf:type owl:Class ;
               :ProcessModel ;
      :hasConstraint :CAP_1 ,
                     :CAP_2 ,
-                    :CAP_3 ,
                     :CAP_4 ,
                     :CAP_6 ,
                     :cap5 ;
@@ -624,8 +623,7 @@ ns1:WeakUntil rdf:type owl:Class ;
                      :COPD_3 ,
                      :COPD_4 ,
                      :COPD_5 ,
-                     :copd_p1 ,
-                     :copd_p2 ;
+                     :copd_p1 ;
       rdfs:label "COPD" .
 
 
@@ -795,6 +793,11 @@ ns1:WeakUntil rdf:type owl:Class ;
                              rdfs:label "Conduct baseline blood work" .
 
 
+###  http://notation3.org/constraints.owl#Confirm_fracture
+:Confirm_fracture rdf:type owl:NamedIndividual ,
+                           :Task .
+
+
 ###  http://notation3.org/constraints.owl#Consultation_with_anesthesiologist
 :Consultation_with_anesthesiologist rdf:type owl:NamedIndividual ,
                                              :Task ;
@@ -871,8 +874,7 @@ ns1:WeakUntil rdf:type owl:Class ;
                         :ProcessModel ;
                :hasConstraint :Heart_Failure_1 ,
                               :Heart_Failure_2 ,
-                              :Heart_Failure_3 ,
-                              :hf_p1 ;
+                              :Heart_Failure_3 ;
                rdfs:label "Heart Failure" .
 
 
@@ -977,8 +979,7 @@ ns1:WeakUntil rdf:type owl:Class ;
                              :Hip_fracture_5 ,
                              :Hip_fracture_6 ,
                              :Hip_fracture_7 ,
-                             :Hip_fracture_8 ,
-                             :hpf_p1 ;
+                             :Hip_fracture_8 ;
               rdfs:label "Hip Fracture" .
 
 
@@ -1252,6 +1253,11 @@ ns1:WeakUntil rdf:type owl:Class ;
                rdfs:label "Perform x-ray" .
 
 
+###  http://notation3.org/constraints.owl#Physician_consult
+:Physician_consult rdf:type owl:NamedIndividual ,
+                            :Task .
+
+
 ###  http://notation3.org/constraints.owl#Re-evaluate_for_admission
 :Re-evaluate_for_admission rdf:type owl:NamedIndividual ,
                                     :Task ;
@@ -1286,9 +1292,7 @@ ns1:WeakUntil rdf:type owl:Class ;
 :Stroke_1 rdf:type owl:NamedIndividual ,
                    :ProcessModel ;
           :hasConstraint :Stroke_1_1 ,
-                         :Stroke_1_2 ,
-                         :stroke_p1 ,
-                         :stroke_p2 ;
+                         :Stroke_1_2 ;
           rdfs:label "Stroke 1" .
 
 
@@ -1513,9 +1517,7 @@ ns1:WeakUntil rdf:type owl:Class ;
           :hasConstraint :Stroke_4_1 ,
                          :Stroke_4_2 ,
                          :Stroke_4_3 ,
-                         :Stroke_4_4 ,
-                         :stroke_p1 ,
-                         :stroke_p2 ;
+                         :Stroke_4_4 ;
           rdfs:label "Stroke 4" .
 
 
@@ -1661,37 +1663,6 @@ ns1:WeakUntil rdf:type owl:Class ;
          rdfs:label "copd_p1" .
 
 
-###  http://notation3.org/constraints.owl#copd_p2
-:copd_p2 rdf:type owl:NamedIndividual ,
-                  :PartOf ;
-         :hasAggregate :Conduct_baseline_blood_work ;
-         :hasPart :Blood_urea_nitrogen ,
-                  :Complete_blood_count ,
-                  :Creatinine ,
-                  :Electrolytes ;
-         rdfs:label "copd_p2" .
-
-
-###  http://notation3.org/constraints.owl#hf_p1
-:hf_p1 rdf:type owl:NamedIndividual ,
-                :PartOf ;
-       :hasAggregate <http://notation3.org/constraints.owl#Risk_assessment_%2F_stratification> ;
-       :hasPart :Assess_high-risk_markers ,
-                :Calculate_heart_failure_risk_score ;
-       rdfs:label "hf_p1" .
-
-
-###  http://notation3.org/constraints.owl#hpf_p1
-:hpf_p1 rdf:type owl:NamedIndividual ,
-                 :PartOf ;
-        :hasAggregate <http://notation3.org/constraints.owl#Manage_patients%27_hydration%2C_pain%2C_risk_of_delirium_and_risk_of_pressure_sores_within_the_ED> ;
-        :hasPart :Manage_hydration ,
-                 :Manage_pain ,
-                 :Manage_risk_of_delirium ,
-                 :Manage_risk_of_pressure_sores ;
-        rdfs:label "hpf_p1" .
-
-
 ###  http://notation3.org/constraints.owl#last
 :last rdf:type owl:NamedIndividual ,
                ns1:LtlAtom .
@@ -1763,29 +1734,6 @@ ns1:WeakUntil rdf:type owl:Class ;
 :stroke2_a3_L1_2_1 rdf:type owl:NamedIndividual ,
                             ns1:Eventually ;
                    ns1:hasOperand :Rectal_or_gastric_ASA_should_be_offered .
-
-
-###  http://notation3.org/constraints.owl#stroke_p1
-:stroke_p1 rdf:type owl:NamedIndividual ,
-                    :PartOf ;
-           :hasAggregate <http://notation3.org/constraints.owl#Rapid_initial_evaluation_for_airway%2C_breathing%2C_and_circulation> ;
-           :hasPart :Assess_airway ,
-                    :Assess_breathing ,
-                    :Assess_circulation ;
-           rdfs:label "stroke_p1" .
-
-
-###  http://notation3.org/constraints.owl#stroke_p2
-:stroke_p2 rdf:type owl:NamedIndividual ,
-                    :PartOf ;
-           :hasAggregate <http://notation3.org/constraints.owl#Blood_work%3A_CBC%2C_electrolytes%2C_creatinine%2C_glucose%2C_INR%2C_partial_thromboplastin_time> ;
-           :hasPart :CBC ,
-                    :Creatinine ,
-                    :Electrolytes ,
-                    :Glucose ,
-                    :INR ,
-                    :Partial_thromboplastin_time ;
-           rdfs:label "stroke_p2" .
 
 
 ###  http://notation3.org/constraints.owl#Aspirin_(ASA)_160_mg_as_a_loading_dose,_then_a_daily_dose_of_81–325_mg_(usually_81_mg_for_maintenance)
